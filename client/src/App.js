@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Topbar from "./components/exampleComponent/topbar/Topbar"
-import Menu from "./components/exampleComponent/menu/Menu"
+import NavMenu from "./components/exampleComponent/NavMenu/NavMenu";
 function App() {
 
   // useState, useEffect, etc. 
@@ -10,9 +9,7 @@ function App() {
   return (<>
    <div className="app">
       body component and add in the other page components into it ie. the image etc(possible modals)
-
-      <Topbar menuOpen={menuOpen}  setMenuOpen={setMenuOpen}/>
-     <Menu menuOpen={menuOpen}  setMenuOpen={setMenuOpen}/>
+      <NavMenu menuOpen={menuOpen}  setMenuOpen={setMenuOpen}/>
       <div>
        //insert sections for the page
      </div>    

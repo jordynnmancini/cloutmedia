@@ -1,8 +1,11 @@
 import "./topbar.scss";
 import EmailIcon from "@material-ui/icons/Email";
 import PersonIcon from "@material-ui/icons/Person";
+import Menu from "../menu/Menu";
 
 export default function Topbar({ menuOpen, setMenuOpen }) {
+  
+  
   return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
