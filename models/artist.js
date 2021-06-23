@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// hashing password? other parameters for Artist vs. Sound Engineer? Split into two models or leave as one? 
+// hashing password? 
+// what other details do we need specific to artists? 
 
-const userSchema = new mongoose.Schema({
+const artistSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -11,6 +12,11 @@ const userSchema = new mongoose.Schema({
   stageName: {
     type: String,
     required: true,
+  },
+  thumbnail: {
+    data: Buffer,
+    contentType: String,
+    required: false, 
   },
   password: {
     type: String,
@@ -22,18 +28,18 @@ const userSchema = new mongoose.Schema({
     required: [true, "can't be blank"],
     match: [/\S+@\S+\.\S+/, 'is invalid'],
   },
-  type: {
-    type: String,
-    required: [true, "register as an Artist or a Sound Engineer"]
-  },
   bio: {
     type: String,
     required: false
+  },
+  primaryLocation: {
+    type: String,
+    required: true
   }
 },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+const Artist = mongoose.model("Artist", artistSchema);
 
-module.exports = userSchema;
+module.exports = artistSchema;
