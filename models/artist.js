@@ -1,15 +1,28 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const bcrypt = require('bcryptjs'); 
+const saltRounds = 10; 
+
 // hashing password? 
 // what other details do we need specific to artists? 
 
 const artistSchema = new mongoose.Schema({
-  username: {
+  email: {
+    type: String,
+    unique: true,
+    required: [true, "can't be blank"],
+    match: [/\S+@\S+\.\S+/, 'is invalid'],
+  },
+  name: {
     type: String,
     required: true
   },
-  name: {
+  password: {
+    type: String,
+    required: true
+  },
+  primaryLocation: {
     type: String,
     required: true
   },
@@ -22,27 +35,39 @@ const artistSchema = new mongoose.Schema({
     contentType: String,
     required: false,
   },
-  password: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    unique: true,
-    required: [true, "can't be blank"],
-    match: [/\S+@\S+\.\S+/, 'is invalid'],
-  },
   bio: {
     type: String,
     required: false
   },
-  primaryLocation: {
-    type: String,
-    required: true
-  }
 },
   { timestamps: true }
 );
+
+artistSchema.pre('save', function(next) {
+  if (this.isNew || this.isModified('password')) {
+    const document = this;
+    bcrypt.hash(this.password, saltRounds, function(err, hashedPassword) {
+      if (err) {
+        next(err); 
+      } else {
+        document.password = hashedPassword; 
+        next(); 
+      }
+    });
+  } else {
+    next(); 
+  }
+});
+
+artistSchema.methods.isCorrectPassword = function(password, callback) {
+  bcrypt.compare(password, this.password, function(err, same) {
+    if(err) {
+      callback(err);
+    } else {
+      callback(err, same); 
+    }
+  });
+}
 
 const Artist = mongoose.model("Artist", artistSchema);
 

@@ -3,7 +3,7 @@ const artistRoutes = require("./artists");
 const engineerRoutes = require('./engineers');
 
 
-// Book routes
+// user routes
 router.use("/artists", artistRoutes);
 router.use("/engineer", engineerRoutes); 
 
