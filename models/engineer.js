@@ -46,4 +46,4 @@ const engineerSchema = new mongoose.Schema({
 
 const Engineer = mongoose.model("Engineer", engineerSchema);
 
-module.exports = engineerSchema;
+module.exports = Engineer;

@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const artistsController = require('../../controllers/artistsController'); 
 const Artist = require('../../models/artist'); 
 const jwt = require('jsonwebtoken'); 
 const cookieParser = require('cookie-parser'); 

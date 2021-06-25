@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs'); 
 const saltRounds = 10; 
 
-// hashing password? 
 // what other details do we need specific to artists? 
 
 const artistSchema = new mongoose.Schema({
