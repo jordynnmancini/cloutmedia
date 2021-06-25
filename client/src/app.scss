@@ -1,0 +1,14 @@
+.app{
+    height: 100vh;
+}
+
+.sections {
+    width: 100%;
+    height: calc(100vh - 70px);
+    position: relative;
+    top: 70px;
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    &::-webkit-scrollbar {
+      display: none;
+    }

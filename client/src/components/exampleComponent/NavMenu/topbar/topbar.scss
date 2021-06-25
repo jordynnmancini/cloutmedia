@@ -7,7 +7,8 @@
   color: yellow;
   top: 0;
   z-index: 3;
-  transition: all 2s ease;
+  transition: all 1s ease;
+  overflow: hidden;
 
   &::-webkit-scrollbar {
     display: none;
@@ -62,7 +63,7 @@
           height: 3px;
           background-color: yellow;
           transform-origin: left;
-          transition: all 1s ease;
+          transition: all 0.5s ease;
         }
       }
     }
