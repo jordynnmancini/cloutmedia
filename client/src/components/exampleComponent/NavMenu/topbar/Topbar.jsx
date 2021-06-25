@@ -15,7 +15,7 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
             clout
           </a>
           <div className="itemContainer">
-            <PersonIcon className="icon" />
+            <PersonIcon fontSize="large" className="icon" />
             <span></span>
           </div>
           <div className="itemContainer">

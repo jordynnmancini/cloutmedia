@@ -11,7 +11,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: all 1.5s ease;
+    transition: all 1s ease;
+    overflow: hidden;
 
     &.active{
         right: 0;
