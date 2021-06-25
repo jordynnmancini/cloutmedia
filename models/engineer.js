@@ -5,13 +5,17 @@ const Schema = mongoose.Schema;
 // what other details do we need specific to engineers? 
 
 const engineerSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
     },
-    preferredName: {
+    stageName: {
         type: String,
-        required: true
+        required: false
     },
     thumbnail: {
         data: Buffer,

@@ -5,18 +5,22 @@ const Schema = mongoose.Schema;
 // what other details do we need specific to artists? 
 
 const artistSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
     required: true
   },
   stageName: {
     type: String,
-    required: true,
+    required: false,
   },
   thumbnail: {
     data: Buffer,
     contentType: String,
-    required: false, 
+    required: false,
   },
   password: {
     type: String,
