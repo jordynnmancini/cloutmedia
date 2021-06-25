@@ -1,48 +1,44 @@
-import React, { Component } from "react";
-import AuthHelperMethods from "./AuthHelperMethods";
+//wrap components behind authorization with this
+// ex: <Route path="/dashboard" component={withAuth(Dashboard)} />
 
-export default function withAuth(AuthComponent) {
-    const Auth = new AuthHelperMethods();
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
-    return class AuthWrapped extends Component {
-        state = {
-            confirm: null,
-            loaded: false
-        };
+export default function withAuth(ProtectedComponent) {
+  return class AuthWrapper extends Component {
+    constructor() {
+      super();
+      this.state = {
+        loading: true,
+        redirect: false,
+      };
+    }
 
-        componentDidMount() {
-            if (!Auth.loggedIn()) {
-                this.props.history.replace("./login");
-            } else {
-                try {
-                    const confirm = Auth.getConfirm();
-                    this.setState({
-                        confirm: confirm,
-                        loaded: true
-                    })
-                } catch (err) {
-                    console.log(err);
-                    Auth.logout();
-                    this.props.history.replace('/login');
-                }
-            }
-        }
+    componentDidMount() {
+      fetch('/checkToken')
+        .then(res => {
+          if (res.status === 200) {
+            this.setState({ loading: false });
+          } else {
+            const error = new Error(res.error);
+            throw error;
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          this.setState({ loading: false, redirect: true });
+        });
+    }
 
-        render() {
-            if (this.state.loaded == true) {
-                if (this.state.confirm) {
-                    return (
-                        <AuthComponent
-                            history={this.props.history}
-                            confirm={this.state.confirm}
-                        />
-                    );
-                } else {
-                    return null;
-                }
-            } else {
-                return null;
-            }
-        }
-    };
+    render() {
+      const { loading, redirect } = this.state;
+      if (loading) {
+        return null;
+      }
+      if (redirect) {
+        return <Redirect to="/login" />;
+      }
+      return <ProtectedComponent {...this.props} />;
+    }
+  }
 }

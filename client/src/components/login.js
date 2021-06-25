@@ -1,41 +1,44 @@
-import React, { Component } from "react";
-import AuthHelperMethods from "./AuthHelperMethods";
-import { Link } from "react-router-dom"; 
+import React, { Component } from 'react';
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+
 
 export default class Login extends Component {
-    Auth = new AuthHelperMethods(); 
-    
-    state = {
-        username: "",
-        password: ""
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
+            password: ''
+        };
     }
 
-    _handleChange = (e) => {
-        this.setState(
-            {
-                [e.target.name]: e.target.value
-            }
-        )
+    handleInputChange = (e) => {
+        const { value, name } = e.target;
+        this.setState({
+            [name]: value
+        });
     }
 
-    handleFormSubmit = e => {
+    onSubmit = (e) => {
         e.preventDefault();
-
-        this.Auth.login(this.state.username, this.state.password)
-        .then(res => {
-            if (!res) {
-                return alert("No account with that username or password. Try again or sign up with a new account.")
-            }
-            this.property.history.replace('/');
+// write if statement - logging in as artist or engineer? or have 2 separate login components? 
+        axios.post("/login", {
+            email: this.state.email,
+            password: this.state.password,
         })
-        . catch(err =>  {
-            console.log(err); 
-        })
-    }
-
-    componentWillMount() {
-        if(this.Auth.loggedIn())
-            this.props.history.replace('/');
+            .then(res => {
+                if (res.status === 200) {
+                    this.props.history.push('/');
+                } else {
+                    const error = new Error(res.error);
+                    throw error;
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Error logging in please try again');
+            });
     }
 
     render() {
@@ -43,22 +46,26 @@ export default class Login extends Component {
             <div>
                 <h1>Login</h1>
                 <form>
-                    <input 
-                        placeholder="enter username"
-                        name="username"
-                        type="text"
-                        onChange={this._handleChange}
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        required
                     />
-                     <input 
-                        placeholder="enter password"
-                        name="password"
+                    <input
                         type="password"
-                        onChange={this._handleChange}
+                        name="password"
+                        placeholder="Enter your password"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        required
                     />
-                    <button onClick={this.handleFormSubmit}>Login</button>
+                    <button onClick={this.onSubmit}>Login</button>
                 </form>
-                <Link to="/signup">Don't have an account? <span>Signup</span></Link>
+                <Link to="/signup">Don't have an account yet? <span>Signup</span></Link>
             </div>
-        )
+        );
     }
 }

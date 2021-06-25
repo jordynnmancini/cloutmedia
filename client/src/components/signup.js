@@ -1,45 +1,48 @@
 import React, { Component } from "react";
-import AuthHelperMethods from "./AuthHelperMethods";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default class Signup extends Component {
-    Auth = new AuthHelperMethods();
-    state = {
-        username: "",
-        name: "",
-        password: "",
-        email: "",
-        primaryLocation: ""
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: "",
+            name: "",
+            password: "",
+            primaryLocation: ""
+        };
     }
 
-    _handleChange = (e) => {
-        this.setState(
-            {
-                [e.target.name]: e.target.value
-            }
-        )
+    handleInputChange = (e) => {
+        const { value, name } = e.target;
+        this.setState({
+            [name]: value
+        });
     }
 
-    handleFormSubmit = (e) => {
+    onSubmit = (e) => {
         e.preventDefault();
-
+        
+// write if statement - if signing up as artist or engineer?
         axios.post("/signup", {
-            username: this.state.username,
-            password: this.state.password,
             email: this.state.email,
+            name: this.state.name, 
+            password: this.state.password,
             primaryLocation: this.state.primaryLocation,
 
         })
-            .then((data) => {
-                this.props.history.replace('/login');
+            .then(res => {
+                if(res.stats === 200) {
+                    this.props.history.replace('/login');
+                } else {
+                    const error = new Error(res.error); 
+                    throw error; 
+                }
             })
-    }
-
-    componentDidMount() {
-        if (this.Auth.loggedIn()) {
-            this.props.history.push('/dashboard')
-        }
+            .catch(err => {
+                console.error(err);
+                alert('Error signing up - please try again'); 
+            });
     }
 
     render() {
@@ -51,38 +54,40 @@ export default class Signup extends Component {
                         placeholder="enter your name"
                         name="name"
                         type="text"
-                        onChange={this._handleChange}
-                    />
-                    <input
-                        placeholder="create a username"
-                        name="username"
-                        type="text"
-                        onChange={this._handleChange}
+                        value={this.state.name}
+                        onChange={this.handleInputChange}
+                        required
                     />
                     <input
                         placeholder="enter your email"
                         name="email"
-                        type="text"
-                        onChange={this._handleChange}
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        required
                     />
                     <input
                         placeholder="create a password"
                         name="password"
                         type="password"
-                        onChange={this._handleChange}
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        required
                     />
                     <input
                         placeholder="enter your Location"
                         name="primary location"
                         type="text"
-                        onChange={this._handleChange}
+                        value={this.state.primaryLocation}
+                        onChange={this.handleInputChange}
+                        required
                     />
                     <label id="user-type" for="user-type">I am a(n):</label>
                     <select name="user-type">
                         <option value="artist">Artist/Musician</option>
                         <option value="sound-engineer">Sound Engineer</option>
                     </select>
-                    <button onClick={this.handleFormSubmit}>Signup</button>
+                    <button onClick={this.onSubmit}>Signup</button>
                 </form>
                 <Link to="/login">Have an account already? <span>Login</span></Link>
             </div>
