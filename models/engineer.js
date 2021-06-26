@@ -5,13 +5,17 @@ const Schema = mongoose.Schema;
 // what other details do we need specific to engineers? 
 
 const engineerSchema = new mongoose.Schema({
-    name: {
+    username: {
         type: String,
         required: true
     },
-    preferredName: {
+    name: {
         type: String,
-        required: true
+        required: true 
+    }, 
+    stageName: {
+        type: String,
+        required: false
     },
     thumbnail: {
         data: Buffer,
@@ -42,4 +46,4 @@ const engineerSchema = new mongoose.Schema({
 
 const Engineer = mongoose.model("Engineer", engineerSchema);
 
-module.exports = engineerSchema;
+module.exports = Engineer;

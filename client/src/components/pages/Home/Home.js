@@ -6,7 +6,7 @@ export default function Home() {
         <div className="home">
         <div className="container">
            <div className="imgContainer">
-                <img src="assets/logo.png"/>
+                <img src="assets/logo.png" alt="logo for clout media - connecting the music industry together"/>
            </div>
         </div>
         <div className="buttons">
