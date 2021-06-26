@@ -19,7 +19,7 @@ router.post('/signup', function(req, res) {
         }
     });
 });
-
+// login not working currently
 router.post('/login', function(req, res) {
     const { email, password } = req.body;
     Artist.findOne({ email }, function(err, artist) {
