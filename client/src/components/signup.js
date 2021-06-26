@@ -81,8 +81,8 @@ export default class Signup extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <label id="user-type" for="user-type">I am a(n):</label>
-                    <select name="user-type">
+                    <label for="user-type">I am a(n):</label>
+                    <select id="user-type" name="user-type">
                         <option value="artist">Artist/Musician</option>
                         <option value="sound-engineer">Sound Engineer</option>
                     </select>
