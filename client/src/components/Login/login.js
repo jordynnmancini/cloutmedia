@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
 
 
@@ -23,7 +23,7 @@ export default class Login extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 // write if statement - logging in as artist or engineer? or have 2 separate login components? 
-        axios.post("/login", {
+        API.artistLogin({
             email: this.state.email,
             password: this.state.password,
         })

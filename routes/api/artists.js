@@ -5,8 +5,8 @@ const cookieParser = require('cookie-parser');
 const withAuth = require('../../utils/auth'); 
 
 
-//new artist sign up
-router.post('/', function(req, res) {
+//new artist sign up - matches with "/api/artists/signup"
+router.post('/signup', function(req, res) {
     const { email, name, password, primaryLocation } = req.body;
     const artist = new Artist({ email, name, password, primaryLocation });
     artist.save(function(err) {
@@ -19,7 +19,7 @@ router.post('/', function(req, res) {
         }
     });
 });
-
+// login not working currently
 router.post('/login', function(req, res) {
     const { email, password } = req.body;
     Artist.findOne({ email }, function(err, artist) {

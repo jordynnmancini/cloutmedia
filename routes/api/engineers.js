@@ -5,11 +5,11 @@ const cookieParser = require('cookie-parser');
 const withAuth = require('../../utils/auth');
 
 
-//new artist sign up
-router.post('/', function (req, res) {
+//new engineer sign up matches with "/api/engineers/signup"
+router.post('/signup', function (req, res) {
     const { email, name, password, primaryLocation } = req.body;
-    const artist = new Engineer({ email, name, password, primaryLocation });
-    artist.save(function (err) {
+    const engineer = new Engineer({ email, name, password, primaryLocation });
+    engineer.save(function (err) {
         if (err) {
             res.status(500)
                 .send("error signing up - please try again")
@@ -22,14 +22,14 @@ router.post('/', function (req, res) {
 
 router.post('/login', function (req, res) {
     const { email, password } = req.body;
-    Artist.findOne({ email }, function (err, artist) {
+    Engineer.findOne({ email }, function (err, engineer) {
         if (err) {
             res.status(500)
-        } else if (!artist) {
+        } else if (!engineer) {
             res.status(401)
                 .send('incorrect email or password')
         } else {
-            artist.isCorrectPassword(password, function (err, same) {
+            engineer.isCorrectPassword(password, function (err, same) {
                 if (err) {
                     res.status(500)
                 } else if (!same) {

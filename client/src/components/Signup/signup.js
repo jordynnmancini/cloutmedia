@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import API from "../../utils/API";
 
 export default class Signup extends Component {
     constructor(props) {
@@ -24,12 +24,11 @@ export default class Signup extends Component {
         e.preventDefault();
         
 // write if statement - if signing up as artist or engineer?
-        axios.post("/signup", {
+        API.artistSignup({
             email: this.state.email,
             name: this.state.name, 
             password: this.state.password,
             primaryLocation: this.state.primaryLocation,
-
         })
             .then(res => {
                 if(res.stats === 200) {
@@ -82,8 +81,8 @@ export default class Signup extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <label id="user-type" for="user-type">I am a(n):</label>
-                    <select name="user-type">
+                    <label for="user-type">I am a(n):</label>
+                    <select id="user-type" name="user-type">
                         <option value="artist">Artist/Musician</option>
                         <option value="sound-engineer">Sound Engineer</option>
                     </select>
