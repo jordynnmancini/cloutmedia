@@ -1,3 +1,5 @@
+@import "../../../global.scss";
+
 .home {
   display: flex;
   align-items: center;
@@ -8,6 +10,13 @@
   background-size: cover;
   background-image: url(crowd.png);
   image-resolution: initial;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    background-position:center;
+  }
+
 
   .container {
     display: flex;
@@ -20,6 +29,17 @@
     margin-bottom: 120px;
     overflow: hidden;
 
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      width: 50vh;
+      margin-top: 50px;
+    }
+
+  
+
     .imgContainer {
       display: flex;
       align-items: center;
@@ -29,6 +49,13 @@
       height: 100vh;
       width: 100%;
       overflow: hidden;
+
+      @include mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
     }
   }
   .buttons {
@@ -43,6 +70,11 @@
     font-size: 15px;
     font-weight: bolder;
     font-family: "Roboto";
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .initialButton{
@@ -51,6 +83,19 @@
     border-radius: 25px;
     font-size: 25px;
     font-weight: bolder;
+    &:focus{
+      outline: none;
+    }
+
+    
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
 
     &:hover{
         opacity: 1.3;
@@ -70,6 +115,19 @@
     border-radius: 15px;
     font-size: 25px;
     font-weight: bolder;
+
+    &:focus{
+      outline: none;
+    }
+
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
 
     &:hover{
         opacity: 1.3;
