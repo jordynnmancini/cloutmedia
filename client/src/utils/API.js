@@ -1,3 +1,12 @@
 import axios from "axios";
 
-// if needed, use for third party API pull 
+export default {
+    //artist calls
+    artistSignup: function(artistData) {
+        return axios.post('/api/artists/signup', artistData)
+    },
+    artistLogin: function(artistData) {
+        return axios.post('/api/artists/login', artistData)
+    }
+
+}
