@@ -1,48 +1,56 @@
+@import "../../global.scss";
 
-.menu{
-    width: 300px;
-    height: 100vh;
-    background-color: yellow;
-    position: fixed;
-    top: 0;
-    right: -300px;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 1s ease;
-    overflow: hidden;
+.menu {
+  width: 300px;
+  height: 100vh;
+  background-color: yellow;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease;
+  overflow: hidden;
 
-    &.active{
-        right: 0;
-        opacity: .5;
+  &.active {
+    right: 0;
+    opacity: 0.5;
+
+    @include mobile {
+      width: 124px;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      padding: 0;
     }
+  }
 
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        font-size: 30px;
-        color: black;
-        font-weight: 300;
-        width: 60%;
-        
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 30px;
+    color: black;
+    font-weight: 300;
+    width: 60%;
 
+    li {
+      margin-bottom: 20px;
 
-        li{
-                margin-bottom: 20px;
-                
-            a{
-                font-size: inherit;
-                color: inherit;
-                text-decoration: none;
-            }
+      a {
+        font-size: inherit;
+        color: inherit;
+        text-decoration: none;
+      }
 
-            &:hover{
-                font-weight: 600;
-            }
-        }
+      &:hover {
+        font-weight: 600;
+      }
     }
-
+  }
 }

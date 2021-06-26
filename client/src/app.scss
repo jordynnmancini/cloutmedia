@@ -1,8 +1,7 @@
-.app{
-    height: 100vh;
-}
+.app {
+  height: 100vh;
 
-.sections {
+  .sections {
     width: 100%;
     height: calc(100vh - 70px);
     position: relative;
@@ -12,3 +11,11 @@
     &::-webkit-scrollbar {
       display: none;
     }
+
+    > * {
+      width: 100vw;
+      height: calc(100vh - 70px);
+      scroll-snap-align: start;
+    }
+  }
+}

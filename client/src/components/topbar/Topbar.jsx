@@ -4,7 +4,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import PersonIcon from "@material-ui/icons/Person";
 
 
-export default function Topbar({ menuOpen, setMenuOpen }) {
+export default function Topbar({ menuOpen, toggleMenu }) {
   
   
   return (
@@ -24,7 +24,7 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
           </div>
         </div>
         <div className="right">
-          <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          <div className="hamburger" onClick={toggleMenu}>
             <span className="line1"></span>
             <span className="line2"></span>
             <span className="line3"></span>
