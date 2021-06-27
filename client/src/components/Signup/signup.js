@@ -9,7 +9,8 @@ export default class Signup extends Component {
             email: "",
             name: "",
             password: "",
-            primaryLocation: ""
+            primaryLocation: "",
+            type: ""
         };
     }
 
@@ -24,11 +25,12 @@ export default class Signup extends Component {
         e.preventDefault();
         
 // write if statement - if signing up as artist or engineer?
-        API.artistSignup({
+        API.userSignup({
             email: this.state.email,
             name: this.state.name, 
             password: this.state.password,
             primaryLocation: this.state.primaryLocation,
+            type: this.state.type
         })
             .then(res => {
                 if(res.stats === 200) {
@@ -40,7 +42,7 @@ export default class Signup extends Component {
             })
             .catch(err => {
                 console.error(err);
-                alert('Error signing up - please try again'); 
+                alert('Error signing up - please try again!'); 
             });
     }
 

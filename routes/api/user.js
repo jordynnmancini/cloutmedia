@@ -1,15 +1,16 @@
 const router = require("express").Router();
-const Artist = require('../../models/artist'); 
+const User = require('../../models/user'); 
 const jwt = require('jsonwebtoken'); 
 const cookieParser = require('cookie-parser'); 
 const withAuth = require('../../utils/auth'); 
+const secret = 'supersupersecret'; 
 
 
-//new artist sign up - matches with "/api/artists/signup"
+//new user sign up - matches with "/api/user/signup"
 router.post('/signup', function(req, res) {
-    const { email, name, password, primaryLocation } = req.body;
-    const artist = new Artist({ email, name, password, primaryLocation });
-    artist.save(function(err) {
+    const { email, name, password, primaryLocation, type } = req.body;
+    const user = new User({ email, name, password, primaryLocation, type });
+    user.save(function(err) {
         if(err) {
             res.status(500)
                 .send("error signing up - please try again")
@@ -19,17 +20,17 @@ router.post('/signup', function(req, res) {
         }
     });
 });
-// login not working currently
+
 router.post('/login', function(req, res) {
     const { email, password } = req.body;
-    Artist.findOne({ email }, function(err, artist) {
+    User.findOne({ email }, function(err, user) {
         if (err) {
             res.status(500)
-        } else if (!artist) {
+        } else if (!user) {
             res.status(401)
                 .send('incorrect email or password')
         } else {
-            artist.isCorrectPassword(password, function(err, same) {
+            user.isCorrectPassword(password, function(err, same) {
                 if (err) {
                     res.status(500)
                 } else if (!same) {

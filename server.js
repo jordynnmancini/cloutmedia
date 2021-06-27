@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser'); 
 const withAuth = require('./utils/auth'); 
 
-const secret = 'supersupersecret'; 
-
 const routes = require('./routes'); 
 const PORT = process.env.PORT || 3001;
 const app = express();
