@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
+import "./signup.css";
 
 export default class Signup extends Component {
     constructor(props) {
@@ -24,7 +25,6 @@ export default class Signup extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         
-// write if statement - if signing up as artist or engineer?
         API.userSignup({
             email: this.state.email,
             name: this.state.name, 
@@ -48,7 +48,7 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <div>
+            <div className='wrapper'>
                 <h1>Signup</h1>
                 <form>
                     <input
@@ -84,9 +84,9 @@ export default class Signup extends Component {
                         required
                     />
                     <label for="user-type">I am a(n):</label>
-                    <select id="user-type" name="user-type">
-                        <option value="artist">Artist/Musician</option>
-                        <option value="sound-engineer">Sound Engineer</option>
+                    <select id="user-type" name="user-type" onChange={this.handleInputChange}>
+                        <option value={this.state.type}>Artist/Musician</option>
+                        <option value={this.state.type}>Sound Engineer</option>
                     </select>
                     <button onClick={this.onSubmit}>Signup</button>
                 </form>
