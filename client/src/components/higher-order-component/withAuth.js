@@ -13,21 +13,26 @@ export default function withAuth(ProtectedComponent) {
         redirect: false,
       };
     }
-
+    
     componentDidMount() {
-      fetch('/checkToken')
-        .then(res => {
-          if (res.status === 200) {
-            this.setState({ loading: false });
-          } else {
-            const error = new Error(res.error);
-            throw error;
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          this.setState({ loading: false, redirect: true });
-        });
+      // fetch('/checkToken')
+      //   .then(res => {
+      //     if (res.status === 200) {
+      //       this.setState({ loading: false });
+      //     } else {
+      //       const error = new Error(res.error);
+      //       throw error;
+      //     }
+      //   })
+      //   .catch(err => {
+      //     console.error(err);
+      //     this.setState({ loading: false, redirect: true });
+      //   });
+        if(localStorage.getItem('jwtToken')){
+          this.setState({loading: false }); 
+        } else {
+          this.setState({ loading: false, redirect: true }); 
+        }
     }
 
     render() {

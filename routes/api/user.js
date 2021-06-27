@@ -38,20 +38,12 @@ router.post('/login', function (req, res) {
                         .send('incorrect email or password')
                 } else {
                     const payload = { email };
-                    let token = jwt.sign(payload, secret, {
+                    const token = jwt.sign(payload, secret, {
                         expiresIn: '1h'
-                    },
-                        (err, token) => {
-                            res.json({
-                                success: true,
-                                token: "Bearer" + token,
-                                message: "Login successful"
-                            });
-                        }
-                    );
+                    });
+                    res.cookie('token', token, { httpOnly: true })
+                        .sendStatus(200); 
                     console.log(token); 
-                    // res.cookie('token', token, { httpOnly: true })
-                    //     .sendStatus(200); 
                 };
             });
         };
