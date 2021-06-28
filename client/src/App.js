@@ -25,11 +25,9 @@ function App() {
     <Router>
      <div className="app">
       <NavMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
-      <div className="sections">
-      <Home />
      </div>    
-    </div>
         <Switch>
+        <Route path="/home" component={Home} />
         <Route path="/dashboard" component={withAuth(Dashboard)} />
         <Route path="/discover" component={withAuth(Dashboard)} />
         <Route path="/dashboard" component={withAuth(Dashboard)} />
