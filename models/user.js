@@ -4,9 +4,7 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs'); 
 const saltRounds = 10; 
 
-// what other details do we need specific to artists? 
-
-const artistSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
@@ -25,6 +23,10 @@ const artistSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  type: {
+    type: String,
+    required: true, 
+  },
   stageName: {
     type: String,
     required: false,
@@ -42,7 +44,7 @@ const artistSchema = new mongoose.Schema({
   { timestamps: true }
 );
 
-artistSchema.pre('save', function(next) {
+userSchema.pre('save', function(next) {
   if (this.isNew || this.isModified('password')) {
     const document = this;
     bcrypt.hash(this.password, saltRounds, function(err, hashedPassword) {
@@ -58,7 +60,7 @@ artistSchema.pre('save', function(next) {
   }
 });
 
-artistSchema.methods.isCorrectPassword = function(password, callback) {
+userSchema.methods.isCorrectPassword = function(password, callback) {
   bcrypt.compare(password, this.password, function(err, same) {
     if(err) {
       callback(err);
@@ -68,6 +70,6 @@ artistSchema.methods.isCorrectPassword = function(password, callback) {
   });
 }
 
-const Artist = mongoose.model("Artist", artistSchema);
+const User = mongoose.model("User", userSchema);
 
-module.exports = Artist;
+module.exports = User;
