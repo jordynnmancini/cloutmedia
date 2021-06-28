@@ -1,6 +1,4 @@
 import React, { useState, useEffect} from "react";
-import Topbar from "./components/topbar/Topbar";
-import Menu from "./components/menu/Menu";
 import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
 function App() {
