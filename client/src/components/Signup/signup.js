@@ -49,11 +49,11 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <div className='wrapper'>
+            <div className='signupWrapper'>
             <div className="formContainer">
                 <form>
                 <h1>Signup</h1>
-                    <input
+                    <input className="inputName"
                         placeholder="enter your name"
                         name="name"
                         type="text"
@@ -61,7 +61,7 @@ export default class Signup extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <input
+                    <input className="inputUserName"
                         placeholder="enter your email"
                         name="email"
                         type="email"
@@ -69,7 +69,7 @@ export default class Signup extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <input
+                    <input className="inputPassword"
                         placeholder="create a password"
                         name="password"
                         type="password"
@@ -77,7 +77,7 @@ export default class Signup extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <input
+                    <input className="inputLocation"
                         placeholder="enter your Location"
                         name="primary location"
                         type="text"
@@ -85,14 +85,14 @@ export default class Signup extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <label for="user-type">I am a(n):</label>
-                    <select id="user-type" name="user-type" onChange={this.handleInputChange}>
+                    <label className="labelFor" for="user-type">I am a(n):</label>
+                    <select className="dropDown" id="user-type" name="user-type" onChange={this.handleInputChange}>
                         <option value={this.state.type}>Artist/Musician</option>
                         <option value={this.state.type}>Sound Engineer</option>
                     </select>
-                    <button onClick={this.onSubmit}>Signup</button>
+                    <button className="signupButton" onClick={this.onSubmit}>Signup</button>
+                    <Link className="linkText" to="/login">Have an account already?  <span>Click here to login!</span></Link>
                 </form>
-                <Link to="/login">Have an account already? <span>Login</span></Link>
                 </div>
             </div>
         )

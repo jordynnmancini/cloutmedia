@@ -1,20 +1,106 @@
-.formContainer {
-    border-radius: 1px solid black;
+.signupWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  background-image: url(./crowd.png);
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+
+  .formContainer {
+    
     display: flexbox;
     align-items: center;
     justify-content: center;
-    padding-top: 400px; 
+    border: 5px solid yello  ;
+    
 
-    form{
+    h1 {
+      font-family: "Roboto";
+      font-weight: bolder;
+      display: flex;
+      padding-bottom: 60px;
+    }
+
+    form {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 5px solid black;
+      height: 65vh;
+      width: 65vh;
+      background-color: lightgray;
+      border-radius: round($number: 5px);
+      opacity: 0.9;
+
+      .inputName {
+        margin-bottom: 10px;
+        width: 500px;
+        border-radius: round($number: 5px);
+      }
+
+      .inputUserName {
+        margin-bottom: 10px;
+        width: 500px;
+        border-radius: round($number: 5px);
+      }
+
+      .inputPassword {
+        margin-bottom: 10px;
+        width: 500px;
+        border-radius: round($number: 5px);
+      }
+
+      .inputLocation {
+        margin-bottom: 10px;
+        width: 500px;
+        border-radius: round($number: 5px);
+      }
+
+      .labelFor {
+        margin-bottom: 10px;
+      }
+
+      .dropDown {
+        margin-bottom: 10px;
+        width: 200px;
+        border-radius: round($number: 5px);
+      }
+
+      .signupButton {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
-        border: 5px solid black;
-        width: 300px;
-        padding: 40px 40px;
-        margin-left: 780px;
+        margin: 0;
+        opacity: 0.8;
+        height: 66px;
+        width: 180px;
+        border-radius: 15px;
+        font-size: 25px;
+        font-weight: bolder;
+        outline: none;
 
+        &:hover {
+          opacity: 1.3;
+          background-color: yellow;
+        }
+      }
 
+      .inkText {
+        margin-bottom: 10px;
+      }
     }
+
+    .linkText {
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-left: 20px;
+      padding-top: 15px;
+    }
+  }
 }
