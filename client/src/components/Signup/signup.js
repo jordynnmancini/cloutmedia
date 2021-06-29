@@ -35,7 +35,7 @@ export default class Signup extends Component {
         })
             .then(res => {
                 if(res.stats === 200) {
-                    this.props.history.replace('/login');
+                    this.props.history.replace('/dashboard');
                 } else {
                     const error = new Error(res.error); 
                     throw error; 
@@ -79,7 +79,7 @@ export default class Signup extends Component {
                     />
                     <input className="inputLocation"
                         placeholder="enter your Location"
-                        name="primary location"
+                        name="primarylocation"
                         type="text"
                         value={this.state.primaryLocation}
                         onChange={this.handleInputChange}

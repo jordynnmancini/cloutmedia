@@ -38,9 +38,9 @@ function App() {
         <NavMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
       </div>
       <Switch>
-        <Route path="/home" component={Home} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
+        <Route exact path={["/", "/home"]} component={Home} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
         <Route path="/dashboard" component={withAuth(Dashboard)} />
         <Route path="/discover" component={withAuth(Discover)} />
         <Route path="/about" component={About} />
