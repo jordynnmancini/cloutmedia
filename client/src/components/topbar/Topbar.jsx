@@ -11,7 +11,7 @@ export default function Topbar({ menuOpen, toggleMenu }) {
       <div className="wrapper">
         <div className="left">
           <a className="logo">
-            clout
+            Clout
           </a>
           <div className="itemContainer">
             <AccountCircleIcon fontSize="large" className="icon" />
