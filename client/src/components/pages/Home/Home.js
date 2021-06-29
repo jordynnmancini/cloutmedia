@@ -10,8 +10,8 @@ export default function Home() {
            </div>
         </div>
         <div className="buttons">
-        <button className="initialButton"type="submit"> Signup!</button>
-        <button className="button2" type="submit">Learn More!</button>
+        <button className="signin" type="submit"> Signup!</button>
+        <button className="learnMore" type="submit">Learn More!</button>
         </div>
         
         </div>

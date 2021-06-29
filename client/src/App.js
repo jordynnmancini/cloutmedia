@@ -1,13 +1,17 @@
 import React, { useState, useEffect} from "react";
-import Topbar from "./components/topbar/Topbar";
-import Menu from "./components/menu/Menu";
 import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import withAuth from "./components/higher-order-component/withAuth";
+import Dashboard from "../src/components/pages/Dashboard"
 
-//check authentication status of the user - use on other components?
-const isLoggedIn = () => {
-  return localStorage.getItem('jwtToken') !== null; 
-}
 
 function App() {
 
@@ -17,14 +21,22 @@ function App() {
   const toggleMenu = () => setMenuOpen(!menuOpen)
 
   //return code here
-  return (<>
-   <div className="app">
+  return (
+    <Router>
+     <div className="app">
       <NavMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
-      <div className="sections">
-      <Home />
      </div>    
-    </div>
-  </>);
+        <Switch>
+        <Route path="/home" component={Home} />
+        <Route path="/dashboard" component={withAuth(Dashboard)} />
+        <Route path="/discover" component={withAuth(Dashboard)} />
+        <Route path="/dashboard" component={withAuth(Dashboard)} />
+        <Route path="/dashboard" component={withAuth(Dashboard)} />
+        </Switch>
+    </Router>
+  );
 }
 
-export default App;
+
+
+  export default App;

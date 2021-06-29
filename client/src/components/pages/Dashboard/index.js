@@ -1,4 +1,9 @@
 import React from "react";
-import 'style.css'; 
+
 
 // Dashboard page code
+export default function Dashboard(){
+    return(
+        <h3>Testing</h3>
+    )
+};
