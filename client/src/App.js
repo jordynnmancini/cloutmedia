@@ -15,6 +15,11 @@ import Dashboard from "../src/components/pages/Dashboard"
 
 function App() {
 
+//replaced this from jordyn's code, it may be needed for with auth
+  const isLoggedIn = () => {
+    return localStorage.getItem('jwtToken') !== null; 
+  }
+  
   // useState, useEffect, etc. 
   const [menuOpen, setMenuOpen] = useState(false)
 
