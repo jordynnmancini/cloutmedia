@@ -1,3 +1,15 @@
 import axios from "axios";
 
-// if needed, use for third party API pull 
+export default {
+    //user API calls
+    userSignup: function(userData) {
+        return axios.post('/api/user/signiup', userData)
+    },
+    userLogin: function(userData) {
+        return axios.post('/api/user/login', userData, {
+            headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+    }
+}

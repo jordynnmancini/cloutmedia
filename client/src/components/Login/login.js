@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
 
 
@@ -23,13 +23,14 @@ export default class Login extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 // write if statement - logging in as artist or engineer? or have 2 separate login components? 
-        axios.post("/login", {
+        API.userLogin({
             email: this.state.email,
             password: this.state.password,
         })
             .then(res => {
                 if (res.status === 200) {
-                    this.props.history.push('/');
+                    this.props.history.push('/dashboard');
+                    localStorage.setItem('jwtToken', res.data.token); 
                 } else {
                     const error = new Error(res.error);
                     throw error;
@@ -39,6 +40,13 @@ export default class Login extends Component {
                 console.error(err);
                 alert('Error logging in please try again');
             });
+    }
+
+    //preventing already logged in users from seeing the login page
+    componentDidMount() {
+        if(localStorage.getItem('jwtToken') !== null){
+            return this.props.history.goBack(); 
+        }
     }
 
     render() {
