@@ -14,7 +14,8 @@
     display: flexbox;
     align-items: center;
     justify-content: center;
-    border: 5px solid yello  ;
+    border: 4px solid yellow;
+    border-radius: round($number: 3px);
     
 
     h1 {
@@ -92,6 +93,7 @@
 
       .inkText {
         margin-bottom: 10px;
+        color: crimson
       }
     }
 
