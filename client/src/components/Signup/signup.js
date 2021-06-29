@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import "./signup.css";
+import "./signup.scss";
+
 
 export default class Signup extends Component {
     constructor(props) {
