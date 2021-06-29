@@ -1,3 +1,20 @@
-.wrapper {
+.formContainer {
     border-radius: 1px solid black;
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    padding-top: 400px; 
+
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 5px solid black;
+        width: 300px;
+        padding: 40px 40px;
+        margin-left: 780px;
+
+
+    }
 }

@@ -1,18 +1,24 @@
-import React from "react";
+import React from 'react';
 import "./topbar.scss";
-import PersonIcon from "@material-ui/icons/Person";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 
 export default function Topbar({ menuOpen, toggleMenu }) {
+  
+  
   return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
-          <div className="left" className="logo"> Clout
-            <div className="itemContainer">
-              <PersonIcon fontSize="large" className="icon" />
-              <span></span>
-            </div>
-          </div>
-          <div className="right">
+        <div className="left">
+          <a href="#intro" className="logo">
+            clout
+          </a>
+          <div className="itemContainer">
+            <AccountCircleIcon fontSize="large" className="icon" />
+            <span></span>
+          </div>   
+        </div>
+        <div className="right">
           <div className="hamburger" onClick={toggleMenu}>
             <span className="line1"></span>
             <span className="line2"></span>

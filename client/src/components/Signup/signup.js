@@ -50,8 +50,9 @@ export default class Signup extends Component {
     render() {
         return (
             <div className='wrapper'>
-                <h1>Signup</h1>
+            <div className="formContainer">
                 <form>
+                <h1>Signup</h1>
                     <input
                         placeholder="enter your name"
                         name="name"
@@ -92,6 +93,7 @@ export default class Signup extends Component {
                     <button onClick={this.onSubmit}>Signup</button>
                 </form>
                 <Link to="/login">Have an account already? <span>Login</span></Link>
+                </div>
             </div>
         )
     }
