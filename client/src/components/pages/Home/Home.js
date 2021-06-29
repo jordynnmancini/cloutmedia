@@ -13,7 +13,8 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="buttons">
+      <div className="buttons">  
+            {/* need to find a way to incorperate a modal into this section and bring the sign in pahe into this page somehow */}
         <button className="signup" type="submit">
           Signup!
         </button>
