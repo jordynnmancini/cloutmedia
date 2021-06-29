@@ -1,0 +1,43 @@
+.loginWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: url(./crowd.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+
+
+    .formContainer {
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid yellow;
+        border-radius: round($number: 3px);
+        
+    
+        h1 {
+          font-family: "Roboto";
+          font-weight: bolder;
+          display: flex;
+          padding-bottom: 60px;
+        }
+    
+        form {
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          border: 5px solid black;
+          height: 65vh;
+          width: 65vh;
+          background-color: lightgray;
+          border-radius: round($number: 5px);
+          opacity: 0.9;
+}  
+}
+}
