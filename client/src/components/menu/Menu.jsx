@@ -6,16 +6,19 @@ export default function Menu({ menuOpen, toggleMenu }) {
         <div className={"menu " + (menuOpen && "active")}>
             <ul>
                 <li onClick={toggleMenu}>
-                    <a href="#intro">Home</a>
+                    <a href="#home">Home</a>
                 </li>
                 <li onClick={toggleMenu}>
-                    <a href="#portfolio">Discover</a>
+                    <a href="#dashboard">Dashboard</a>
                 </li>
                 <li onClick={toggleMenu}>
-                    <a href="#works">About</a>
+                    <a href="#discover">Discover</a>
                 </li>
                 <li onClick={toggleMenu}>
-                    <a href="#contact">Contact US</a>
+                    <a href="#about">About</a>
+                </li>
+                <li onClick={toggleMenu}>
+                    <a href="#contact">Contact Us</a>
                 </li>
             </ul>
             
