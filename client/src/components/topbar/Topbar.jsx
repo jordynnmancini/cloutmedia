@@ -1,7 +1,6 @@
 import React from 'react';
 import "./topbar.scss";
-import EmailIcon from "@material-ui/icons/Email";
-import PersonIcon from "@material-ui/icons/Person";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 export default function Topbar({ menuOpen, toggleMenu }) {
@@ -11,17 +10,13 @@ export default function Topbar({ menuOpen, toggleMenu }) {
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
         <div className="left">
-          <a href="#intro" className="logo">
-            clout
+          <a className="logo">
+            Clout
           </a>
           <div className="itemContainer">
-            <PersonIcon fontSize="large" className="icon" />
+            <AccountCircleIcon fontSize="large" className="icon" />
             <span></span>
-          </div>
-          <div className="itemContainer">
-            <EmailIcon className="icon" />
-            <span></span>
-          </div>
+          </div>   
         </div>
         <div className="right">
           <div className="hamburger" onClick={toggleMenu}>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
+import "./login.scss";
 
 
 
@@ -51,10 +52,11 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Login</h1>
+            <div classname="loginWrapper">
+            <div className="formContainer">
                 <form>
-                    <input
+                <h1>Login</h1>
+                    <input className="inputEmail"
                         type="email"
                         name="email"
                         placeholder="Enter your email"
@@ -62,7 +64,7 @@ export default class Login extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <input
+                    <input className="inputPassword"
                         type="password"
                         name="password"
                         placeholder="Enter your password"
@@ -71,8 +73,9 @@ export default class Login extends Component {
                         required
                     />
                     <button onClick={this.onSubmit}>Login</button>
+                    <Link to="/signup">Don't have an account yet? <span>Signup</span></Link>
                 </form>
-                <Link to="/signup">Don't have an account yet? <span>Signup</span></Link>
+            </div>
             </div>
         );
     }
