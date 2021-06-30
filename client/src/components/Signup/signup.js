@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import API from "../../utils/API";
 import "./signup.scss";
 
@@ -12,7 +12,7 @@ export default class Signup extends Component {
             name: "",
             password: "",
             primaryLocation: "",
-            type: ""
+            type: "",
         };
     }
 
@@ -31,10 +31,11 @@ export default class Signup extends Component {
             name: this.state.name, 
             password: this.state.password,
             primaryLocation: this.state.primaryLocation,
-            type: this.state.type
+            type: this.state.type,
         })
             .then(res => {
-                if(res.stats === 200) {
+                if(res.status === 200) {
+                    localStorage.setItem('jwtToken', res.data.token); 
                     this.props.history.replace('/dashboard');
                 } else {
                     const error = new Error(res.error); 
@@ -43,9 +44,12 @@ export default class Signup extends Component {
             })
             .catch(err => {
                 console.error(err);
+                console.log(this.state); 
                 alert('Error signing up - please try again!'); 
+
             });
     }
+    // this.state.hasLoggedIn ? (<Redirect to="/dashboard" />) :
 
     render() {
         return (
@@ -59,7 +63,6 @@ export default class Signup extends Component {
                         type="text"
                         value={this.state.name}
                         onChange={this.handleInputChange}
-                        required
                     />
                     <input className="inputUserName"
                         placeholder="enter your email"
@@ -67,7 +70,6 @@ export default class Signup extends Component {
                         type="email"
                         value={this.state.email}
                         onChange={this.handleInputChange}
-                        required
                     />
                     <input className="inputPassword"
                         placeholder="create a password"
@@ -75,21 +77,26 @@ export default class Signup extends Component {
                         type="password"
                         value={this.state.password}
                         onChange={this.handleInputChange}
-                        required
                     />
                     <input className="inputLocation"
                         placeholder="enter your Location"
-                        name="primarylocation"
+                        name="primaryLocation"
                         type="text"
                         value={this.state.primaryLocation}
                         onChange={this.handleInputChange}
-                        required
                     />
-                    <label className="labelFor" for="user-type">I am a(n):</label>
-                    <select className="dropDown" id="user-type" name="user-type" onChange={this.handleInputChange}>
+                    {/* <label className="labelFor" for="user-type">I am a(n):</label>
+                    <select className="dropDown" id="user-type" name="type" onChange={this.handleInputChange}>
                         <option value={this.state.type}>Artist/Musician</option>
                         <option value={this.state.type}>Sound Engineer</option>
-                    </select>
+                    </select> */}
+                      <input className="dropDown"
+                        placeholder="enter your type"
+                        name="type"
+                        type="text"
+                        value={this.state.type}
+                        onChange={this.handleInputChange}
+                    />
                     <button className="signupButton" onClick={this.onSubmit}>Signup</button>
                     <Link className="linkText" to="/login">Have an account already?  <span>Click here to login!</span></Link>
                 </form>
