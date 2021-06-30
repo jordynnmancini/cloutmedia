@@ -61,6 +61,14 @@
         height: 62vh;
         width: 100%;
         border-radius: round($number: 50%);
+
+        @include mobile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 46vh;
+        width: 98%;
+        }
       }
     
     }
@@ -71,7 +79,7 @@
     justify-content: space-evenly;
     margin-right: 10px;
     margin: 0;
-    opacity: .8;
+    opacity: .9;
     margin-top: -50px;
     background-color: none;
     font-size: 15px;
@@ -90,6 +98,7 @@
     border-radius: 25px;
     font-size: 25px;
     font-weight: bolder;
+    font-family: "Roboto";
     &:focus{
       outline: none;
     }
@@ -115,13 +124,14 @@
     align-items: center;
     justify-content: center;
     margin: 0;
-    margin-left: 100px;
-    opacity: .8;
+    margin-left: 97px;
+    opacity: .9;
     height: 66px;
     width: 180px;
     border-radius: 15px;
     font-size: 25px;
     font-weight: bolder;
+    font-family: "Roboto";
 
     &:focus{
       outline: none;
