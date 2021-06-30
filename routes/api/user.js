@@ -57,4 +57,11 @@ router.post('/login', function (req, res) {
 });
 
 
+router.put('/', function (req, res) {
+    const { id } = req.body;
+    User.findOneAndUpdate({ id }, function (err, user) {
+
+    })
+})
+
 module.exports = router;
