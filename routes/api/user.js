@@ -17,11 +17,11 @@ router.post('/signup', function (req, res) {
         } else {
             const payload = { email };
             const token = jwt.sign(payload, secret, {
-                 expiresIn: '1h'
+                expiresIn: '1h'
             });
 
             res.cookie('token', token, { httpOnly: true })
-                .json({message:'successful', token: token})
+                .json({ message: 'successful', token: token, id: user.id })
             console.log(token);
         }
     });
@@ -48,8 +48,8 @@ router.post('/login', function (req, res) {
                         expiresIn: '1h'
                     });
                     res.cookie('token', token, { httpOnly: true })
-                        .json({message:'successful', token: token})
-                    console.log(token); 
+                        .json({ message: 'successful', token: token, id: user.id })
+                    console.log(token);
                 };
             });
         };
