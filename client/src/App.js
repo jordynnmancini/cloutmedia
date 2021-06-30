@@ -3,11 +3,11 @@ import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
 import Signup from "../src/components/Signup/signup";
 import withAuth from "./components/higher-order-component/withAuth";
-import Dashboard from "./components/pages/Dashboard/Dashboard"
+import Dashboard from "./components/pages/Dashboard/dashboard"
 import Discover from "../src/components/pages/Discover/Discover";
 import About from "../src/components/pages/About/About";
 import Contact from "../src/components/pages/Contact/Contact";
-import Login from "./components/Login/Login"; 
+import Login from "./components/Login/login";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,7 +17,7 @@ import {
   useParams,
 } from "react-router-dom";
 ;
-  
+
 function App() {
   //replaced this from jordyn's code, it may be needed for with
   const isLoggedIn = () => {
