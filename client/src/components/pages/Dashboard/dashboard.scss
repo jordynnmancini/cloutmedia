@@ -1,1 +1,31 @@
 /* component CSS */
+@import "../../../global.scss";
+
+.dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-image: url();
+    image-resolution: initial;
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid black;
+    height: 100vh; 
+    width: 100vh;
+h1  { 
+    color: black;
+    font-size :122px;
+   
+
+
+
+}
+}
+
+}
