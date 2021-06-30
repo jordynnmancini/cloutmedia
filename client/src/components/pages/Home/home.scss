@@ -28,6 +28,7 @@
     opacity: 0.7;
     margin-bottom: 120px;
     overflow: hidden;
+    border-radius: round($number: 50%);
 
     @include mobile {
       display: flex;
@@ -54,6 +55,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      .cloutlogo{
+        height: 62vh;
+        width: 100%;
+        border-radius: round($number: 50%);
       }
     
     }

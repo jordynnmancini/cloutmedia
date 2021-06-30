@@ -3,7 +3,6 @@ const path = require("path");
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser'); 
 const withAuth = require('./utils/auth'); 
-
 const routes = require('./routes'); 
 const PORT = process.env.PORT || 3001;
 const app = express();

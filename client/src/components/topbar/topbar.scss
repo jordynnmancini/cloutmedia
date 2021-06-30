@@ -34,27 +34,22 @@
         font-weight: 600;
         text-decoration: none;
         color: inherit;
-      
         
       }
+
+
     }
 
-    .itemContainer {
+    .iconContainer {
       display: flex;
       align-items: center;
-      margin-left: 30px;
+      justify-content: space-evenly;
+      margin-right: 75px;
 
       @include mobile {
         display: none;
       }
 
-
-      .icon {
-        font-size: 18px;
-        margin-left: 788px;
-      
-        height: 2em;
-      }
 
       span {
         font-size: 15px;
