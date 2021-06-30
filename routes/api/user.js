@@ -15,8 +15,14 @@ router.post('/signup', function (req, res) {
             res.status(500)
                 .send("error signing up - please try again")
         } else {
-            res.status(200)
-                .send(`Welcome, ${name}!`)
+            const payload = { email };
+            const token = jwt.sign(payload, secret, {
+                 expiresIn: '1h'
+            });
+
+            res.cookie('token', token, { httpOnly: true })
+                .json({message:'successful', token: token})
+            console.log(token);
         }
     });
 });
@@ -42,7 +48,7 @@ router.post('/login', function (req, res) {
                         expiresIn: '1h'
                     });
                     res.cookie('token', token, { httpOnly: true })
-                        .sendStatus(200); 
+                        .json({message:'successful', token: token})
                     console.log(token); 
                 };
             });
