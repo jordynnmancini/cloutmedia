@@ -13,10 +13,9 @@ export default function Topbar({ menuOpen, toggleMenu }) {
           <a className="logo">
             Clout
           </a>
-          <div className="itemContainer">
-            <AccountCircleIcon fontSize="large" className="icon" />
-            <span></span>
-          </div>   
+        </div>
+        <div className="iconContainer">
+        <AccountCircleIcon fontSize="large" className="icon" />
         </div>
         <div className="right">
           <div className="hamburger" onClick={toggleMenu}>

@@ -7,7 +7,7 @@ import Dashboard from "../src/components/pages/Dashboard/Dashboard";
 import Discover from "../src/components/pages/Discover/Discover";
 import About from "../src/components/pages/About/About";
 import Contact from "../src/components/pages/Contact/Contact";
-import Login from "../src/components/Login/login"; 
+import Login from "../src/components/Login/Login"; 
 import {
   BrowserRouter as Router,
   Switch,

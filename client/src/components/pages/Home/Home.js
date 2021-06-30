@@ -1,4 +1,3 @@
-import { Modal } from "@material-ui/core";
 import React from "react";
 import "./home.scss";
 
@@ -7,7 +6,7 @@ export default function Home() {
     <div className="home">
       <div className="container">
         <div className="imgContainer">
-          <img
+          <img className="cloutlogo"
             src="assets/logo.png"
             alt="logo for clout media - connecting the music industry together"
           />
