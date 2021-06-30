@@ -17,7 +17,8 @@ router.post('/signup', function (req, res) {
         } else {
             const payload = { email };
             const token = jwt.sign(payload, secret, {
-                expiresIn: '1h'
+                // 20 minutes 
+                expiresIn: '1200000'
             });
 
             res.cookie('token', token, { httpOnly: true })

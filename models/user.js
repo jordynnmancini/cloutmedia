@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
   bio: {
     type: String,
     required: false
-  },
+  }
 },
   { timestamps: true }
 );
