@@ -3,7 +3,7 @@ import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
 import Signup from "../src/components/Signup/signup";
 import withAuth from "./components/higher-order-component/withAuth";
-import Dashboard from "../src/components/pages/Dashboard";
+import Dashboard from "../src/components/pages/Dashboard/Dashboard";
 import Discover from "../src/components/pages/Discover/Discover";
 import About from "../src/components/pages/About/About";
 import Contact from "../src/components/pages/Contact/Contact";
@@ -41,8 +41,8 @@ function App() {
         <Route exact path={["/", "/home"]} component={Home} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route path="/dashboard" component={withAuth(Dashboard)} />
-        <Route path="/discover" component={withAuth(Discover)} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/discover" component={Discover} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
       </Switch>
