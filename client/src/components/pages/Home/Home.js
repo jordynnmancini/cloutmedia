@@ -14,10 +14,9 @@ export default function Home() {
       </div>
       <div className="buttons">  
             {/* need to find a way to incorperate a modal into this section and bring the sign in pahe into this page somehow */}
-        <button className="signup" type="submit">
-          Signup!
-        </button>
-        <button className="learnMore" type="submit">
+            <a href="/Signup">
+            <button className="signup"> Signup! </button> </a>
+            <button className="learnMore" onClick={"/About"}  type="submit">
           Learn More!
         </button>
       </div>

@@ -6,18 +6,10 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <div className="container">
-      <h1>Testing</h1>
+      <h1>Profile Name</h1>
         <div className="imgContainer">
     
         </div>
-      </div>
-      <div className="buttons">
-        <button className="initialButton" type="submit">
-          Signup!
-        </button>
-        <button className="button2" type="submit">
-          Learn More!
-        </button>
       </div>
     </div>
   );
