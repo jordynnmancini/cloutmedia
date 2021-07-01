@@ -81,7 +81,7 @@
         justify-content: center;
         margin-bottom: 10px;
         margin-top: 10px;
-        width: 350px;
+        width: 330px;
         border-radius: round($number: 5px);
 
         @include mobile {
@@ -97,7 +97,7 @@
 
       .inputUserName {
         margin-bottom: 10px;
-        width: 400px;
+        width: 380px;
         border-radius: round($number: 5px);
 
         @include mobile {
@@ -113,7 +113,7 @@
 
       .inputPassword {
         margin-bottom: 10px;
-        width: 420px;
+        width: 410px;
         border-radius: round($number: 5px);
 
         @include mobile {
@@ -136,26 +136,27 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 20px;
+          height: 22px;
           width: 40vh;
           background-position: center;
          
         }
       }
 
-      // .labelFor {
-      //   margin-bottom: 10px;
+      .labelFor {
+        margin-bottom: -3px;
 
-      //   @include mobile {
-      //     display: flex;
-      //     align-items: center;
-      //     justify-content: center;
-      //     height: 50vh;
-      //     width: 41vh;
-      //     background-position: center;
+        @include mobile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 20px;
+          width: 40vh;
+          overflow: hidden;
+          
          
-      //   }
-      // }
+        }
+      }
 
       .dropDown {
         margin-bottom: 8px;
