@@ -16,9 +16,10 @@ export default function Home() {
             {/* need to find a way to incorperate a modal into this section and bring the sign in pahe into this page somehow */}
             <a href="/Signup">
             <button className="signup"> Signup! </button> </a>
-            <button className="learnMore" onClick={"/About"}  type="submit">
+           <a href="./"> <button className="learnMore"   type="submit">
           Learn More!
         </button>
+        </a>
       </div>
     </div>
   );
