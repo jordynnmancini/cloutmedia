@@ -31,8 +31,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 50vh;
-      width: 50vh;
+      height: 56vh;
+      width: 56vh;
       margin-top: 50px;
       overflow: hidden;
     }
@@ -69,8 +69,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 50vh;
-      width: 50vh;
+      height: 55vh;
+      width: 55vh;
       background-position: center;
     }
 
@@ -88,7 +88,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 20px;
+          height: 18px;
           width: 35vh;
           background-position: center;
          
@@ -104,7 +104,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 20px;
+          height: 18px;
           width: 41vh;
           background-position: center;
          
@@ -120,7 +120,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 20px;
+          height: 18px;
           width: 42vh;
           background-position: center;
          
@@ -136,7 +136,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 22px;
+          height: 20px;
           width: 40vh;
           background-position: center;
          
@@ -144,7 +144,7 @@
       }
 
       .labelFor {
-        margin-bottom: -3px;
+        margin-bottom: -5px;
 
         @include mobile {
           display: flex;
@@ -153,13 +153,14 @@
           height: 20px;
           width: 40vh;
           overflow: hidden;
+          font-size: 15px
           
          
         }
       }
 
       .dropDown {
-        margin-bottom: 8px;
+        
         width: 350px;
         border-radius: round($number: 5px);
 
@@ -167,9 +168,11 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 20px;
+          height: 15px;
           width: 35vh;
-          background-position: center;
+          font-size: 12px;
+          margin-top: 10px;
+         
          
         }
       }
@@ -178,7 +181,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0;
+        margin-top: 30px;
         opacity: 0.8;
         height: 66px;
         width: 180px;
@@ -193,10 +196,10 @@
         }
 
         @include mobile {
-          height: 40px;
+          height: 30px;
           width: 90px;
           font-size: 22px;
-          margin-bottom: -10px;
+          margin-top: 1px;
         }
       }
 
