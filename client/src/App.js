@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
-import Signup from "../src/components/Signup/signup";
+import Signup from "./components/Signup/signup";
 import withAuth from "./components/higher-order-component/withAuth";
-import Dashboard from "./components/pages/Dashboard/dashboard"
-import Discover from "../src/components/pages/Discover/Discover";
-import About from "../src/components/pages/About/About";
-import Contact from "../src/components/pages/Contact/Contact";
+import Dashboard from "./components/pages/Dashboard/Dashboard"
+import Discover from "./components/pages/Discover/Discover";
+import About from "./components/pages/About/About";
+import Contact from "./components/pages/Contact/Contact";
 import Login from "./components/Login/login";
 import {
   BrowserRouter as Router,
@@ -34,9 +34,9 @@ function App() {
   //return code here
   return (
     <Router>
-      <div className="app">
+    
         <NavMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
-      </div>
+      
       <Switch>
         <Route exact path={["/", "/home"]} component={Home} />
         <Route exact path="/signup" component={Signup} />
@@ -46,8 +46,12 @@ function App() {
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
       </Switch>
+
     </Router>
   );
+}
+function NotFound() {
+  return <>You have landed on a page that doesn't exist</>;
 }
 
 export default App;
