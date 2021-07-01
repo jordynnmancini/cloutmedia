@@ -7,10 +7,10 @@ export default function Topbar({ menuOpen, toggleMenu }) {
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
         <div className="left">
-          <a className="logo">Clout</a>
+        <a href="./home"><img className="logo" src="assets/topbaricon.png"/></a>
         </div>
         <div className="iconContainer">
-          <a href="./login">
+          <a href={"dashboard"}>
             {" "}
             <AccountCircleIcon fontSize="large" className="icon" />
           </a>

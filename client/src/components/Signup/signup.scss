@@ -23,14 +23,16 @@
     align-items: center;
     justify-content: center;
     border: 4px solid yellow;
-    border-radius: round($number: 3px);
+    border-radius: round($number: 50%);
+    margin-bottom: 60px;
+    
 
     @include mobile {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 50vh;
-      width: 50vh;
+      height: 60vh;
+      width: 60vh;
       margin-top: 50px;
       overflow: hidden;
     }
@@ -50,10 +52,10 @@
       justify-content: center;
       flex-direction: column;
       border: 5px solid black;
-      height: 65vh;
-      width: 65vh;
+      height: 60vh;
+      width: 60vh;
       background-color: lightgray;
-      border-radius: round($number: 5px);
+      border-radius: round($number: 50%);
       opacity: 0.9;
 
       

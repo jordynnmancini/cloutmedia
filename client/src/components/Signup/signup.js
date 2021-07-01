@@ -59,7 +59,7 @@ export default class Signup extends Component {
                     <form>
                         <h1>Signup</h1>
                         <input className="inputName"
-                            placeholder="enter your name"
+                            placeholder="enter your name/stage name"
                             name="name"
                             type="text"
                             value={this.state.name}

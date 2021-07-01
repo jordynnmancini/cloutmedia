@@ -52,10 +52,10 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div classname="loginWrapper">
+            <div className="loginWrapper">
             <div className="formContainer">
                 <form>
-                <h1>Login</h1>
+                    <h1>Login</h1>
                     <input className="inputEmail"
                         type="email"
                         name="email"
@@ -72,8 +72,8 @@ export default class Login extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <button onClick={this.onSubmit}>Login</button>
-                    <Link to="/signup">Don't have an account yet? <span>Signup</span></Link>
+                    <button className="signInButton" onClick={this.onSubmit}>Login</button>
+                    <Link to="/signup">Don't have an account yet? <span>Signup here!</span></Link>
                 </form>
             </div>
             </div>

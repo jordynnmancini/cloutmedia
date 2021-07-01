@@ -1,43 +1,111 @@
-.loginWrapper {
+@import "../../global.scss";
+
+.loginWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-image: url(crowd.png);
+  image-resolution: initial;
+
+
+  .formContainer{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-    background-image: url(./crowd.png);
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
+    border: 4px solid yellow;
+    border-radius: round($number: 50%);
+    margin-bottom: 60px;
 
 
-    .formContainer {
-    
+    form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: lightgray;
+      border: 5px solid black;
+      padding: 5px 5px;
+      height: 60vh;
+      width: 60vh;
+      opacity: 0.9;
+      border-radius: round($number: 50%);
+
+
+      @include mobile {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 4px solid yellow;
-        border-radius: round($number: 3px);
-        
-    
-        h1 {
-          font-family: "Roboto";
-          font-weight: bolder;
-          display: flex;
-          padding-bottom: 60px;
-        }
-    
-        form {
-          overflow: hidden;
+        height: 25vh;
+        width: 30vh;
+        background-position: center;
+       
+      }
+
+      
+    h1 {
+      font-family: "Roboto";
+      font-weight: bolder;
+      display: flex;
+      padding-bottom: 20px;
+    }
+
+
+      .inputEmail{
+        margin-bottom: 20px;
+        width: 300px;
+        border-radius: round($number: 5px);
+
+        @include mobile {
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-direction: column;
-          border: 5px solid black;
-          height: 65vh;
-          width: 65vh;
-          background-color: lightgray;
-          border-radius: round($number: 5px);
-          opacity: 0.9;
-}  
-}
+          height: 50vh;
+          width: 45vh;
+          background-position: center;
+         
+        }
+      }
+
+      .inputPassword {
+        margin-bottom: 20px;
+        width: 300px;
+        border-radius: round($number: 5px);
+
+        @include mobile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 50vh;
+          width: 45vh;
+          background-position: center;
+         
+        }
+      }
+
+      .signInButton{
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        opacity: 0.8;
+        height: 46px;
+        width: 130px;
+        border-radius: 15px;
+        font-size: 25px;
+        font-weight: bolder;
+        outline: none;
+
+        &:hover {
+          opacity: 1.3;
+          background-color: yellow;
+        }
+
+      }
+    }
+  }
 }
