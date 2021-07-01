@@ -73,7 +73,7 @@ export default class Login extends Component {
                         required
                     />
                     <button className="signInButton" onClick={this.onSubmit}>Login</button>
-                    <Link to="/signup">Don't have an account yet? <span>Signup here!</span></Link>
+                    <Link className="linkText" to="/signup">Don't have an account yet? <span>Signup here!</span></Link>
                 </form>
             </div>
             </div>

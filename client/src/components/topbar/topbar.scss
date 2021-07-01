@@ -9,7 +9,7 @@
   z-index: 3;
   transition: all 1s ease;
   overflow: hidden;
-  opacity: 0.89;
+  opacity: 0.9;
 
   @include mobile {
    opacity:5;
@@ -98,7 +98,7 @@
   &.active {
     background-color: yellow;
     color: black;
-    opacity: .6;
+    opacity: .8;
 
     
 

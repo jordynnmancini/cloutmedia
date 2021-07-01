@@ -11,6 +11,12 @@
   background-image: url(crowd.png);
   image-resolution: initial;
 
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    background-position:center;
+  }
+
 
   .formContainer{
     display: flex;
@@ -19,6 +25,18 @@
     border: 4px solid yellow;
     border-radius: round($number: 50%);
     margin-bottom: 60px;
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      width: 50vh;
+      margin-top: 50px;
+      overflow: hidden;
+    }
+    
+
 
 
     form{
@@ -34,16 +52,15 @@
       opacity: 0.9;
       border-radius: round($number: 50%);
 
-
       @include mobile {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 25vh;
-        width: 30vh;
+        height: 50vh;
+        width: 50vh;
         background-position: center;
-       
       }
+  
 
       
     h1 {
@@ -51,6 +68,12 @@
       font-weight: bolder;
       display: flex;
       padding-bottom: 20px;
+
+      @include mobile{
+        font-size: 30px;
+        margin-bottom: -5px;
+        
+      }
     }
 
 
@@ -63,8 +86,8 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 50vh;
-          width: 45vh;
+          height: 5vh;
+          width: 38vh;
           background-position: center;
          
         }
@@ -75,12 +98,13 @@
         width: 300px;
         border-radius: round($number: 5px);
 
+      
         @include mobile {
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 50vh;
-          width: 45vh;
+          height: 5vh;
+          width: 38vh;
           background-position: center;
          
         }
@@ -105,6 +129,20 @@
           background-color: yellow;
         }
 
+
+        @include mobile {
+          height: 33px;
+          width: 93px;
+        }
+      }
+
+      .linkText {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 20px;
+        padding-top: 15px;
       }
     }
   }
