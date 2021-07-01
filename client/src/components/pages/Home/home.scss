@@ -10,6 +10,7 @@
   background-size: cover;
   background-image: url(crowd.png);
   image-resolution: initial;
+  background-position: center;
 
   @include mobile {
     flex-direction: column;
@@ -52,11 +53,13 @@
       height: 100vh;
       width: 100%;
       overflow: hidden;
+      background-position: center;
 
       @include mobile {
         display: flex;
         align-items: center;
         justify-content: center;
+        background-position: center;
       }
 
       .cloutlogo{
