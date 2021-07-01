@@ -1,5 +1,5 @@
 import React from "react";
-import "./dashboard.scss"
+import "./dashboard.scss";
 
 export default function Dashboard() {
   return (
@@ -8,7 +8,7 @@ export default function Dashboard() {
       <h1>Profile Name</h1>
         <div className="imgContainer">
         </div>
-      </div>
-    </div>
-  );
+        </div>
+        </div>
+  )
 }
