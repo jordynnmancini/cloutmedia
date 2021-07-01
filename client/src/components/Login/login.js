@@ -23,7 +23,7 @@ export default class Login extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-// write if statement - logging in as artist or engineer? or have 2 separate login components? 
+
         API.userLogin({
             email: this.state.email,
             password: this.state.password,
