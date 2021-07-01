@@ -29,14 +29,16 @@
     margin-bottom: 60px;
     overflow: hidden;
     border-radius: round($number: 50%);
+    background-position: center;
 
     @include mobile {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 56vh;
+      height: 54vh;
       width: 56vh;
       margin-top: 50px;
+      background-position: center;
     }
 
   
@@ -66,7 +68,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 46vh;
+          height: 48vh;
         width: 98%;
         }
       }
