@@ -13,6 +13,7 @@ export default function Home() {
           />
         </div>
       </div>
+
       <div className="buttons">
         <a href="/Signup">
           <button className="signup" type="submit"> 
@@ -24,6 +25,7 @@ export default function Home() {
             Login!
           </button>
         </a>
+
       </div>
     </div>
   );
