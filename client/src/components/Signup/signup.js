@@ -59,16 +59,15 @@ export default class Signup extends Component {
             .catch(err => {
                 console.error(err);
                 console.log(this.state);
-                alert('Error signing up - please try again!');
+                alert('Make sure you fill in all the fields & try again!');
 
             });
     }
-    // this.state.hasLoggedIn ? (<Redirect to="/dashboard" />) :
 
     //preventing already logged in users from seeing the signup page
     componentDidMount() {
         if (localStorage.getItem('jwtToken') !== null) {
-            return this.props.history.goBack();
+            return this.props.history.replace('/dashboard');
         }
     }
 
@@ -79,7 +78,7 @@ export default class Signup extends Component {
                     <form>
                         <h1>Signup</h1>
                         <input className="inputName"
-                            placeholder="enter your name/stage name"
+                            placeholder="enter your first & last name"
                             name="name"
                             type="text"
                             value={this.state.name}
