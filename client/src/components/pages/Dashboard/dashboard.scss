@@ -1,3 +1,100 @@
-/* component CSS */
 @import "../../../global.scss";
 
+.dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: url(./crowd.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    image-resolution:initial;
+    background-position: center;
+    color: wheat;
+  
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      background-position:center;
+    }
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 75vh;
+        width: 60vh;
+        background-color: lightgray;
+        opacity: 0.7;
+        margin-bottom: 60px;
+        overflow: hidden;
+        background-position: center;
+        margin-top: 50px;
+    
+        @include mobile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 54vh;
+          width: 56vh;
+          margin-top: 50px;
+          background-position: center;
+        }
+        
+
+        h2{
+
+        }
+
+
+        .left{
+            
+
+            .info{
+
+
+
+                ul{
+
+
+
+                    li{
+
+
+
+                    }
+                }
+            }
+        }
+
+        .right{
+            
+
+
+            .profileEdit{
+
+
+
+                .profileButton{
+
+
+                }
+
+                .previewButton{
+
+
+                }
+
+
+                .settingsButton{
+
+                    
+                }
+            }
+
+        }
+    }
+    
+}

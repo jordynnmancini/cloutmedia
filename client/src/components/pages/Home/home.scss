@@ -12,6 +12,7 @@
   image-resolution: initial;
   background-position: center;
 
+
   @include mobile {
     flex-direction: column;
     align-items: center;
