@@ -3,12 +3,13 @@ import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
 import Signup from "./components/Signup/signup";
 import withAuth from "./components/higher-order-component/withAuth";
-import Dashboard from "./components/pages/Dashboard/Dashboard"
+import Dashboard from "./components/pages/Dashboard/Dashboard";
 import Discover from "./components/pages/Discover/Discover";
 import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";
 import Login from "./components/Login/login";
 import NotFound from "./components/pages/NotFound/NotFound";
+
 import {
   BrowserRouter as Router,
   Switch,

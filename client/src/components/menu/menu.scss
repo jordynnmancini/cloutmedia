@@ -17,10 +17,10 @@
 
   &.active {
     right: 0;
-    opacity: 0.5;
+    opacity: 0.8;
 
     @include mobile {
-      width: 124px;
+      width: 145px;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -50,6 +50,12 @@
 
       &:hover {
         font-weight: 600;
+      }
+
+      @include mobile{
+        font-size: 18px;
+        
+
       }
     }
   }

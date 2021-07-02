@@ -11,8 +11,8 @@ export default class Signup extends Component {
             email: "",
             name: "",
             password: "",
-            primaryLocation: "",
-            type: "",
+            primaryLocation: "Nashville",
+            type: "Artist",
         };
     }
 
@@ -20,6 +20,19 @@ export default class Signup extends Component {
         const { value, name } = e.target;
         this.setState({
             [name]: value
+        });
+    }
+
+    handleTypeChange = (e) => {
+        console.log(e.target.value)
+        this.setState({ type: e.target.value }, () => {
+            console.log(this.state)
+        });
+    }
+
+    handleLocationChange = (e) => {
+        this.setState({ primaryLocation: e.target.value }, () => {
+            console.log(this.state)
         });
     }
 
@@ -52,6 +65,13 @@ export default class Signup extends Component {
     }
     // this.state.hasLoggedIn ? (<Redirect to="/dashboard" />) :
 
+    //preventing already logged in users from seeing the signup page
+    componentDidMount() {
+        if (localStorage.getItem('jwtToken') !== null) {
+            return this.props.history.goBack();
+        }
+    }
+
     render() {
         return (
             <div className='signupWrapper'>
@@ -59,7 +79,7 @@ export default class Signup extends Component {
                     <form>
                         <h1>Signup</h1>
                         <input className="inputName"
-                            placeholder="enter your name"
+                            placeholder="enter your name/stage name"
                             name="name"
                             type="text"
                             value={this.state.name}
@@ -79,25 +99,24 @@ export default class Signup extends Component {
                             value={this.state.password}
                             onChange={this.handleInputChange}
                         />
-                        <input className="inputLocation"
+                        {/* <input className="inputLocation"
                             placeholder="enter your Location"
                             name="primaryLocation"
                             type="text"
                             value={this.state.primaryLocation}
                             onChange={this.handleInputChange}
-                        />
-                        {/* <label className="labelFor" for="user-type">I am a(n):</label>
-                    <select className="dropDown" id="user-type" name="type" onChange={this.handleInputChange}>
-                        <option value={this.state.type}>Artist/Musician</option>
-                        <option value={this.state.type}>Sound Engineer</option>
-                    </select> */}
-                        <input className="dropDown"
-                            placeholder="enter your type"
-                            name="type"
-                            type="text"
-                            value={this.state.type}
-                            onChange={this.handleInputChange}
-                        />
+                        /> */}
+                        <label className="labelFor" for="user-type">I am a(n):</label>
+                        <select value={this.state.type} className="dropDown" id="user-type" name="type" onChange={this.handleTypeChange}>
+                            <option value='Artist'>Artist/Musician</option>
+                            <option value='Sound Engineer'>Sound Engineer</option>
+                        </select>
+                        <label className="labelFor" for="primary-location"> Living in: </label>
+                        <select value={this.state.primaryLocation} className="dropDown" id="primaryLocation" name="primaryLocation" onChange={this.handleLocationChange}>
+                            <option value="Nashville">Nashville, TN</option>
+                            <option value="Los Angeles">Los Angeles, CA</option>
+                            <option value="New York City">New York City, NY</option>
+                        </select>
                         <button className="signupButton" onClick={this.onSubmit}>Signup</button>
                         <Link className="linkText" to="/login">Have an account already?  <span>Click here to login!</span></Link>
                     </form>
