@@ -83,7 +83,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      flex: 8;
+      flex: 10;
       height: 550px;
 
       @include mobile {
@@ -211,7 +211,7 @@
             height: 330px;
             width: 290px;
             font-family: "Roboto";
-            margin-top: 10px;
+            margin-bottom: 16px;
 
             @include mobile {
               height: 40vh;
@@ -230,7 +230,7 @@
               font-size: 16px;
               font-weight: bold;
               width: 440px;
-              margin-top: 0px;
+              
 
               @include mobile {
                 display: flex;
@@ -271,7 +271,7 @@
     }
 
     .right {
-      flex: 8;
+      flex: 6;
       display: flex;
       align-content: center;
       justify-content: center;
@@ -289,7 +289,7 @@
         align-content: center;
         justify-content: center;
         flex-direction: column;
-        margin-left: 170px;
+        margin-left: 70px;
         opacity: 0.8;
         font-family: "Roboto";
         font-weight: bold;
@@ -328,6 +328,7 @@
           justify-content: center;
           margin-bottom: 60px;
           font-weight: bold;
+          
 
           &:focus {
             outline: none;
