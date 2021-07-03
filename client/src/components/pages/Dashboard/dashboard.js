@@ -31,6 +31,7 @@ export default function Dashboard() {
           <div className="bottom">
             <div className="info">
               <ul>
+              <br/>
                 <li>Andre Rodriguez</li>
                 <li>Percussionist/Teacher</li>
                 <li>Columbus, OH</li>
@@ -41,8 +42,8 @@ export default function Dashboard() {
                 <p> 
                   "Sed ut perspiciatis unde omnis iste natus error sit                                   
                   voluptatem accusantium doloremque laudantium, totam rem
-                  aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                  jhfgjhgfd jkhfjhkgf jhfjhfg
+                  aperiam, eaque ipsa quae ab illo inventore veritatis et quasi kjhdskjhds kjhdsakjhd kjhdaskjhdas
+                  
                 </p>
               </ul>
             </div>
