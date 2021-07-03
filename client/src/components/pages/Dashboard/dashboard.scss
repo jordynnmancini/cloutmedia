@@ -131,11 +131,12 @@
 
           @include mobile {
             padding: 0;
-            width: 70%;
+            width: 80%;
+            height: 29vh;
             background-position: center;
             image-resolution: initial;
             background-size: cover;
-            margin-left: 20px;
+            margin-right: 9px;
             margin: 0;
           }
 
@@ -144,18 +145,19 @@
             width: 350px;
             margin-right: 170px;
             margin-top: 10px;
-            border-radius: round($number: 50%);
+            border-radius: round($number: 30%);
 
             @include mobile {
-              height: 17vh;
+              height: 22vh;
+              width: 69%;
               margin-bottom: 20px;
               padding: 0;
               justify-content: center;
               background-position: center;
               image-resolution: initial;
               background-size: cover;
-              margin-left: 110px;
-              border-radius: round($number: 30%);
+              margin-left: 120px;
+            //   border-radius: round($number: 30%);
             }
           }
         }
