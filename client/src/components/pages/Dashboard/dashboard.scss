@@ -93,7 +93,6 @@
         height: 56vh;
         width: 100%;
         flex: 10;
-        margin-top: 60px;
       }
 
       .top {
@@ -145,13 +144,12 @@
             width: 350px;
             margin-right: 170px;
             margin-top: 10px;
-            border-radius: round($number: 30%);
+            border-radius: round($number: 50%);
 
             @include mobile {
               height: 22vh;
               width: 69%;
-              margin-bottom: 20px;
-              padding: 0;
+              
               justify-content: center;
               background-position: center;
               image-resolution: initial;
@@ -178,7 +176,7 @@
           align-items: center;
           justify-content: center;
           margin: 0;
-          margin-bottom: 50px;
+          
         }
 
         .info {
