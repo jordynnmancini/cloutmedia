@@ -48,11 +48,11 @@
       justify-content: center;
       flex-direction: column;
       background-color: lightgray;
-      border: 5px solid black;
+      border: 9px solid black;
       padding: 5px 5px;
-      height: 60vh;
-      width: 60vh;
-      opacity: 0.9;
+      // height: 60vh;
+      // width: 60vh;
+      opacity: 0.8;
       border-radius: round($number: 50%);
 
       @include mobile {
