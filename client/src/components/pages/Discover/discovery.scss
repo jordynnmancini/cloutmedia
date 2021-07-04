@@ -1,1 +1,127 @@
-@import "../../../global.scss"
+@import "../../../global.scss";
+
+.discoverWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-image: url(crowd.png);
+    image-resolution: initial;
+    background-position: center;
+  
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      background-position: center;
+    }
+
+
+    .discoverBanner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 150px;
+        border: 5px solid yellow;
+        overflow: hidden;
+        background-color: lightgray;
+        border-radius: round($number: 12px);
+        opacity: 0.9;
+        margin-top: 100px;
+
+        h3{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    }
+
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+        height: 65vh;
+        width: 80%;
+        margin-top: 100px;
+        background-color: lightgray;
+        border-radius: round($number: 12px);
+
+        .top{
+            height: 35vh;
+            width: 65%;
+            background-color: black;
+            margin: 0;
+           
+            overflow: hidden;
+            
+            .gpsBox{
+                height: 100vh;
+                width: 100%;
+                overflow: hidden;
+            }
+        }
+
+        .bottom{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            height: 25vh;
+            width: 85%;
+            padding: 0;
+            margin: 10px;
+
+            .left{
+                height: 25vh;
+                flex: 6;
+
+                h3{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 35px;
+                    font-family: "Roboto";
+                    font-weight: 600;
+
+                }
+
+                .inputSearch{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 50px;
+                    height: 30px;
+                    width: 250px;
+                    margin-left: 120px;
+                }
+
+                .searchButton{
+                    height: 26px;
+                    width: 30px;
+                }
+            }
+
+            .right{
+                height: 25vh;
+                flex: 10;
+
+                h3{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 35px;
+                    font-family: "Roboto";
+                    font-weight: 600;
+
+                }
+            }
+        }
+
+    }
+}
