@@ -1,0 +1,25 @@
+@import "../../global.scss";
+
+.logout {
+    height: 66px;
+    width: 180px;
+    border-radius: 25px;
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: "Roboto";
+    &:focus{
+      outline: none;
+    }
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    &:hover{
+        opacity: 1.3;
+        background-color: yellow;
+    }
+}
