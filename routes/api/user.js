@@ -59,10 +59,11 @@ router.post('/login', function (req, res) {
 });
 
 //Dashboard Routes 
-
-router.put('/', function (req, res) {
+// use express sessions for registering the logged in user ID and rendering their info? 
+router.put('/update', function (req, res) {
+    console.log(req,"Session")
     const { id } = req.body;
-    User.findOneAndUpdate({ id }, function (err, user) {
+    db.User.findOneAndUpdate({ id }, function (err, user) {
 
     })
 })
@@ -76,6 +77,8 @@ router.get('/discover', function (req, res) {
     })
      .then(search => res.json(search))
      .catch(err => res.status(422).end()); 
-})
+});
+
+
 
 module.exports = router;

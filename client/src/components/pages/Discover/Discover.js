@@ -1,13 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
+import Modal from 'react-modal';
 import "./discovery.scss";
 import { init } from "ityped";
 import SearchIcon from '@material-ui/icons/Search';
 import API from '../../../utils/API';
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
 export default function Discovery() {
   const [results, setResults] = useState([]);
   const [type, setType] = useState();
   const [location, setLocation] = useState();
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [selectedUser, setUser] = useState({
+    name: '',
+    email: ''
+  });
 
   const textRef = useRef();
   useEffect(() => {
@@ -34,6 +52,21 @@ export default function Discovery() {
     API.getSearchResults(type, location)
       .then(res => setResults(res.data))
       .catch(err => console.log(err));
+  }
+
+  function openModal(result) {
+    console.log(result)
+    setIsOpen(true);
+    setUser({ name:result.name, email:result.email })
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
   }
 
   return (
@@ -68,12 +101,13 @@ export default function Discovery() {
                   <h1>no results</h1>
                 ) : (
                   <div>
-                    {results.map(result => {
+                    
+                    {results.map( (result,key) => {
                       return (
-                        <ul className="eng1">
+                        <ul className="eng1" key={key}>
                           <li className="name">{result.name}</li>
                           <li className="title">{result.type} - {result.subType}</li>
-                          <a href="./whoopsie"><li className="info">More Info</li></a>
+                          <button onClick={() => openModal(result)}><li className="info">More Info</li></button>
                         </ul>
                       )
                     })}
@@ -83,8 +117,21 @@ export default function Discovery() {
             </div>
           </div>
         </div>
-
-
+        <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        {selectedUser.name}
+        {selectedUser.email} 
+        
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+    
+      </Modal>
       </div>
     </div>
   );

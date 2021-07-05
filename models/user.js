@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
   },
   subType: {
     type: String,
-    required: true,
+    required: false,
   },
   stageName: {
     type: String,
