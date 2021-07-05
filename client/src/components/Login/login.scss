@@ -5,11 +5,14 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
+  background-image: url(./crowd.png);
+  background-size: cover;
   height: 100vh;
   width: 100%;
-  background-size: cover;
-  background-image: url(crowd.png);
   image-resolution: initial;
+  background-position: center;
+
 
   @include mobile {
     flex-direction: column;
@@ -25,6 +28,9 @@
     border: 4px solid yellow;
     border-radius: round($number: 50%);
     margin-bottom: 60px;
+    height: 61vh;
+    width: 61vh;
+    overflow: hidden;
 
     @include mobile {
       display: flex;
@@ -48,8 +54,8 @@
       border: 5px solid black;
       padding: 5px 5px;
       height: 60vh;
-      width: 60vh;
-      opacity: 0.9;
+      width: 61vh;
+      opacity: 0.8;
       border-radius: round($number: 50%);
 
       @include mobile {
