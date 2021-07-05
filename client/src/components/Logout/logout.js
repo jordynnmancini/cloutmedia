@@ -1,9 +1,12 @@
 import React from 'react';
-import API from "../../utils/API";
+import { useHistory } from "react-router-dom"; 
 import swal from "sweetalert"; 
+import './logout.scss'; 
 
 export default function LogoutButton() {
-    Logout = () => {
+    const history = useHistory()
+
+    const Logout = () => {
         swal("Are you sure you want to log out?", {
             buttons: {
                 stay: {
@@ -21,7 +24,7 @@ export default function LogoutButton() {
                     swal("Log out successful!", ":)")
                     .then(val => {
                         localStorage.removeItem('jwtToken');
-                        return this.props.history.push('/'); 
+                        history.push('/')
                     });
                     break;
                 case 'stay':
@@ -33,7 +36,7 @@ export default function LogoutButton() {
     }
 
     return (
-        <button onClick={Logout()}>
+        <button className="logout" onClick={() => Logout()}>
             Logout 
         </button>
     )

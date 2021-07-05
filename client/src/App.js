@@ -3,11 +3,14 @@ import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
 import Signup from "./components/Signup/signup";
 import withAuth from "./components/higher-order-component/withAuth";
-import Dashboard from "./components/pages/Dashboard/Dashboard";
+import Dashboard from "./components/pages/Dashboard/dashboard";
 import Discover from "./components/pages/Discover/Discover";
 import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";
-import Login from "./components/Login/Login";
+import Login from "./components/Login/login";
+import NotFound from "./components/pages/NotFound/NotFound";
+
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -45,13 +48,11 @@ function App() {
         <Route path="/discover" component={Discover} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="*" component={NotFound} />
       </Switch>
 
     </Router>
   );
-}
-function NotFound() {
-  return <>You have landed on a page that doesn't exist</>;
 }
 
 export default App;

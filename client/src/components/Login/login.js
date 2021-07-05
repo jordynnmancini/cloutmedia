@@ -46,7 +46,7 @@ export default class Login extends Component {
     //preventing already logged in users from seeing the login page
     componentDidMount() {
         if(localStorage.getItem('jwtToken') !== null){
-            return this.props.history.goBack(); 
+            return this.props.history.replace('/dashboard'); 
         }
     }
 
