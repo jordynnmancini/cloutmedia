@@ -10,13 +10,13 @@
   background-size: cover;
   background-image: url(crowd.png);
   image-resolution: initial;
+  background-position: center;
 
   @include mobile {
     flex-direction: column;
     align-items: center;
-    background-position:center;
+    background-position: center;
   }
-
 
   .container {
     display: flex;
@@ -27,6 +27,7 @@
     background-color: lightgray;
     opacity: 0.7;
     margin-bottom: 60px;
+    margin-top: 10px;
     overflow: hidden;
     border-radius: round($number: 50%);
     background-position: center;
@@ -35,13 +36,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 54vh;
-      width: 56vh;
+      height: 50vh;
+      width: 50vh;
       margin-top: 50px;
       background-position: center;
+      position: relative;
     }
-
-  
 
     .imgContainer {
       display: flex;
@@ -52,14 +52,16 @@
       height: 100vh;
       width: 100%;
       overflow: hidden;
+      background-position: center;
 
       @include mobile {
         display: flex;
         align-items: center;
         justify-content: center;
+        background-position: center;
       }
 
-      .cloutlogo{
+      .cloutlogo {
         height: 55vh;
         width: 100%;
         border-radius: round($number: 50%);
@@ -68,11 +70,10 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 48vh;
-        width: 98%;
+          height: 46vh;
+          width: 98%;
         }
       }
-    
     }
   }
   .buttons {
@@ -81,7 +82,7 @@
     justify-content: space-evenly;
     margin-right: 10px;
     margin: 0;
-    opacity: .9;
+    opacity: 0.9;
     margin-top: -50px;
     background-color: none;
     font-size: 15px;
@@ -95,18 +96,16 @@
     }
   }
 
-  .signup{
+  .signup {
     height: 66px;
     width: 180px;
     border-radius: 25px;
     font-size: 25px;
     font-weight: bolder;
     font-family: "Roboto";
-    &:focus{
+    &:focus {
       outline: none;
     }
-
-    
 
     @include mobile {
       display: flex;
@@ -116,19 +115,18 @@
       margin-bottom: 20px;
     }
 
-    &:hover{
-        opacity: 1.3;
-        background-color: yellow;
+    &:hover {
+      opacity: 1.3;
+      background-color: yellow;
     }
-
   }
-  .login{
+  .login {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     margin-left: 97px;
-    opacity: .9;
+    opacity: 0.9;
     height: 66px;
     width: 180px;
     border-radius: 15px;
@@ -137,10 +135,9 @@
     font-family: "Roboto";
     text-decoration: none;
 
-    &:focus{
+    &:focus {
       outline: none;
     }
-
 
     @include mobile {
       display: flex;
@@ -150,12 +147,10 @@
       margin: 0;
     }
 
-    &:hover{
-        opacity: 1.3;
-        background-color: yellow;
-        text-decoration: none;
+    &:hover {
+      opacity: 1.3;
+      background-color: yellow;
+      text-decoration: none;
     }
-   
-    
-}
+  }
 }
