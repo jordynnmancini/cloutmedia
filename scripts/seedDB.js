@@ -13,6 +13,7 @@ const userSeed = [
         password: "password123",
         primaryLocation: "Nashville",
         type: "Sound Engineer",
+        subType: "Mastering",
         bio: "Living in Nashville - love to work with country artists!"
     },
     {
@@ -21,6 +22,7 @@ const userSeed = [
         password: "password123",
         primaryLocation: "Nashville",
         type: "Sound Engineer",
+        subType: "Systems",
         bio: "New to mastering - looking for practice with smaller local bands."
     },
     {
@@ -46,6 +48,7 @@ const userSeed = [
         password: "password123",
         primaryLocation: "Nashville",
         type: "Artist",
+        subType: "Singer & Songwriter", 
         stageName: "Rina", 
         bio: "Country singer from the heart of Tennessee!"
     },
@@ -55,6 +58,7 @@ const userSeed = [
         password: "password123",
         primaryLocation: "Nashville",
         type: "Artist",
+        subType: "Singer & Acoustic Guitar", 
         bio: "I'm a singer and acoustic guitar player looking to record my first EP"
     },
     {
@@ -72,6 +76,7 @@ const userSeed = [
         password: "password123",
         primaryLocation: "Los Angeles",
         type: "Sound Engineer",
+        subType: "Monitor", 
         bio: "fresh out of my apprenticeship and looking to build my connections!"
     },
     {
@@ -79,7 +84,9 @@ const userSeed = [
         name: "John Recording",
         password: "password123",
         primaryLocation: "Los Angeles",
-        type: "Sound Engineer"
+        type: "Sound Engineer",
+        subType: "Studio", 
+
     },
     {
         email: "soundLA3@gmail.com",
@@ -88,6 +95,7 @@ const userSeed = [
         primaryLocation: "Los Angeles",
         stageName: "Alice Wonder Beats",
         type: "Sound Engineer",
+        subType: "Mastering", 
     },
     {
         email: "artistLA@gmail.com",
@@ -95,6 +103,7 @@ const userSeed = [
         password: "password123",
         primaryLocation: "Los Angeles",
         type: "Artist",
+        subType: "DJ", 
         stageName: "DJ Amber",
         bio: "Looking for a master engineer to collab with!"
     },
@@ -103,7 +112,8 @@ const userSeed = [
         name: "Oscar Smith",
         password: "password123",
         primaryLocation: "Los Angeles",
-        type: "Artist"
+        type: "Artist",
+        subType: "Singer", 
     },
     {
         email: "artistLA3@gmail.com",
@@ -135,6 +145,7 @@ const userSeed = [
         password: "password123",
         primaryLocation: "New York City",
         type: "Sound Engineer",
+        subType: "Systems"
     },
     {
         email: "artistNY@gmail.com",
@@ -142,6 +153,7 @@ const userSeed = [
         password: "password123",
         primaryLocation: "New York City",
         type: "Artist",
+        subType: "Broadway Singer", 
         stageName: "Star Power"
     },
     {

@@ -72,7 +72,7 @@ export default function Discovery() {
                       return (
                         <ul className="eng1">
                           <li className="name">{result.name}</li>
-                          <li className="title">{result.type}</li>
+                          <li className="title">{result.type} - {result.subType}</li>
                           <a href="./whoopsie"><li className="info">More Info</li></a>
                         </ul>
                       )
