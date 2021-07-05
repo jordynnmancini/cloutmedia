@@ -98,13 +98,6 @@ export default class Signup extends Component {
                             value={this.state.password}
                             onChange={this.handleInputChange}
                         />
-                        {/* <input className="inputLocation"
-                            placeholder="enter your Location"
-                            name="primaryLocation"
-                            type="text"
-                            value={this.state.primaryLocation}
-                            onChange={this.handleInputChange}
-                        /> */}
                         <label className="labelFor" for="user-type">I am a(n):</label>
                         <select value={this.state.type} className="dropDown" id="user-type" name="type" onChange={this.handleTypeChange}>
                             <option value='Artist'>Artist/Musician</option>

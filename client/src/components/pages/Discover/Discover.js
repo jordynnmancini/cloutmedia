@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./discovery.scss";
 import { init } from "ityped";
-import { useEffect, useRef } from "react";
 import SearchIcon from '@material-ui/icons/Search';
+import API from '../../../utils/API'; 
 
 export default function Discovery() {
+  const [results, setResults] = useState([]);
+  const [type, setType] = useState();
+  const [location, setLocation] = useState(); 
+
   const textRef = useRef();
   useEffect(() => {
     init(textRef.current, {
@@ -14,6 +18,20 @@ export default function Discovery() {
       showCursor: true,
     });
   }, []);
+
+  const handleInputChange = e => {
+    const { value } = e.target;
+    setType(value);
+    setLocation(value); 
+  }
+
+  const handleSearchSubmit = e => {
+    e.preventDefault(); 
+    API.getSearchResults(type, location)
+      .then(res => setResults(res.data))
+      .catch(err => console.log(err)); 
+  }
+
   return (
     <div className="discoverWrapper">
       <div className="discoverBanner">
