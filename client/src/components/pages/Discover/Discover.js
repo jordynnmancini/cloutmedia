@@ -60,10 +60,10 @@ export default function Discovery() {
     setUser({ name:result.name, email:result.email })
   }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
+  // function afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   subtitle.style.color = '#f00';
+  // }
 
   function closeModal() {
     setIsOpen(false);
@@ -119,18 +119,16 @@ export default function Discovery() {
         </div>
         <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
+        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        {selectedUser.name}
-        {selectedUser.email} 
+        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{selectedUser.stageName}</h2> */}
+        <h1>{selectedUser.name}</h1>
+        Reach them at: <a href='mailto:'>{selectedUser.email}</a>
         
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-    
+        <button onClick={closeModal}>close</button>    
       </Modal>
       </div>
     </div>
