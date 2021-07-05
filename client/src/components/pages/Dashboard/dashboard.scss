@@ -1,30 +1,372 @@
-/* component CSS */
 @import "../../../global.scss";
 
 .dashboard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  background-image: url(./crowd.png);
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  image-resolution: initial;
+  background-position: center;
+  overflow: hidden;
+
+  @include mobile {
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-image: url();
-    image-resolution: initial;
-.container {
+    align-items: center;
+    background-position: center;
+  }
+  .headerBox {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; 
-    width: 100vh;
-h1  { 
-    color: black;
-    font-size :122px;
-   
+    overflow: hidden;
+    border: 5px solid yellow;
+    margin-top: 90px;
+    background-color: lightgray;
+    opacity: 0.9;
+    border-radius: round($number: 12px);
+    height: 45px;
+    width: 280px;
 
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto";
+      font-weight: 800;
+      color: black;
+      font-size: 30px;
+      margin-top: 5px;
 
+      .ityped-cursor {
+        animation: blink 1.23s infinite;
+        color: yellow;
 
-}
-}
+        @keyframes blink {
+          50% {
+            opacity: 1.23;
+          }
+          100% {
+            opacity: 2;
+          }
+        }
+      }
+    }
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(247, 247, 66);
+    height: 80vh;
+    margin-top: 23px;
+    border-radius: round($number: 20px);
+    overflow: hidden;
+    opacity: .9;
 
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60vh;
+      width: 48vh;
+      margin-top: 50px;
+      background-position: center;
+      
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex: 10;
+      height: 550px;
+
+      @include mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 56vh;
+        width: 100%;
+        flex: 12;
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 250px;
+        width: 100%;
+        margin-top: 20px;
+
+        @include mobile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 40vh;
+          width: 600px;
+          margin: 0;
+          margin-left: 35px;
+        }
+
+        .imageContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          width: 530px;
+          opacity: 1;
+          background-position: center;
+          image-resolution: inherit;
+          background-size: cover;
+          overflow: hidden;
+        //   margin-bottom: 50px;
+          margin-left: 60px;
+
+          @include mobile {
+            padding: 0;
+            width: 80%;
+            height: 29vh;
+            background-position: center;
+            image-resolution: initial;
+            background-size: cover;
+            margin-right: 90px;
+            // margin: 0;
+          }
+
+          .img {
+            height: 230px;
+            width: 300px;
+            margin-right: 170px;
+            // margin-top: 10px;
+            border-radius: round($number: 50%);
+
+            @include mobile {
+              height: 22vh;
+              width: 69%;
+              
+              justify-content: center;
+              background-position: center;
+              image-resolution: initial;
+              background-size: cover;
+              margin-left: 120px;
+            //   border-radius: round($number: 30%);
+            }
+          }
+        }
+      }
+      .bottom {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+        height: 300px;
+        width: 560px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        font-family: "Roboto";
+
+        @include mobile {
+          height: 60vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          
+        }
+
+        .info {
+          height: 290px;
+          width: 100%;
+          overflow: hidden;
+          font-family: "Roboto";
+          margin-right: 130px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 40px;
+
+          @include mobile {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 56vh;
+            width: 75%;
+           margin-bottom: 0;
+            margin-right: 20px;
+          }
+
+          ul {
+            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            height: 330px;
+            width: 290px;
+            font-family: "Roboto";
+            margin-bottom: 16px;
+
+            @include mobile {
+              height: 40vh;
+            //   margin-top: 30px;
+              margin-right: 60px;
+              display: flex;
+              font-size: 14px;
+            }
+
+            li {
+              display: flex;
+              align-items: left;
+              justify-content: left;
+              overflow: hidden;
+              font-family: "Roboto";
+              font-size: 16px;
+              font-weight: bold;
+              width: 440px;
+              
+
+              @include mobile {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 10vh;
+                margin: 0;
+                font-size: 8px;
+                font-weight: bold;
+                font-family: "Roboto";
+                width: 100%;
+              }
+            }
+            p {
+              width: 100%;
+              font-family: "Roboto";
+              font-weight: 600;
+              height: 120px;
+              margin-right: 0;
+
+              @include mobile {
+                height: 420px;
+                margin-bottom: 10px;
+                font-size: 10px;
+                margin: 0;
+                margin-left: 120px;
+                width: 100%;
+                margin-top: 0;
+                align-items: center;
+                justify-content: center;
+                margin-left: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      flex: 6;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      flex-direction: column;
+
+      @include mobile {
+        height: 50vh;
+        width: 100%;
+        flex: 4;
+        align-items: center;
+        justify-content: center;
+      }
+      .profileEdit {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 70px;
+        opacity: 0.8;
+        font-family: "Roboto";
+        font-weight: bold;
+        font-size: 20px;
+        margin-right: 20px;
+        
+
+        @include mobile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 70px;
+        }
+
+        .profileButton {
+          height: 90px;
+          width: 230px;
+          margin-bottom: 60px;
+          cursor: pointer;
+          font-weight: bold;
+          border-radius: round($number: 20px);
+          
+
+          &:focus {
+            outline: none;
+          }
+
+          @include mobile {
+            height: 35px;
+            width: 80px;
+            font-size: 10px;
+          }
+        }
+
+        .previewButton {
+          height: 90px;
+          width: 230px;
+          cursor: pointer;
+          align-content: center;
+          justify-content: center;
+          margin-bottom: 60px;
+          font-weight: bold;
+          border-radius: round($number: 20px);
+          
+
+          &:focus {
+            outline: none;
+          }
+
+          @include mobile {
+            height: 35px;
+            width: 80px;
+            font-size: 10px;
+          }
+        }
+
+        .settingsButton {
+          height: 90px;
+          width: 230px;
+          align-content: center;
+          justify-content: center;
+          cursor: pointer;
+          font-weight: bold;
+          border-radius: round($number: 20px);
+
+          &:focus {
+            outline: none;
+          }
+
+          @include mobile {
+            height: 35px;
+            width: 80px;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
 }

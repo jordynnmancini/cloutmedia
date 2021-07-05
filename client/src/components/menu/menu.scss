@@ -12,15 +12,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 1s ease;
+  transition: all .6s ease;
   overflow: hidden;
 
   &.active {
     right: 0;
-    opacity: 0.5;
+    opacity: 0.8;
 
     @include mobile {
-      width: 124px;
+      width: 145px;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -50,6 +50,12 @@
 
       &:hover {
         font-weight: 600;
+      }
+
+      @include mobile{
+        font-size: 18px;
+        
+
       }
     }
   }
