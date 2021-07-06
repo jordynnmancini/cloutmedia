@@ -23,7 +23,7 @@ router.post('/signup', function (req, res) {
             });
 
             res.cookie('token', token, { httpOnly: true })
-                .json({ message: 'successful', token: token, id: user.id })
+                .json({ message: 'successful', token: user.id + "/" + token, id: user.id })
             console.log(token);
         }
     });
@@ -50,7 +50,7 @@ router.post('/login', function (req, res) {
                         expiresIn: '1h'
                     });
                     res.cookie('token', token, { httpOnly: true })
-                        .json({ message: 'successful', token: token, id: user.id })
+                        .json({ message: 'successful', token: user.id + "//" + token, id: user.id })
                     console.log(token);
                 };
             });
