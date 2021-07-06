@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+//add express sessions to register ID for dashboard
 
 // Connect to the Mongo DB
 mongoose.connect(
@@ -27,6 +28,7 @@ mongoose.connect(
 app.use(routes);
 //verify token
 app.get('/checkToken', withAuth, function(req, res) {
+  console.log(req)
   res.sendStatus(200); 
 })
 

@@ -2,8 +2,10 @@ const jwt = require('jsonwebtoken');
 const secret = 'supersupersecret'; 
 
 // might not be necessary - protect components with Local Storage instead? 
+//express sessions? 
 
 const withAuth = function(req, res, next) {
+  
   const token = 
       req.body.token ||
       req.query.token ||
