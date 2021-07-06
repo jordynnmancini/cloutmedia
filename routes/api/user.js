@@ -1,15 +1,16 @@
 const router = require("express").Router();
-const User = require('../../models/user');
+const db = require('../../models');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const withAuth = require('../../utils/auth');
 const secret = 'supersupersecret';
 
+// Authentication Routes
 
 //new user sign up - matches with "/api/user/signup"
 router.post('/signup', function (req, res) {
     const { email, name, password, primaryLocation, type } = req.body;
-    const user = new User({ email, name, password, primaryLocation, type });
+    const user = new db.User({ email, name, password, primaryLocation, type });
     user.save(function (err) {
         if (err) {
             res.status(500)
@@ -17,12 +18,12 @@ router.post('/signup', function (req, res) {
         } else {
             const payload = { email };
             const token = jwt.sign(payload, secret, {
-                // 20 minutes 
-                expiresIn: '1200000'
+                // 5 minutes 
+                expiresIn: '300000'
             });
 
             res.cookie('token', token, { httpOnly: true })
-                .json({ message: 'successful', token: token, id: user.id })
+                .json({ message: 'successful', token: user.id + "/" + token, id: user.id })
             console.log(token);
         }
     });
@@ -30,7 +31,7 @@ router.post('/signup', function (req, res) {
 
 router.post('/login', function (req, res) {
     const { email, password } = req.body;
-    User.findOne({ email }, function (err, user) {
+    db.User.findOne({ email }, function (err, user) {
         if (err) {
             res.status(500)
         } else if (!user) {
@@ -49,7 +50,7 @@ router.post('/login', function (req, res) {
                         expiresIn: '1h'
                     });
                     res.cookie('token', token, { httpOnly: true })
-                        .json({ message: 'successful', token: token, id: user.id })
+                        .json({ message: 'successful', token: user.id + "//" + token, id: user.id })
                     console.log(token);
                 };
             });
@@ -57,12 +58,27 @@ router.post('/login', function (req, res) {
     });
 });
 
-
-router.put('/', function (req, res) {
+//Dashboard Routes 
+// use express sessions for registering the logged in user ID and rendering their info? 
+router.put('/update', function (req, res) {
+    console.log(req,"Session")
     const { id } = req.body;
-    User.findOneAndUpdate({ id }, function (err, user) {
+    db.User.findOneAndUpdate({ id }, function (err, user) {
 
     })
 })
+
+//Discover Routes 
+
+router.get('/discover', function (req, res) {
+    db.User.find({
+        type: (req.query.type),
+        primaryLocation: (req.query.primaryLocation)
+    })
+     .then(search => res.json(search))
+     .catch(err => res.status(422).end()); 
+});
+
+
 
 module.exports = router;

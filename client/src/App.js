@@ -3,7 +3,7 @@ import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
 import Signup from "./components/Signup/signup";
 import withAuth from "./components/higher-order-component/withAuth";
-import Dashboard from "./components/pages/Dashboard/dashboard";
+import Dashboard from "./components/pages/Dashboard/Dashboard";
 import Discover from "./components/pages/Discover/Discover";
 import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";
@@ -37,15 +37,15 @@ function App() {
   //return code here
   return (
     <Router>
-    
-        <NavMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
-      
+
+      <NavMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
+
       <Switch>
         <Route exact path={["/", "/home"]} component={Home} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/discover" component={Discover} />
+        <Route path="/dashboard" component={withAuth(Dashboard)} />
+        <Route path="/discover" component={withAuth(Discover)} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="*" component={NotFound} />

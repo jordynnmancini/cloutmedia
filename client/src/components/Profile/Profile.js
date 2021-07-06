@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
 import API from "../../utils/API";
-import "./signup.scss";
+import "./profile.scss";
 
 
-export default class Signup extends Component {
+export default class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: "",
             name: "",
-            password: "",
-            primaryLocation: "Nashville",
-            type: "Artist",
+            type: "",
+            primaryLocation: "",
+            email: "",
+            phoneNumber: "",
+            bio: "",
         };
     }
 
@@ -76,7 +76,7 @@ export default class Signup extends Component {
             <div className='signupWrapper'>
                 <div className="formContainer">
                     <form>
-                        <h1>Signup</h1>
+                        <h1>Update your profile!</h1>
                         <input className="inputName"
                             placeholder="enter your first & last name"
                             name="name"
@@ -92,10 +92,17 @@ export default class Signup extends Component {
                             onChange={this.handleInputChange}
                         />
                         <input className="inputPassword"
-                            placeholder="create a password"
-                            name="password"
-                            type="password"
-                            value={this.state.password}
+                            placeholder="Add a phone number"
+                            name="cell"
+                            type="cell"
+                            value={this.state.phoneNumber}
+                            onChange={this.handleInputChange}
+                        />
+                        <input className="inputPassword"
+                            placeholder="Bio"
+                            name="Bio"
+                            type="Bio"
+                            value={this.state.bio}
                             onChange={this.handleInputChange}
                         />
                         <label className="labelFor" for="user-type">I am a(n):</label>
@@ -109,8 +116,7 @@ export default class Signup extends Component {
                             <option value="Los Angeles">Los Angeles, CA</option>
                             <option value="New York City">New York City, NY</option>
                         </select>
-                        <button className="signupButton" onClick={this.onSubmit}>Signup</button>
-                        <Link className="linkText" to="/login">Have an account already?  <span>Click here to login!</span></Link>
+                        <button className="signupButton" onClick={this.onSubmit}>Update</button>
                     </form>
                 </div>
             </div>
