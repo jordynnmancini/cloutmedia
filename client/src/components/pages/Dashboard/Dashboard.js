@@ -7,7 +7,12 @@ import API from "../../../utils/API";
 export default function Dashboard() {
 
   // const id = localStorage.getItem('jwtToken').split('/')[0]
-  const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState({});
+  const [primaryLocation, setPrimaryLocation] = useState();
+  const [subType, setSubType] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [bio, setBio] = useState();
+
 
 
 
@@ -38,6 +43,37 @@ export default function Dashboard() {
       .catch(err => console.log(err));
 
   }, [])
+
+  const handleSubTypeChange = (e) => {
+    const { value } = e.target;
+    setSubType(value)
+  }
+  const handleBioChange = (e) => {
+    const { value } = e.target;
+    setBio(value)
+  }
+
+  const handlePhoneNumberChange = (e) => {
+    const { value } = e.target;
+    setPhoneNumber(value)
+  }
+
+  const handlePrimaryLocationChange = (e) => {
+    const { value } = e.target;
+    setPrimaryLocation(value)
+  }
+
+
+  const handleUpdateSubmit = (e) => {
+    e.preventDefault();
+    API.updateUserData({
+      bio: bio,
+      subType: subType,
+      phoneNumber: phoneNumber,
+      primaryLocation: primaryLocation,
+
+    })
+  }
 
 
   return (

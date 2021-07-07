@@ -71,8 +71,12 @@ router.get('/dashboard', function (req, res) {
 
 
 router.put('/update', function (req, res) {
-    const { id, type, subType, primaryLocation, email, phoneNumber, bio } = req.body;
-    db.User.findOneAndUpdate({ id }, function (err, user) {
+    // const { subType, primaryLocation, phoneNumber, bio } = req.body;
+    db.User.findOneAndUpdate({ _id: (req.query.id) }, {
+        subType: req.body.subType,
+        primaryLocation: req.body.primaryLocation,
+        phoneNumber: req.body.phoneNumber,
+        bio: req.body.bio,
 
     })
         .then(userData => res.json(userData))
