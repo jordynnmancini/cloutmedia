@@ -1,5 +1,5 @@
 import React from "react";
-import "./NotFound.scss";
+import "./notFound.scss";
 
 export default function Home() {
   return (

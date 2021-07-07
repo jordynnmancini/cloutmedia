@@ -1,6 +1,6 @@
 import React from "react";
 import "./home.scss";
-import LogoutButton from '../../Logout/logout'; 
+import LogoutButton from '../../logout/logout'; 
 
 export default function Home() {
 
