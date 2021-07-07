@@ -20,6 +20,6 @@ export default {
     },
 
     updateUserData: function (id, userData) {
-        return axios.put('api/user/update', userData, { params: { id: id } })
+        return axios.put('api/user/update', { params: { id: id } }, userData)
     },
 }
