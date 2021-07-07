@@ -5,6 +5,7 @@ import { init } from "ityped";
 import SearchIcon from '@material-ui/icons/Search';
 import API from '../../../utils/API';
 
+//basic styling for modal
 const customStyles = {
   content: {
     top: '50%',
@@ -20,7 +21,6 @@ export default function Discovery() {
   const [results, setResults] = useState([]);
   const [type, setType] = useState();
   const [location, setLocation] = useState();
-  let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedUser, setUser] = useState({
     name: '',
@@ -36,7 +36,18 @@ export default function Discovery() {
       backSpeed: 60,
       showCursor: true,
     });
+
+    setType('Artist');
+    setLocation('Nashville');
   }, []);
+
+  useEffect(() => {
+    let value = JSON.parse(sessionStorage.getItem('results'))
+    if (value) {
+      setResults(value)
+      console.log(value)
+    }
+  }, [])
 
   const handleTypeChange = e => {
     const { value } = e.target;
@@ -51,20 +62,18 @@ export default function Discovery() {
   const handleSearchSubmit = e => {
     e.preventDefault();
     API.getSearchResults(type, location)
-      .then(res => setResults(res.data))
+      .then(res => {
+        setResults(res.data)
+        sessionStorage.setItem('results', JSON.stringify(res.data));
+      })
       .catch(err => console.log(err));
   }
 
   function openModal(result) {
     console.log(result)
     setIsOpen(true);
-    setUser({ name:result.name, email:result.email, bio:result.bio })
+    setUser({ name: result.name, email: result.email, bio: result.bio })
   }
-
-  // function afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   subtitle.style.color = '#f00';
-  // }
 
   function closeModal() {
     setIsOpen(false);
@@ -95,15 +104,19 @@ export default function Discovery() {
         </div>
         <div className="bottom">
           <div className="results">
-            <h3>Results in Your Area:</h3>
+            {!results.length ? (
+              <h3>Results in Your Area:</h3>
+            ) : (
+              <h3>{results[0].type}s in {results[0].primaryLocation}: </h3>
+            )}
             <div className="soundEngineers">
               <div className="uls">
                 {!results.length ? (
                   <h1 className="noResults">No Results</h1>
                 ) : (
                   <div>
-                    
-                    {results.map( (result,key) => {
+
+                    {results.map((result, key) => {
                       return (
                         <ul className="eng1" key={key}>
                           <li className="name">{result.name}</li>
@@ -119,19 +132,17 @@ export default function Discovery() {
           </div>
         </div>
         <Modal
-        isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{selectedUser.stageName}</h2> */}
-        <h1>{selectedUser.name}</h1>
-        <p>"{selectedUser.bio}"</p>
-        Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
-        
-        <button onClick={closeModal}>close</button>    
-      </Modal>
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h1>{selectedUser.name}</h1>
+          <p>"{selectedUser.bio}"</p>
+          Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
+
+          <button onClick={closeModal}>close</button>
+        </Modal>
       </div>
     </div>
   );
