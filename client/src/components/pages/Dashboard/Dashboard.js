@@ -1,9 +1,21 @@
 import React from "react";
 import "./dashboard.scss";
 import { init } from "ityped";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import API from "../../../utils/API";
 
 export default function Dashboard() {
+
+  // const id = localStorage.getItem('jwtToken').split('/')[0]
+  const [userData, setUserData] = useState({});
+  const [primaryLocation, setPrimaryLocation] = useState();
+  const [subType, setSubType] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [bio, setBio] = useState();
+
+
+
+
 
   const textRef = useRef();
   useEffect(() => {
@@ -15,7 +27,55 @@ export default function Dashboard() {
       backSpeed: 60,
       showCursor: true,
     });
+
   }, []);
+
+
+  useEffect(() => {
+    const id = localStorage.getItem('jwtToken').split('/')[0]
+    console.log(id, 'id')
+    API.getUserData(id)
+
+      .then(res => {
+        setUserData(res.data)
+        console.log(res.data)
+      })
+      .catch(err => console.log(err));
+
+  }, [])
+
+  const handleSubTypeChange = (e) => {
+    const { value } = e.target;
+    setSubType(value)
+  }
+  const handleBioChange = (e) => {
+    const { value } = e.target;
+    setBio(value)
+  }
+
+  const handlePhoneNumberChange = (e) => {
+    const { value } = e.target;
+    setPhoneNumber(value)
+  }
+
+  const handlePrimaryLocationChange = (e) => {
+    const { value } = e.target;
+    setPrimaryLocation(value)
+  }
+
+
+  const handleUpdateSubmit = (e) => {
+    e.preventDefault();
+    API.updateUserData({
+      bio: bio,
+      subType: subType,
+      phoneNumber: phoneNumber,
+      primaryLocation: primaryLocation,
+
+    })
+  }
+
+
   return (
     <div className="dashboard">
       <div className="headerBox">
@@ -31,19 +91,19 @@ export default function Dashboard() {
           <div className="bottom">
             <div className="info">
               <ul>
-              <br/>
-                <li>Andre Rodriguez</li>
-                <li>Percussionist/Teacher</li>
-                <li>Columbus, OH</li>
-                <li>Andre.Rodriguez@gmail.com</li>
+                <br />
+                <li>{userData.name}</li>
+                <li>{userData.type}</li>
+                <li>{userData.primaryLocation}</li>
+                <li>{userData.email}</li>
                 <li>Cell: 614-592-8914</li>
                 <br />
                 <li>About Me!</li>
-                <p> 
-                  "Sed ut perspiciatis unde omnis iste natus error sit                                   
+                <p>
+                  "Sed ut perspiciatis unde omnis iste natus error sit
                   voluptatem accusantium doloremque laudantium, totam rem
                   aperiam, eaque ipsa quae ab illo inventore veritatis et quasi kjhdskjhds kjhdsakjhd kjhdaskjhdas
-                  
+
                 </p>
               </ul>
             </div>

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Home from "./components/pages/Home/Home";
-import NavMenu from "./components/NavMenu/NavMenu";
-import Signup from "./components/Signup/signup";
+import Home from "./components/pages/home/home";
+import NavMenu from "./components/navMenu/navMenu";
+import Signup from "./components/signup/signup";
 import withAuth from "./components/higher-order-component/withAuth";
-import Dashboard from "./components/pages/Dashboard/Dashboard";
-import Discover from "./components/pages/Discover/Discover";
-import About from "./components/pages/About/About";
-import Contact from "./components/pages/Contact/Contact";
-import Login from "./components/Login/login";
-import NotFound from "./components/pages/NotFound/NotFound";
+import Dashboard from "./components/pages/dashboard/dashboard";
+import Discover from "./components/pages/discover/discover";
+import About from "./components/pages/about/about";
+import Contact from "./components/pages/contact/contact";
+import Login from "./components/login/login";
+import NotFound from "./components/pages/notFound/notFound";
 
 
 import {

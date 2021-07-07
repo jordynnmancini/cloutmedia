@@ -24,7 +24,8 @@ export default function Discovery() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedUser, setUser] = useState({
     name: '',
-    email: ''
+    email: '',
+    bio: ''
   });
 
   const textRef = useRef();
@@ -57,7 +58,7 @@ export default function Discovery() {
   function openModal(result) {
     console.log(result)
     setIsOpen(true);
-    setUser({ name:result.name, email:result.email })
+    setUser({ name:result.name, email:result.email, bio:result.bio })
   }
 
   // function afterOpenModal() {
@@ -76,14 +77,14 @@ export default function Discovery() {
       </div>
       <div className="content">
         <div className='top'>
-          <div className='left'>
+          <div className="searchTop">
             <h3>Search:</h3>
-            <label>Discover:</label>
-            <select value={type} onChange={handleTypeChange}>
-              <option value="Artist">Artists/Musicians</option>
-              <option value="Sound Engineer">Sound Engineers</option>
+            <label className="roleLabel">Discover:</label>
+            <select classname="selectSection" value={type} onChange={handleTypeChange}>
+              <option className="roleDrop" value="Artist">Artists/Musicians</option>
+              <option classname="locationDrop" value="Sound Engineer">Sound Engineers</option>
             </select>
-            <label>In:</label>
+            <label className="cityLabel">In:</label>
             <select value={location} onChange={handleLocationChange}>
               <option>Nashville</option>
               <option>Los Angeles</option>
@@ -93,12 +94,12 @@ export default function Discovery() {
           </div>
         </div>
         <div className="bottom">
-          <div className="right">
+          <div className="results">
             <h3>Results in Your Area:</h3>
             <div className="soundEngineers">
               <div className="uls">
                 {!results.length ? (
-                  <h1>no results</h1>
+                  <h1 className="noResults">No Results</h1>
                 ) : (
                   <div>
                     
@@ -126,7 +127,8 @@ export default function Discovery() {
       >
         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{selectedUser.stageName}</h2> */}
         <h1>{selectedUser.name}</h1>
-        Reach them at: <a href="mailto:">{selectedUser.email}</a>
+        <p>"{selectedUser.bio}"</p>
+        Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
         
         <button onClick={closeModal}>close</button>    
       </Modal>
