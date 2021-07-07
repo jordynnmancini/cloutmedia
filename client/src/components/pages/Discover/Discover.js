@@ -38,13 +38,14 @@ export default function Discovery() {
     });
 
     setType('Artist');
-    setLocation('Nashville'); 
+    setLocation('Nashville');
   }, []);
 
   useEffect(() => {
     let value = JSON.parse(sessionStorage.getItem('results'))
     if (value) {
       setResults(value)
+      console.log(value)
     }
   }, [])
 
@@ -63,7 +64,7 @@ export default function Discovery() {
     API.getSearchResults(type, location)
       .then(res => {
         setResults(res.data)
-        sessionStorage.setItem('results', JSON.stringify(res.data)); 
+        sessionStorage.setItem('results', JSON.stringify(res.data));
       })
       .catch(err => console.log(err));
   }
@@ -71,7 +72,7 @@ export default function Discovery() {
   function openModal(result) {
     console.log(result)
     setIsOpen(true);
-    setUser({ name:result.name, email:result.email, bio:result.bio })
+    setUser({ name: result.name, email: result.email, bio: result.bio })
   }
 
   function closeModal() {
@@ -103,15 +104,19 @@ export default function Discovery() {
         </div>
         <div className="bottom">
           <div className="results">
-            <h3>Results in Your Area:</h3>
+            {!results.length ? (
+              <h3>Results in Your Area:</h3>
+            ) : (
+              <h3>{results[0].type}s in {results[0].primaryLocation}: </h3>
+            )}
             <div className="soundEngineers">
               <div className="uls">
                 {!results.length ? (
                   <h1 className="noResults">No Results</h1>
                 ) : (
                   <div>
-                    
-                    {results.map( (result, key) => {
+
+                    {results.map((result, key) => {
                       return (
                         <ul className="eng1" key={key}>
                           <li className="name">{result.name}</li>
@@ -127,17 +132,17 @@ export default function Discovery() {
           </div>
         </div>
         <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <h1>{selectedUser.name}</h1>
-        <p>"{selectedUser.bio}"</p>
-        Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
-        
-        <button onClick={closeModal}>close</button>    
-      </Modal>
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h1>{selectedUser.name}</h1>
+          <p>"{selectedUser.bio}"</p>
+          Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
+
+          <button onClick={closeModal}>close</button>
+        </Modal>
       </div>
     </div>
   );
