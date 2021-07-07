@@ -67,7 +67,7 @@
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
-    height: 66vh;
+    height: 75vh;
     width: 75%;
     margin-top: 100px;
     background-color: lightgray;
@@ -86,44 +86,150 @@
     }
 
     .top {
-      height: 30vh;
+      height: 50vh;
       width: 65%;
       border-radius: round($number: 10px);
-      margin: 0;
       opacity: 3;
       overflow: hidden;
 
       @include mobile {
-        height: 20vh;
+        height: 40vh;
         width: 90%;
         display: flex;
         align-content: center;
         justify-content: center;
-        margin-top: 25px;
-        
       }
 
-      .gpsBox {
+      h3 {
         display: flex;
-        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        font-family: "Roboto";
+        font-weight: 600;
+        margin-top: 10px;
+        overflow: hidden;
+
+        @include mobile{
+          font-size: 35px ;
+        }
+      }
+
+      .searchTop {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 30vh;
         width: 100%;
         overflow: hidden;
-        background-image: url(./maps.png);
-        background-size: cover;
-        image-resolution: inherit;
-        background-position: center;
 
-        @include mobile {
+        @include mobile{
           display: flex;
           align-content: center;
           justify-content: center;
-          background-position: center;
-          background-size: cover;
-          image-resolution: initial;
-          height: 28vh;
-          width: 100%;
-          margin-bottom: 10px;
-          border-radius: round($number: 10px);
+          height: 30vh;
+          font-size: 10px;
+
+        }
+
+        h3 {
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          overflow: hidden;
+
+          @include mobile{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 25px;
+            margin-bottom: 30;
+            margin-top: 0;
+          }
+        }
+
+        .selectSection {
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          flex-direction: column;
+          overflow: hidden;
+
+          @include mobile{
+
+          }
+        }
+
+        .roleLabel {
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          flex-direction: column;
+          overflow: hidden;
+
+          @include mobile{
+            
+          }
+        }
+
+        .cityLabel {
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          flex-direction: column;
+          overflow: hidden;
+          margin-top: 5px;
+
+          @include mobile{
+            
+          }
+        }
+
+        .roleDrop {
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          flex-direction: column;
+          overflow: hidden;
+
+          @include mobile{
+            
+          }
+        }
+
+        .locationDrop {
+          overflow: hidden;
+
+          @include mobile{
+            
+          }
+        }
+
+        .searchButton{
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          flex-direction: column;
+          overflow: hidden;
+          margin-top: 15px;
+          margin-bottom: 5px;
+          width: 4%;
+          height: 30px;
+          background-color: yellow;
+          opacity: .89;
+          margin-left: 450px;
+
+          @include mobile{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            margin-left: 110px;
+            height: 25px;
+            width: 33px;
+            margin-top: 20px;
+          }
         }
       }
     }
@@ -132,112 +238,37 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: row;
-      height: 25vh;
-      width: 85%;
-      padding: 0;
-      margin: 10px;
+      flex-direction: column;
+      height: 50vh;
+      width: 100%;
       overflow: hidden;
+     
 
       @include mobile {
         align-content: center;
         justify-content: center;
         flex-direction: column;
-        height: 50vh;
+        height: 65vh;
+        width: 100%;
       }
 
-      .left {
+      .results {
+        height: 100vh;
+        width: 100%;
         display: flex;
         align-content: center;
         justify-content: center;
         flex-direction: column;
-        height: 35vh;
-        width: 100%;
-        flex: 6;
-
-        @include mobile {
-          display: flex;
-          align-content: center;
-          justify-content: center;
-          flex: 6;
-         
-          width: 100%;
-          
-        }
-
-        h3 {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 35px;
-          font-family: "Roboto";
-          font-weight: 600;
-
-          @include mobile {
-            display: flex;
-            align-content: center;
-            justify-content: center;
-            font-size: 20px;
-            font-family: "Roboto";
-            font-weight: bold;
-          }
-        }
-
-        .inputSearch {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 50px;
-          height: 30px;
-          width: 250px;
-          margin-left: 120px;
-
-          &:focus {
-            outline: none;
-          }
-
-          @include mobile {
-            display: flex;
-            align-content: center;
-            justify-content: center;
-            height: 20px;
-            width: 100%;
-            margin-top: 0;
-            margin-left: 0;
-            overflow: hidden;
-          }
-        }
-
-        .searchButton {
-          height: 28px;
-          width: 30px;
-
-          &:focus {
-            outline: none;
-          }
-
-          @include mobile {
-            height: 20px;
-            width: 30px;
-            padding-left: 5px;
-          }
-        }
-      }
-
-      .right {
-        height: 26vh;
-        flex: 10;
         overflow: hidden;
 
         @include mobile {
-          flex: 10;
           display: flex;
           align-content: center;
-          justify-content: space-between;
+          justify-content: center;
           flex-direction: column;
-          height: 55vh;
+          height: 100vh;
           width: 100%;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
 
         h3 {
@@ -247,141 +278,121 @@
           font-size: 35px;
           font-family: "Roboto";
           font-weight: 600;
-          margin-right: 40px;
+          width: 100%;
+          margin-top: 10px;
 
-          @include mobile{
+
+          @include mobile {
             display: flex;
             align-content: center;
             justify-content: center;
             flex-direction: column;
             height: 30vh;
             width: 100%;
-            font-size: 18px;
+            font-size: 25px;
             overflow: hidden;
             margin-bottom: 0;
             font-family: "Roboto";
             font-weight: bold;
           }
         }
-      }
-    }
-    .soundEngineers {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: column;
-      height: 19vh;
-      overflow: hidden;
-      width: 88%;
-      margin-top: 20px;
-      background-color: yellow;
-      border-radius: round($number: 10px);
-      opacity: 1;
 
-      @include mobile{
-        display: flex;
-        align-content: center;
-        justify-content: space-between;
-        flex-direction: column;
-        height: 100vh;
-        width: 100%;
-        margin-bottom: 0;
-        padding: 0;
-        
-      }
+        .soundEngineers {
+          display: flex;
+          align-items: center;
+          justify-content: center;          
+          flex-direction: column;
+          height: 20vh;
+          overflow: hidden;
+          width: 88%;
+          margin-top: 20px;
+          background-color: yellow;
+          border-radius: round($number: 10px);
+          opacity: 1;
+          margin-left: 80px;
 
-      .uls{
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-content: center;
-        justify-content: space-between;
-        flex-direction: column;
-        margin-right: 50px;
-    
-
-        @include mobile{
+          @include mobile {
             display: flex;
             align-content: center;
             justify-content: space-between;
-            width: 100%;
+            flex-direction: column;
+            height: 100vh;
+            width: 93%;
             margin-bottom: 0;
-            margin-top: 0;
-            font-size: 10px;
+            padding: 10px 0px;
+            margin-left: 10px;
+          }
+
+          .noResults{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            font-size: 35px;
+
+          }
+
+          .uls {
             -webkit-column-count: 3;
             -moz-column-count: 3;
             column-count: 3;
-            padding: 5px 0px;
-            margin-left: 5px;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            flex-direction: column;
+           
+
+            @include mobile {
+              display: flex;
+              align-content: center;
+              justify-content: space-between;
+              flex-direction: column;
+              width: 100%;
+              margin-bottom: 0;
+              margin-top: 0;
+              font-size: 10px;
+              -webkit-column-count: 3;
+              -moz-column-count: 3;
+              column-count: 3;
+              padding: 5px 0px;
+              margin-left: 0px;
+            }
+
+
+            .eng1 {
+              align-content: space-between;
+              justify-content: space-between;
+              -webkit-column-count: 3;
+              -moz-column-count: 3;
+              column-count: 3;
+              height: 8vh;
+              margin-top: 15px;
+              margin-left: 90px;
+              width: 90%;
+              font-family: "Roboto";
+              font-size: 22px;
+              font-weight: 400;
+
+              @include mobile {
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+                width: 100%;
+                height: 5vh;
+                font-size: 10px;
+                margin: 0;
+                margin-top: 20px;
+                margin-right: 20px;
+                padding-left: 5px;
+                padding-right: 6px;
+                
+              }
+
+            }
+          }
         }
-        
-
-      .eng1 {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-        height: 8vh;
-        margin-top: 15px;
-        margin-left: 90px;
-        width: 90%;
-        
-
-        @include mobile{
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-            width: 100%;
-            height: 15px;
-            font-size: 10px;
-            margin-left: 0;
-            
-          }
       }
-
-      .eng2 {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-        height: 7vh;
-        width: 90%;
-        margin-left: 90px;
-
-        @include mobile{
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-            width: 100%;
-            height: 15px;
-            font-size: 10px;
-            margin-left: 0;
-            
-            
-          }
-      }
-
-      .eng3 {
-        height: 7vh;
-        width: 90%;
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-        margin-left: 90px;
-
-        @include mobile{
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-            width: 100%;
-            height: 15px;
-            font-size: 10px;
-            margin-left: 0;
-            
-          }
-      }
-    }
     }
   }
 }
