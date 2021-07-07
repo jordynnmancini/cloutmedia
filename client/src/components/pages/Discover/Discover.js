@@ -5,6 +5,7 @@ import { init } from "ityped";
 import SearchIcon from '@material-ui/icons/Search';
 import API from '../../../utils/API';
 
+//basic styling for modal
 const customStyles = {
   content: {
     top: '50%',
@@ -20,7 +21,6 @@ export default function Discovery() {
   const [results, setResults] = useState([]);
   const [type, setType] = useState();
   const [location, setLocation] = useState();
-  let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedUser, setUser] = useState({
     name: '',
@@ -36,6 +36,9 @@ export default function Discovery() {
       backSpeed: 60,
       showCursor: true,
     });
+
+    setType('Artist');
+    setLocation('Nashville'); 
   }, []);
 
   const handleTypeChange = e => {
@@ -51,7 +54,10 @@ export default function Discovery() {
   const handleSearchSubmit = e => {
     e.preventDefault();
     API.getSearchResults(type, location)
-      .then(res => setResults(res.data))
+      .then(res => {
+        setResults(res.data)
+        sessionStorage.setItem('results', JSON.stringify(res.data)); 
+      })
       .catch(err => console.log(err));
   }
 
@@ -60,11 +66,6 @@ export default function Discovery() {
     setIsOpen(true);
     setUser({ name:result.name, email:result.email, bio:result.bio })
   }
-
-  // function afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   subtitle.style.color = '#f00';
-  // }
 
   function closeModal() {
     setIsOpen(false);
@@ -103,7 +104,7 @@ export default function Discovery() {
                 ) : (
                   <div>
                     
-                    {results.map( (result,key) => {
+                    {results.map( (result, key) => {
                       return (
                         <ul className="eng1" key={key}>
                           <li className="name">{result.name}</li>
@@ -120,12 +121,10 @@ export default function Discovery() {
         </div>
         <Modal
         isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{selectedUser.stageName}</h2> */}
         <h1>{selectedUser.name}</h1>
         <p>"{selectedUser.bio}"</p>
         Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
