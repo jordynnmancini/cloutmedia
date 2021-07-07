@@ -1,6 +1,6 @@
 import React from 'react'
-import Topbar from '../Topbar/Topbar';
-import Menu from '../menu/Menu'
+import Topbar from '../topbar/topbar';
+import Menu from '../menu/menu'
 export default function NavMenu({ menuOpen, toggleMenu }) {
     console.log(menuOpen)
 

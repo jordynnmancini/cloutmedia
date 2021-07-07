@@ -24,7 +24,8 @@ export default function Discovery() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedUser, setUser] = useState({
     name: '',
-    email: ''
+    email: '',
+    bio: ''
   });
 
   const textRef = useRef();
@@ -57,7 +58,7 @@ export default function Discovery() {
   function openModal(result) {
     console.log(result)
     setIsOpen(true);
-    setUser({ name:result.name, email:result.email })
+    setUser({ name:result.name, email:result.email, bio:result.bio })
   }
 
   // function afterOpenModal() {
@@ -126,7 +127,8 @@ export default function Discovery() {
       >
         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{selectedUser.stageName}</h2> */}
         <h1>{selectedUser.name}</h1>
-        Reach them at: <a href="mailto:">{selectedUser.email}</a>
+        <p>"{selectedUser.bio}"</p>
+        Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
         
         <button onClick={closeModal}>close</button>    
       </Modal>
