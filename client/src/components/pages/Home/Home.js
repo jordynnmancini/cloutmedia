@@ -32,7 +32,7 @@ export default function Home() {
           <img
             className="cloutlogo"
             src="assets/logo.png"
-            alt="logo for clout media - connecting the music industry together"
+            alt="logo for clout media - FOR MUSIC INFLUENCERS ONLY."
           />
         </div>
       </div>
