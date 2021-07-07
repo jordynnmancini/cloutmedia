@@ -7,7 +7,7 @@ export default function About() {
     <div className="aboutContent">
  
     <img className="cloutlogo"
-            src="assets/cloutmini.png"
+            src="assets/logo.png"
             alt="logo for clout media - FOR MUSIC INFLUENCERS ONLY." />
     </div>            
         
