@@ -24,7 +24,7 @@ export default function Dashboard() {
   const [phoneNumber, setPhoneNumber] = useState();
   const [bio, setBio] = useState();
   const [modalIsOpen, setIsOpen] = useState(false);
-
+  
   const textRef = useRef();
   useEffect(() => {
     init(textRef.current, {
@@ -35,7 +35,6 @@ export default function Dashboard() {
       backSpeed: 60,
       showCursor: true,
     });
-
   }, []);
 
   useEffect(() => {
@@ -107,7 +106,7 @@ export default function Dashboard() {
           <div className="bottom">
             <div className="info">
               <ul>
-                <br />
+              <br />
                 <li>{userData.name}</li>
                 <li>{userData.type}</li>
                 <li>{userData.primaryLocation}</li>
