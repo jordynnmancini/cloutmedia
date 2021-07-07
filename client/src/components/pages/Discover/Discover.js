@@ -41,6 +41,13 @@ export default function Discovery() {
     setLocation('Nashville'); 
   }, []);
 
+  useEffect(() => {
+    let value = JSON.parse(sessionStorage.getItem('results'))
+    if (value) {
+      setResults(value)
+    }
+  }, [])
+
   const handleTypeChange = e => {
     const { value } = e.target;
     setType(value);
