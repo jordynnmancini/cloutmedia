@@ -76,14 +76,14 @@ export default function Discovery() {
       </div>
       <div className="content">
         <div className='top'>
-          <div className='left'>
+          <div className="searchTop">
             <h3>Search:</h3>
-            <label>Discover:</label>
-            <select value={type} onChange={handleTypeChange}>
-              <option value="Artist">Artists/Musicians</option>
-              <option value="Sound Engineer">Sound Engineers</option>
+            <label className="roleLabel">Discover:</label>
+            <select classname="selectSection" value={type} onChange={handleTypeChange}>
+              <option className="roleDrop" value="Artist">Artists/Musicians</option>
+              <option classname="locationDrop" value="Sound Engineer">Sound Engineers</option>
             </select>
-            <label>In:</label>
+            <label className="cityLabel">In:</label>
             <select value={location} onChange={handleLocationChange}>
               <option>Nashville</option>
               <option>Los Angeles</option>
@@ -93,12 +93,12 @@ export default function Discovery() {
           </div>
         </div>
         <div className="bottom">
-          <div className="right">
+          <div className="results">
             <h3>Results in Your Area:</h3>
             <div className="soundEngineers">
               <div className="uls">
                 {!results.length ? (
-                  <h1>no results</h1>
+                  <h1 className="noResults">No Results</h1>
                 ) : (
                   <div>
                     
