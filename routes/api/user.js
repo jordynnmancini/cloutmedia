@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const withAuth = require('../../utils/auth');
 const secret = 'supersupersecret';
 const multer = require('multer');
-const path = require('path')
+const path = require('path');
 
 
 
@@ -38,7 +38,7 @@ const upload = multer({
 
 //new user sign up - matches with "/api/user/signup"
 router.post('/signup', upload.single('thumbnail'), function (req, res) {
-    console.log(req.file, 'file')
+    console.log(req.body.file, 'file')
     const { email, name, password, primaryLocation, type, thumbnail } = req.body;
     const user = new db.User({ email, name, password, primaryLocation, type, thumbnail });
     user.save(function (err) {
@@ -100,14 +100,18 @@ router.get('/dashboard', function (req, res) {
 
 
 router.put('/update', function (req, res) {
-    db.User.findOneAndUpdate({ _id: (req.query.id) }, {
-        subType: req.body.subType,
-        primaryLocation: req.body.primaryLocation,
-        phoneNumber: req.body.phoneNumber,
-        bio: req.body.bio,
+    console.log(req.body)
+    db.User.findOneAndUpdate({ _id: (req.body.params.id) }, {
+        subType: req.body.params.userData.subType,
+        primaryLocation: req.body.params.userData.primaryLocation,
+        phoneNumber: req.body.params.userData.phoneNumber,
+        bio: req.body.params.userData.bio,
+    }, { useFindAndModify: false, returnOriginal: false })
 
-    })
-        .then(userData => res.json(userData))
+        .then(userData => {
+            console.log(userData)
+            res.json(userData)
+        })
         .catch(err => res.status(422).end());
 })
 
