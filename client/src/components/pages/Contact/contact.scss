@@ -35,7 +35,7 @@
       border-radius: round($number: 49%);
       margin-top: 30px;
       opacity: 0.8;
-  
+
       @include mobile {
         display: flex;
         align-items: center;
@@ -59,7 +59,7 @@
     opacity: 0.9;
     border-radius: round($number: 30px);
 
-    @include mobile{
+    @include mobile {
       display: flex;
       align-content: center;
       justify-content: center;
@@ -68,7 +68,7 @@
       margin-bottom: 20px;
     }
 
-    h3{
+    h3 {
       font-family: "Roboto";
       font-size: 35px;
       padding-left: 15px;
@@ -78,82 +78,86 @@
       height: 10vh;
       width: 80%;
 
-      @include mobile{
+      @include mobile {
         height: 15vh;
-        font-size: 15px;
+        font-size: 17px;
+        font-weight: 600;
         text-align: center;
       }
     }
 
-    .socialLogos{
+    .socialLogos {
       display: flex;
       align-content: space-between;
       justify-content: space-between;
 
-      .mail{
+      .mail {
         margin-right: 150px;
 
-        @include mobile{
+        @include mobile {
           display: none;
         }
       }
 
-      .hub{
+      .hub {
         margin-right: 150px;
-        
-        @include mobile{
+
+        @include mobile {
           display: none;
         }
       }
-    
 
-      @include mobile{
+      @include mobile {
         display: flex;
         align-content: center;
         justify-content: center;
-
       }
     }
 
-
-    .links{
+    .links {
       display: flex;
       align-content: center;
       justify-content: center;
       width: 900px;
       height: 10vh;
-    
-      @include mobile{
+      overflow: hidden;
+
+      @include mobile {
         width: 100%;
         font-size: 10px;
       }
 
-      a{
+      a {
         display: flex;
         align-content: center;
         justify-content: center;
-        width: 100%;
+        overflow: hidden;
 
-        @include mobile{
+        @include mobile {
           width: 100%;
           font-size: 10px;
+          padding: 0;
+          margin: 0;
         }
-
       }
-      
-     h4{
-       margin-top: 20px;
-       margin-left: 25px;
-       text-align: center;
 
-       @include mobile{
-        font-size: 20px;
-        margin-right: 20px;
+      h4 {
+        margin-top: 20px;
+        margin-left: 20px;
+        text-align: center;
+        height: 10vh;
         width: 100%;
-       }
-     }
-     
-    }
+        overflow: hidden;
+        align-content: center;
 
+        @include mobile {
+          margin: 0;
+          flex-direction: column;
+          width: 20%;
+          margin-top: 30px;
+          text-align: center;
+        }
+      }
+    }
   }
 }

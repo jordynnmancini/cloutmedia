@@ -41,26 +41,56 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 25vh;
-      width: 90%;
+      flex-direction: column;
+      height: 40vh;
+      width: 60%;
+      padding: 10px 20px;
       background-color: lightgray;
-    //   margin-top: 75px;
       opacity: 0.9;
       border-radius: round($number: 30px);
+      margin-bottom: 60px;
+      text-align: center;
+  
+      @include mobile{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        height: 100vh;
+        width: 92%;
+        padding-top: 0px;
+        margin-bottom: 15px;
+      }
+  
     }
-    .p1 {
+    .text{
+      display: flex;
+      align-content: center;
       justify-content: center;
-      height: 85vh;
-      width: 90%;
-      margin-top: 75px;
+      height: 100vh;
+      margin-top: 20px;
+      font-family: "Roboto";
+      font-size: 22px;
+
+      @include mobile{
+        font-size: 15px
+      }
     }
     
     .cloutlogo {
-        height: 35vh;
-        width: 20%;
+      height: 30vh;
+      width: 14%;
+      border-radius: round($number: 49%);
+      margin-top: 30px;
+      opacity: 0.8;
+  
+      @include mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25vh;
+        width: 45%;
         border-radius: round($number: 49%);
-
-        @include mobile {
-        }
+        margin-top: 80px;
+      }
   }
 }
