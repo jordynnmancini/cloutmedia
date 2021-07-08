@@ -59,7 +59,6 @@ router.post('/login', function (req, res) {
 });
 
 //Dashboard Routes 
-// use express sessions for registering the logged in user ID and rendering their info? 
 
 router.get('/dashboard', function (req, res) {
     db.User.findOne({
@@ -71,8 +70,11 @@ router.get('/dashboard', function (req, res) {
 
 
 router.put('/update', function (req, res) {
-    const { id, type, subType, primaryLocation, email, phoneNumber, bio } = req.body;
-    db.User.findOneAndUpdate({ id }, function (err, user) {
+    db.User.findOneAndUpdate({ _id: (req.query.id) }, {
+        subType: req.body.subType,
+        primaryLocation: req.body.primaryLocation,
+        phoneNumber: req.body.phoneNumber,
+        bio: req.body.bio,
 
     })
         .then(userData => res.json(userData))

@@ -3,7 +3,7 @@ import Home from "./components/pages/Home/Home";
 import NavMenu from "./components/NavMenu/NavMenu";
 import Signup from "./components/Signup/signup";
 import withAuth from "./components/higher-order-component/withAuth";
-import Dashboard from "./components/pages/Dashboard/dashboard";
+import Dashboard from "./components/pages/Dashboard/Dashboard";
 import Discover from "./components/pages/Discover/Discover";
 import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";

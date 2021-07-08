@@ -17,5 +17,9 @@ export default {
     // dashboard APi
     getUserData: function (id) {
         return axios.get('api/user/dashboard', { params: { id: id } })
-    }
+    },
+
+    updateUserData: function (id, userData) {
+        return axios.put('api/user/update', { params: { id: id } }, userData)
+    },
 }
