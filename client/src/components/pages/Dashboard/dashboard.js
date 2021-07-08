@@ -40,7 +40,7 @@ export default function Dashboard() {
       showCursor: true,
     });
   }, []);
-
+  
   useEffect(() => {
     // const id = localStorage.getItem('jwtToken').split('/')[0]
     console.log(id, 'id')
@@ -50,9 +50,9 @@ export default function Dashboard() {
         console.log(res.data)
       })
       .catch(err => console.log(err));
-
+    
   }, [])
-
+  
   const handleSubTypeChange = (e) => {
     const { value } = e.target;
     setSubType(value)
@@ -61,22 +61,22 @@ export default function Dashboard() {
     const { value } = e.target;
     setBio(value)
   }
-
+  
   const handlePhoneNumberChange = (e) => {
     const { value } = e.target;
     setPhoneNumber(value)
   }
-
+  
   const handlePrimaryLocationChange = (e) => {
     const { value } = e.target;
     setPrimaryLocation(value)
   }
-
-
+  
+  
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
     setIsOpen(false);
-
+    
     API.updateUserData(id, {
       bio: bio,
       subType: subType,
@@ -86,7 +86,7 @@ export default function Dashboard() {
       .then(res => setUserData(res.data))
       .catch(err => console.log(err))
   }
-
+  
   const openModal = () => {
     setIsOpen(true);
   };
@@ -102,7 +102,7 @@ export default function Dashboard() {
   const closePreview = () => {
     setPreviewOpen(false);
   }
-
+  
   return (
     <div className="dashboard">
       <div className="headerBox">
