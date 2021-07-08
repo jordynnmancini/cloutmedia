@@ -82,7 +82,6 @@ export default function Dashboard() {
       bio: bio,
       subType: subType,
       phoneNumber: phoneNumber,
-      primaryLocation: primaryLocation,
     })
       .then((res) => {
         setUserData(res.data)
@@ -169,41 +168,59 @@ export default function Dashboard() {
         style={customStyles}
         contentLabel="update profile form"
       >
+        <h3>Update your Profile</h3>
+        <label for='phone'>Enter a phone number:</label>
+        <br />
         <input
-          placeholder="prefer to be contacted by phone? Enter your number here"
+          placeholder="i.e. 555-555-5555"
           name="phoneNumber"
           type="text"
+          id='phone'
           value={phoneNumber}
           onChange={handlePhoneNumberChange}
         />
+        <br />
+        {userData.type === "Artist" ? (
+          <div>
+            <br />
+            <label for='subType'>What kind of artist are you?</label>
+            <br />
+            <input
+              placeholder="i.e. singer, drummer, etc."
+              name="subType"
+              id="subType"
+              type="text"
+              value={subType}
+              onChange={handleSubTypeChange}
+            />
+          </div>
+        ) : (
+          <div>
+            <br />
+            <label for='subType'>What kind of sound engineer are you?</label>
+            <br />
+            <input
+              placeholder="i.e. studio, systems, etc."
+              name="subType"
+              id="subType"
+              type="text"
+              value={subType}
+              onChange={handleSubTypeChange}
+            />
+          </div>)}
+        <br />
+        <label for='id'>Enter a bio:</label>
+        <br />
         <input
-          placeholder="enter more about your profession(i.e. singer, guitar player, etc)"
-          name="subType"
-          type="text"
-          value={subType}
-          onChange={handleSubTypeChange}
-        />
-        <input
-          placeholder="enter a bio"
+          placeholder="make it interesting!"
           name="bio"
+          id='bio'
           type="text"
           value={bio}
           onChange={handleBioChange}
         />
-        <label className="labelFor" for="primaryLocation">
-          {" "}
-          Moving? Update your location:{" "}
-        </label>
-        <select
-          value={primaryLocation}
-          name="primaryLocation"
-          onChange={handlePrimaryLocationChange}
-        >
-          <option value="Nashville">Nashville, TN</option>
-          <option value="Los Angeles">Los Angeles, CA</option>
-          <option value="New York City">New York City, NY</option>
-        </select>
-
+        <br />
+        <br />
         <button onClick={(e) => handleUpdateSubmit(e)}> save & close</button>
         <button onClick={closeModal}>close without saving</button>
       </Modal>
