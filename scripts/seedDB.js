@@ -14,7 +14,8 @@ const userSeed = [
         primaryLocation: "Nashville",
         type: "Sound Engineer",
         subType: "Mastering",
-        bio: "Living in Nashville - love to work with country artists!"
+        phoneNumber: "702-555-4646",
+        bio: "I work exclusively with country artists out of a few studios in Downtown Nashville. Email me to get on my schedule."
     },
     {
         email: "soundengineer2@gmail.com",
@@ -23,6 +24,7 @@ const userSeed = [
         primaryLocation: "Nashville",
         type: "Sound Engineer",
         subType: "Systems",
+        phoneNumber: "722-555-4646",
         bio: "New to mastering - looking for practice with smaller local bands."
     },
     {
@@ -32,7 +34,8 @@ const userSeed = [
         primaryLocation: "Nashville",
         type: "Sound Engineer",
         stageName: "Kyle the Sound Guy",
-        bio: "Made it big in LA, recently re-located to Nashville"
+        phoneNumber: "614-555-6789",
+        bio: "Made it big in LA, recently re-located to Nashville. I've worked with pop artists, country artists, pretty much any genre of artist. I prefer if you book with me by calling the number in my bio to reach my studio."
     },
     {
         email: "soundengineer4@gmail.com",
@@ -40,7 +43,8 @@ const userSeed = [
         password: "password123",
         primaryLocation: "Nashville",
         type: "Sound Engineer",
-        bio: "check my schedule for my availability and studios I work from"
+        phoneNumber: "802-555-6789",
+        bio: "call the number in my bio to book with me at my studio"
     },
     {
         email: "artistemail1@gmail.com",
@@ -68,6 +72,7 @@ const userSeed = [
         primaryLocation: "Nashville",
         type: "Artist",
         stageName: "Val",
+        phoneNumber: "802-555-6789",
         bio: "You can find me singing on Broadway Street most nights - looking to record some of my singles."
     },
     {
@@ -77,7 +82,8 @@ const userSeed = [
         primaryLocation: "Los Angeles",
         type: "Sound Engineer",
         subType: "Monitor", 
-        bio: "fresh out of my apprenticeship and looking to build my connections!"
+        phoneNumber: "802-555-6789",
+        bio: "fresh out of my apprenticeship and looking to build my connections! I'm easier to reach by email than phone."
     },
     {
         email: "soundLA2@gmail.com",
@@ -96,6 +102,8 @@ const userSeed = [
         stageName: "Alice Wonder Beats",
         type: "Sound Engineer",
         subType: "Mastering", 
+        phoneNumber: "614-555-1234",
+        bio: "I work exclusively with EDM Artists out of a few studios in Downtown LA. Email me to get on my schedule."
     },
     {
         email: "artistLA@gmail.com",
@@ -130,6 +138,9 @@ const userSeed = [
         password: "password123",
         primaryLocation: "New York City",
         type: "Sound Engineer",
+        subType: "Studio",
+        bio: "I've mostly worked with pop artists, but looking to branch out."
+
     },
     {
         email: "soundNY2@gmail.com",

@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import Modal from 'react-modal';
-import "./discovery.scss";
+import "./discover.scss";
 import { init } from "ityped";
 import SearchIcon from '@material-ui/icons/Search';
 import API from '../../../utils/API';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import WorkIcon from '@material-ui/icons/Work';
+import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
 
 //basic styling for modal
 const customStyles = {
@@ -17,7 +20,7 @@ const customStyles = {
   },
 };
 
-export default function Discovery() {
+export default function Discover() {
   const [results, setResults] = useState([]);
   const [type, setType] = useState();
   const [location, setLocation] = useState();
@@ -25,7 +28,12 @@ export default function Discovery() {
   const [selectedUser, setUser] = useState({
     name: '',
     email: '',
-    bio: ''
+    bio: '',
+    primaryLocation: '',
+    type: '',
+    stageName: '',
+    subType: '',
+    phoneNumber: ''
   });
 
   const textRef = useRef();
@@ -72,7 +80,16 @@ export default function Discovery() {
   function openModal(result) {
     console.log(result)
     setIsOpen(true);
-    setUser({ name: result.name, email: result.email, bio: result.bio })
+    setUser({ 
+      name: result.name, 
+      email: result.email, 
+      bio: result.bio, 
+      primaryLocation: result.primaryLocation, 
+      type: result.type, 
+      stageName: result.stageName, 
+      subType: result.subType, 
+      phoneNumber: result.phoneNumber 
+    })
   }
 
   function closeModal() {
@@ -120,7 +137,11 @@ export default function Discovery() {
                       return (
                         <ul className="eng1" key={key}>
                           <li className="name">{result.name}</li>
-                          <li className="title">{result.type} - {result.subType}</li>
+                          <li className="title">{result.type} {!result.subType ? (
+                            <span> </span>
+                          ) : (
+                            <span>({result.subType})</span>
+                          )} </li>
                           <button onClick={() => openModal(result)}><li className="info">More Info</li></button>
                         </ul>
                       )
@@ -135,12 +156,29 @@ export default function Discovery() {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Discover Modal"
         >
           <h1>{selectedUser.name}</h1>
-          <p>"{selectedUser.bio}"</p>
-          Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
-
+          <h4>{selectedUser.stageName}</h4>
+          <h6><span><LocationOnIcon /></span>{selectedUser.primaryLocation}</h6>
+          <h6><span><WorkIcon /></span>{selectedUser.type} {!selectedUser.subType ? (
+            <p></p>
+          ) : (
+            <span>({selectedUser.subType})</span>
+          )}</h6>
+          {!selectedUser.phoneNumber ? (
+            <p></p>
+          ) : (
+            <h6><span><PhoneInTalkIcon /></span>{selectedUser.phoneNumber}</h6>
+          )}
+          <br />
+          {!selectedUser.bio ? (
+            <p> </p>
+          ) : (
+            <p> About me: "{selectedUser.bio}"</p>
+          )}
+          <p>Reach me at: <a href={"mailto:" + selectedUser.email + "?subject=Found you on Clout! Let's talk."}>{selectedUser.email}</a> </p>
+          <br />
           <button onClick={closeModal}>close</button>
         </Modal>
       </div>
