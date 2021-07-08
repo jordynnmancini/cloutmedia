@@ -4,6 +4,8 @@ import "./discover.scss";
 import { init } from "ityped";
 import SearchIcon from '@material-ui/icons/Search';
 import API from '../../../utils/API';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import WorkIcon from '@material-ui/icons/Work';
 
 //basic styling for modal
 const customStyles = {
@@ -25,7 +27,9 @@ export default function Discover() {
   const [selectedUser, setUser] = useState({
     name: '',
     email: '',
-    bio: ''
+    bio: '',
+    primaryLocation: '',
+    type: ''
   });
 
   const textRef = useRef();
@@ -72,7 +76,7 @@ export default function Discover() {
   function openModal(result) {
     console.log(result)
     setIsOpen(true);
-    setUser({ name: result.name, email: result.email, bio: result.bio })
+    setUser({ name: result.name, email: result.email, bio: result.bio, primaryLocation: result.primaryLocation, type: result.type })
   }
 
   function closeModal() {
@@ -142,13 +146,15 @@ export default function Discover() {
           contentLabel="Discover Modal"
         >
           <h1>{selectedUser.name}</h1>
+          <h4><span><LocationOnIcon /></span>{selectedUser.primaryLocation}</h4>
+          <h4><span><WorkIcon /></span>{selectedUser.type}</h4>
           {!selectedUser.bio ? (
             <p> </p>
           ) : (
             <p>"{selectedUser.bio}"</p>
           )}
-          Reach me at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
-
+          <p>Reach me at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a> </p>
+          <br />
           <button onClick={closeModal}>close</button>
         </Modal>
       </div>
