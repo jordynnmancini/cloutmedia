@@ -69,7 +69,7 @@
     overflow: hidden;
     height: 75vh;
     width: 75%;
-    margin-top: 100px;
+    margin-top: 17px;
     background-color: lightgray;
     opacity: 0.9;
     border-radius: round($number: 12px);
@@ -90,6 +90,7 @@
       width: 65%;
       border-radius: round($number: 10px);
       opacity: 3;
+      margin-top: 20px;
       overflow: hidden;
 
       @include mobile {
@@ -280,6 +281,7 @@
           font-weight: 600;
           width: 100%;
           margin-top: 10px;
+          overflow: hidden;
 
 
           @include mobile {
@@ -302,7 +304,7 @@
           align-items: center;
           justify-content: center;          
           flex-direction: column;
-          height: 20vh;
+          height: 30vh;
           overflow: hidden;
           width: 88%;
           margin-top: 20px;
@@ -310,6 +312,8 @@
           border-radius: round($number: 10px);
           opacity: 1;
           margin-left: 80px;
+          margin-bottom: 30px ;
+          overflow: hidden;
 
           @include mobile {
             display: flex;

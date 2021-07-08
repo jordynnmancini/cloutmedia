@@ -11,34 +11,36 @@ export default function LogoutButton() {
             buttons: {
                 stay: {
                     text: "Nevermind",
-                    value:"stay"
+                    value:"Stay"
                 },
                 sure: {
                     text: "I'm Sure",
-                    value: "sure"
+                    value: "Sure"
                 }
             }
         }).then(value => {
             switch(value) {
-                case "sure":
-                    swal("Log out successful!", ":)")
+                case "Sure":
+                    swal("Logout successful!", ":)")
                     .then(val => {
                         localStorage.removeItem('jwtToken');
                         history.push('/')
                     });
                     break;
-                case 'stay':
-                    swal("","sounds good!");
+                case 'Stay':
+                    swal("","Sounds good!");
                     break;
-                default: swal('nevermind'); 
+                default: swal('Nevermind'); 
             }
         })
     }
 
     return (
+        <div className="404Wrapper">
         <button className="logout" onClick={() => Logout()}>
             Logout 
         </button>
+        </div>
     )
 
 }
