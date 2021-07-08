@@ -214,7 +214,7 @@ export default function Dashboard() {
         ) : (
           <p> About me: "{userData.bio}"</p>
         )}
-        <p>Reach me at: <a href={"mailto:" + userData.email + "?subject=Found you on Clout! Let's connect."}>{userData.email}</a> </p>
+        <p>Reach me at: <a href={"mailto:" + userData.email + "?subject=Found you on Clout! Let's talk."}>{userData.email}</a> </p>
         <br />
         <button onClick={closePreview}>close</button>
       </Modal>

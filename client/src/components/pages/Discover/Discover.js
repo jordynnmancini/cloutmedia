@@ -177,7 +177,7 @@ export default function Discover() {
           ) : (
             <p> About me: "{selectedUser.bio}"</p>
           )}
-          <p>Reach me at: <a href={"mailto:" + selectedUser.email + "?subject=Found you on Clout! Let's connect."}>{selectedUser.email}</a> </p>
+          <p>Reach me at: <a href={"mailto:" + selectedUser.email + "?subject=Found you on Clout! Let's talk."}>{selectedUser.email}</a> </p>
           <br />
           <button onClick={closeModal}>close</button>
         </Modal>
