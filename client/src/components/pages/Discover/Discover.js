@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Modal from 'react-modal';
-import "./discovery.scss";
+import "./discover.scss";
 import { init } from "ityped";
 import SearchIcon from '@material-ui/icons/Search';
 import API from '../../../utils/API';
@@ -17,7 +17,7 @@ const customStyles = {
   },
 };
 
-export default function Discovery() {
+export default function Discover() {
   const [results, setResults] = useState([]);
   const [type, setType] = useState();
   const [location, setLocation] = useState();
@@ -120,7 +120,11 @@ export default function Discovery() {
                       return (
                         <ul className="eng1" key={key}>
                           <li className="name">{result.name}</li>
-                          <li className="title">{result.type} - {result.subType}</li>
+                          <li className="title">{result.type} {!result.subType ? (
+                            <span> </span>
+                          ) : (
+                            <span>({result.subType})</span>
+                          )} </li>
                           <button onClick={() => openModal(result)}><li className="info">More Info</li></button>
                         </ul>
                       )
@@ -135,11 +139,15 @@ export default function Discovery() {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Discover Modal"
         >
           <h1>{selectedUser.name}</h1>
-          <p>"{selectedUser.bio}"</p>
-          Reach them at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
+          {!selectedUser.bio ? (
+            <p> </p>
+          ) : (
+            <p>"{selectedUser.bio}"</p>
+          )}
+          Reach me at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a>
 
           <button onClick={closeModal}>close</button>
         </Modal>
