@@ -12,6 +12,7 @@ export default class Signup extends Component {
       password: "",
       primaryLocation: "Nashville",
       type: "Artist",
+      thumbnail: ""
     };
   }
 
@@ -35,6 +36,12 @@ export default class Signup extends Component {
     });
   };
 
+  handleThumbnailChange = (e) => {
+    this.setState({ thumbnail: e.target.value }, () => {
+      console.log(this.state);
+    });
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
 
@@ -44,6 +51,7 @@ export default class Signup extends Component {
       password: this.state.password,
       primaryLocation: this.state.primaryLocation,
       type: this.state.type,
+      thumbnail: this.state.thumbnail,
     })
       .then((res) => {
         if (res.status === 200) {
@@ -73,7 +81,7 @@ export default class Signup extends Component {
     return (
       <div className="signupWrapper">
         <div className="formContainer">
-          <form>
+          <form encType="mulitpart/form-data">
             <h1>Signup</h1>
             <input
               className="inputName"
@@ -127,6 +135,8 @@ export default class Signup extends Component {
               <option value="Los Angeles">Los Angeles, CA</option>
               <option value="New York City">New York City, NY</option>
             </select>
+            <label className="labelFor" for="image">Upload Image</label>
+            <input type="file" accept="image/*" name="thumbnail" id="thumbnail" value={this.state.thumbnail} onChange={this.handleThumbnailChange}></input>
             <button className="signupButton" onClick={this.onSubmit}>
               Signup
             </button>
