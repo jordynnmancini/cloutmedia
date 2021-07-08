@@ -12,7 +12,7 @@
   opacity: 0.9;
 
   @include mobile {
-   opacity:5;
+    opacity: 5;
   }
 
   &::-webkit-scrollbar {
@@ -28,27 +28,23 @@
     .left {
       display: flex;
       align-items: center;
-      
-      .logo {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       height: 60px;
-       margin-bottom: 5px;
-     
 
-        @include mobile{
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        margin-bottom: 5px;
+
+        @include mobile {
           height: 45px;
-          width:35px;
+          width: 35px;
           display: flex;
           align-items: center;
           justify-content: center;
           margin-top: 10px;
         }
-        
       }
-
-
     }
 
     .iconContainer {
@@ -56,16 +52,13 @@
       align-items: center;
       justify-content: space-evenly;
       margin-top: 10px;
-    
 
       @include mobile {
         display: flex;
         align-items: center;
         justify-content: center;
         margin-top: 10px;
-        
       }
-
 
       span {
         font-size: 15px;
@@ -90,7 +83,7 @@
           transition: all 0.5s ease;
         }
 
-        @include mobile{
+        @include mobile {
           margin-top: 10px;
         }
       }
@@ -100,9 +93,7 @@
   &.active {
     background-color: yellow;
     color: black;
-    opacity: .8;
-
-    
+    opacity: 0.8;
 
     .hamburger {
       span {

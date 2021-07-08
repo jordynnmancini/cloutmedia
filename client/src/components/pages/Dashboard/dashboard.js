@@ -3,25 +3,24 @@ import "./dashboard.scss";
 import { init } from "ityped";
 import { useEffect, useRef, useState } from "react";
 import API from "../../../utils/API";
-import Modal from 'react-modal';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import WorkIcon from '@material-ui/icons/Work';
-import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
+import Modal from "react-modal";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import WorkIcon from "@material-ui/icons/Work";
+import PhoneInTalkIcon from "@material-ui/icons/PhoneInTalk";
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
 };
 
 export default function Dashboard() {
-  const id = localStorage.getItem('jwtToken').split('/')[0]
+  const id = localStorage.getItem("jwtToken").split("/")[0];
   const [userData, setUserData] = useState({});
   const [primaryLocation, setPrimaryLocation] = useState();
   const [subType, setSubType] = useState();
@@ -33,61 +32,57 @@ export default function Dashboard() {
   const textRef = useRef();
   useEffect(() => {
     init(textRef.current, {
-      strings: [
-        "My Dashboard",
-      ],
+      strings: ["My Dashboard"],
       backDelay: 1500,
       backSpeed: 60,
       showCursor: true,
     });
   }, []);
-  
+
   useEffect(() => {
     // const id = localStorage.getItem('jwtToken').split('/')[0]
-    console.log(id, 'id')
+    console.log(id, "id");
     API.getUserData(id)
-      .then(res => {
-        setUserData(res.data)
-        console.log(res.data)
+      .then((res) => {
+        setUserData(res.data);
+        console.log(res.data);
       })
-      .catch(err => console.log(err));
-    
-  }, [])
-  
+      .catch((err) => console.log(err));
+  }, []);
+
   const handleSubTypeChange = (e) => {
     const { value } = e.target;
-    setSubType(value)
-  }
+    setSubType(value);
+  };
   const handleBioChange = (e) => {
     const { value } = e.target;
-    setBio(value)
-  }
-  
+    setBio(value);
+  };
+
   const handlePhoneNumberChange = (e) => {
     const { value } = e.target;
-    setPhoneNumber(value)
-  }
-  
+    setPhoneNumber(value);
+  };
+
   const handlePrimaryLocationChange = (e) => {
     const { value } = e.target;
-    setPrimaryLocation(value)
-  }
-  
-  
+    setPrimaryLocation(value);
+  };
+
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
     setIsOpen(false);
-    
+
     API.updateUserData(id, {
       bio: bio,
       subType: subType,
       phoneNumber: phoneNumber,
       primaryLocation: primaryLocation,
     })
-      .then(res => setUserData(res.data))
-      .catch(err => console.log(err))
-  }
-  
+      .then((res) => setUserData(res.data))
+      .catch((err) => console.log(err));
+  };
+
   const openModal = () => {
     setIsOpen(true);
   };
@@ -102,8 +97,8 @@ export default function Dashboard() {
 
   const closePreview = () => {
     setPreviewOpen(false);
-  }
-  
+  };
+
   return (
     <div className="dashboard">
       <div className="headerBox">
@@ -128,11 +123,12 @@ export default function Dashboard() {
                 <br />
                 <li>About Me:</li>
                 {!userData.bio ? (
-                  <p>edit your profile to include a bio. Increase your clout by showing off your accomplishments. </p>
-                ) : (
                   <p>
-                    {userData.bio}
+                    edit your profile to include a bio. Increase your clout by
+                    showing off your accomplishments.{" "}
                   </p>
+                ) : (
+                  <p>{userData.bio}</p>
                 )}
               </ul>
             </div>
@@ -140,15 +136,26 @@ export default function Dashboard() {
         </div>
         <div className="right">
           <div className="profileEdit">
-            <button onClick={openModal} className="profileButton" type="submit">Edit Your Profile</button>
-            <button onClick={openPreview} className="previewButton" type="submit">Preview</button>
-            <button className="settingsButton" type="submit">Setting/Security</button>
+            <button onClick={openModal} className="profileButton" type="submit">
+              Edit Your Profile
+            </button>
+            <button
+              onClick={openPreview}
+              className="previewButton"
+              type="submit"
+            >
+              Preview
+            </button>
+            <button className="settingsButton" type="submit">
+              Setting/Security
+            </button>
           </div>
         </div>
       </div>
 
-{/* Edit Your Profile Modal */}
-      <Modal className=''
+      {/* Edit Your Profile Modal */}
+      <Modal
+        className=""
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
@@ -175,11 +182,15 @@ export default function Dashboard() {
           value={bio}
           onChange={handleBioChange}
         />
-        <label className="labelFor" for="primaryLocation"> Moving? Update your location: </label>
+        <label className="labelFor" for="primaryLocation">
+          {" "}
+          Moving? Update your location:{" "}
+        </label>
         <select
           value={primaryLocation}
           name="primaryLocation"
-          onChange={handlePrimaryLocationChange}>
+          onChange={handlePrimaryLocationChange}
+        >
           <option value="Nashville">Nashville, TN</option>
           <option value="Los Angeles">Los Angeles, CA</option>
           <option value="New York City">New York City, NY</option>
@@ -189,7 +200,7 @@ export default function Dashboard() {
         <button onClick={closeModal}>close without saving</button>
       </Modal>
 
-{/* Preview Modal */}
+      {/* Preview Modal */}
       <Modal
         isOpen={previewIsOpen}
         onRequestClose={closePreview}
@@ -198,28 +209,46 @@ export default function Dashboard() {
       >
         <h1>{userData.name}</h1>
         <h4>{userData.stageName}</h4>
-        <h6><span><LocationOnIcon /></span>{userData.primaryLocation}</h6>
-        <h6><span><WorkIcon /></span>{userData.type} {!userData.subType ? (
-          <p></p>
-        ) : (
-          <span>({userData.subType})</span>
-        )}</h6>
+        <h6>
+          <span>
+            <LocationOnIcon />
+          </span>
+          {userData.primaryLocation}
+        </h6>
+        <h6>
+          <span>
+            <WorkIcon />
+          </span>
+          {userData.type}{" "}
+          {!userData.subType ? <p></p> : <span>({userData.subType})</span>}
+        </h6>
         {!userData.phoneNumber ? (
           <p></p>
         ) : (
-          <h6><span><PhoneInTalkIcon /></span>{userData.phoneNumber}</h6>
+          <h6>
+            <span>
+              <PhoneInTalkIcon />
+            </span>
+            {userData.phoneNumber}
+          </h6>
         )}
         <br />
-        {!userData.bio ? (
-          <p> </p>
-        ) : (
-          <p> About me: "{userData.bio}"</p>
-        )}
-        <p>Reach me at: <a href={"mailto:" + userData.email + "?subject=Found you on Clout! Let's talk."}>{userData.email}</a> </p>
+        {!userData.bio ? <p> </p> : <p> About me: "{userData.bio}"</p>}
+        <p>
+          Reach me at:{" "}
+          <a
+            href={
+              "mailto:" +
+              userData.email +
+              "?subject=Found you on Clout! Let's talk."
+            }
+          >
+            {userData.email}
+          </a>{" "}
+        </p>
         <br />
         <button onClick={closePreview}>close</button>
       </Modal>
-
     </div>
   );
 }

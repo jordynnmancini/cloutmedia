@@ -66,7 +66,7 @@
     margin-top: 23px;
     border-radius: round($number: 20px);
     overflow: hidden;
-    opacity: .9;
+    opacity: 0.9;
 
     @include mobile {
       display: flex;
@@ -76,7 +76,6 @@
       width: 48vh;
       margin-top: 50px;
       background-position: center;
-      
     }
 
     .left {
@@ -126,7 +125,7 @@
           image-resolution: inherit;
           background-size: cover;
           overflow: hidden;
-        //   margin-bottom: 50px;
+          //   margin-bottom: 50px;
           margin-left: 60px;
 
           @include mobile {
@@ -150,13 +149,13 @@
             @include mobile {
               height: 22vh;
               width: 69%;
-              
+
               justify-content: center;
               background-position: center;
               image-resolution: initial;
               background-size: cover;
               margin-left: 120px;
-            //   border-radius: round($number: 30%);
+              //   border-radius: round($number: 30%);
             }
           }
         }
@@ -177,7 +176,6 @@
           align-items: center;
           justify-content: center;
           margin: 0;
-          
         }
 
         .info {
@@ -199,7 +197,7 @@
             flex-direction: column;
             height: 56vh;
             width: 75%;
-           margin-bottom: 0;
+            margin-bottom: 0;
             margin-right: 20px;
           }
 
@@ -216,7 +214,7 @@
 
             @include mobile {
               height: 40vh;
-            //   margin-top: 30px;
+              //   margin-top: 30px;
               margin-right: 60px;
               display: flex;
               font-size: 14px;
@@ -231,7 +229,6 @@
               font-size: 16px;
               font-weight: bold;
               width: 440px;
-              
 
               @include mobile {
                 display: flex;
@@ -296,7 +293,6 @@
         font-weight: bold;
         font-size: 20px;
         margin-right: 20px;
-        
 
         @include mobile {
           display: flex;
@@ -312,7 +308,6 @@
           cursor: pointer;
           font-weight: bold;
           border-radius: round($number: 20px);
-          
 
           &:focus {
             outline: none;
@@ -334,7 +329,6 @@
           margin-bottom: 60px;
           font-weight: bold;
           border-radius: round($number: 20px);
-          
 
           &:focus {
             outline: none;
@@ -367,7 +361,7 @@
           }
         }
 
-        .modal{
+        .modal {
           display: flex;
           justify-content: center;
           align-content: center;
