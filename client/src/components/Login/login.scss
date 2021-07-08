@@ -1,6 +1,6 @@
 @import "../../global.scss";
 
-.loginWrapper{
+.loginWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,15 +13,13 @@
   image-resolution: initial;
   background-position: center;
 
-
   @include mobile {
     flex-direction: column;
     align-items: center;
-    background-position:center;
+    background-position: center;
   }
 
-
-  .formContainer{
+  .formContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,11 +39,8 @@
       margin-top: 50px;
       overflow: hidden;
     }
-    
 
-
-
-    form{
+    form {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -66,24 +61,20 @@
         width: 56vh;
         background-position: center;
       }
-  
 
-      
-    h1 {
-      font-family: "Roboto";
-      font-weight: bolder;
-      display: flex;
-      padding-bottom: 20px;
+      h1 {
+        font-family: "Roboto";
+        font-weight: bolder;
+        display: flex;
+        padding-bottom: 20px;
 
-      @include mobile{
-        font-size: 30px;
-        margin-bottom: -5px;
-        
+        @include mobile {
+          font-size: 30px;
+          margin-bottom: -5px;
+        }
       }
-    }
 
-
-      .inputEmail{
+      .inputEmail {
         margin-bottom: 20px;
         width: 300px;
         border-radius: round($number: 5px);
@@ -95,7 +86,6 @@
           height: 5vh;
           width: 38vh;
           background-position: center;
-         
         }
       }
 
@@ -104,7 +94,6 @@
         width: 300px;
         border-radius: round($number: 5px);
 
-      
         @include mobile {
           display: flex;
           align-items: center;
@@ -112,12 +101,10 @@
           height: 5vh;
           width: 38vh;
           background-position: center;
-         
         }
       }
 
-      .signInButton{
-
+      .signInButton {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -134,7 +121,6 @@
           opacity: 1.3;
           background-color: yellow;
         }
-
 
         @include mobile {
           height: 33px;

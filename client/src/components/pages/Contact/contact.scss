@@ -17,58 +17,147 @@
   overflow: hidden;
 
   @include mobile {
+    flex-direction: column;
+    align-items: center;
+    background-position: center;
   }
 
   .contactUs {
-      display:flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      width: 100%;
-    .imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+
+    .cloutlogo {
+      height: 30vh;
+      width: 14%;
+      border-radius: round($number: 49%);
+      margin-top: 30px;
+      opacity: 0.8;
+
+      @include mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25vh;
+        width: 45%;
+        border-radius: round($number: 49%);
+        margin-top: 80px;
+      }
+    }
+  }
+
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 40vh;
+    width: 70%;
+    background-color: lightgray;
+    opacity: 0.9;
+    border-radius: round($number: 30px);
+
+    @include mobile {
       display: flex;
       align-content: center;
       justify-content: center;
-      height: 20vh;
-      width: 350px;
-      margin-top: 120px;
+      height: 50vh;
+      width: 90%;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-family: "Roboto";
+      font-size: 35px;
+      padding-left: 15px;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      height: 10vh;
+      width: 80%;
 
       @include mobile {
-      }
-
+        height: 15vh;
+        font-size: 17px;
+        font-weight: 600;
+        text-align: center;
       }
     }
 
-    .main {
+    .socialLogos {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 90vh;
-      width: 90%;
-      background-color: lightgray;
-      top: -75px;
-    //   margin-top: 75px;
-      opacity: 0.9;
-      border-radius: round($number: 30px);
-    }
+      align-content: space-between;
+      justify-content: space-between;
 
-    
-    .cloutlogo {
-        height: 35vh;
-        width: 20%;
-        border-radius: round($number: 49%);
+      .mail {
+        margin-right: 150px;
 
         @include mobile {
+          display: none;
         }
-  }
-  .h3 {
-    top: -75px;
-  }
-  .h4 {
-    justify-content: center;
-    
-  }
-  .li {
-    top: -200px;
+      }
+
+      .hub {
+        margin-right: 150px;
+
+        @include mobile {
+          display: none;
+        }
+      }
+
+      @include mobile {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+      }
+    }
+
+    .links {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      width: 900px;
+      height: 10vh;
+      overflow: hidden;
+
+      @include mobile {
+        width: 100%;
+        font-size: 10px;
+      }
+
+      a {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        overflow: hidden;
+
+        @include mobile {
+          width: 100%;
+          font-size: 10px;
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+      h4 {
+        margin-top: 50px;
+        margin-left: 20px;
+        text-align: center;
+        height: 10vh;
+        width: 100%;
+        overflow: hidden;
+        align-content: center;
+
+        @include mobile {
+          margin: 0;
+          flex-direction: column;
+          width: 20%;
+          margin-top: 30px;
+          text-align: center;
+        }
+      }
+    }
   }
 }

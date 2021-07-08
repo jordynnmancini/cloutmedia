@@ -10,7 +10,6 @@ import Contact from "./components/pages/Contact/Contact";
 import Login from "./components/Login/login";
 import NotFound from "./components/pages/NotFound/NotFound";
 
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,8 +18,6 @@ import {
   useRouteMatch,
   useParams,
 } from "react-router-dom";
-;
-
 function App() {
   //replaced this from jordyn's code, it may be needed for with
   const isLoggedIn = () => {
@@ -37,7 +34,6 @@ function App() {
   //return code here
   return (
     <Router>
-
       <NavMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
 
       <Switch>
@@ -50,7 +46,6 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="*" component={NotFound} />
       </Switch>
-
     </Router>
   );
 }

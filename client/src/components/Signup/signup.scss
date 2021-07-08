@@ -13,12 +13,10 @@
   image-resolution: initial;
   background-position: center;
 
-
-
   @include mobile {
     flex-direction: column;
     align-items: center;
-    background-position:center;
+    background-position: center;
   }
 
   .formContainer {
@@ -32,8 +30,6 @@
     width: 61vh;
     overflow: hidden;
 
-    
-
     @include mobile {
       display: flex;
       align-items: center;
@@ -43,7 +39,6 @@
       margin-top: 50px;
       overflow: hidden;
     }
-    
 
     h1 {
       font-family: "Roboto";
@@ -51,12 +46,10 @@
       display: flex;
       font-size: 35px;
       margin-bottom: 5px;
-     
 
-      @include mobile{
+      @include mobile {
         font-size: 30px;
         margin-bottom: -5px;
-        
       }
     }
 
@@ -74,16 +67,14 @@
       opacity: 0.8;
       overflow: hidden;
 
-      
-    @include mobile {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 55vh;
-      width: 55vh;
-      background-position: center;
-    }
-
+      @include mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 55vh;
+        width: 55vh;
+        background-position: center;
+      }
 
       .inputName {
         display: flex;
@@ -101,7 +92,6 @@
           height: 18px;
           width: 35vh;
           background-position: center;
-         
         }
       }
 
@@ -117,7 +107,6 @@
           height: 18px;
           width: 41vh;
           background-position: center;
-         
         }
       }
 
@@ -133,7 +122,6 @@
           height: 18px;
           width: 42vh;
           background-position: center;
-         
         }
       }
 
@@ -149,7 +137,6 @@
           height: 20px;
           width: 40vh;
           background-position: center;
-         
         }
       }
 
@@ -163,14 +150,11 @@
           height: 20px;
           width: 40vh;
           overflow: hidden;
-          font-size: 15px
-          
-         
+          font-size: 15px;
         }
       }
 
       .dropDown {
-        
         width: 350px;
         border-radius: round($number: 5px);
 
@@ -182,8 +166,6 @@
           width: 35vh;
           font-size: 12px;
           margin-top: 10px;
-         
-         
         }
       }
 
@@ -215,7 +197,7 @@
 
       .inkText {
         margin-bottom: 10px;
-        color: crimson
+        color: crimson;
       }
     }
 
@@ -227,7 +209,7 @@
       padding-top: 5px;
       display: flex;
 
-      @include mobile{
+      @include mobile {
         margin-bottom: -15px;
       }
     }

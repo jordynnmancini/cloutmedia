@@ -1,8 +1,8 @@
 //wrap components behind authorization with this
 // ex: <Route path="/dashboard" component={withAuth(Dashboard)} />
 
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 export default function withAuth(ProtectedComponent) {
   return class AuthWrapper extends Component {
@@ -13,7 +13,7 @@ export default function withAuth(ProtectedComponent) {
         redirect: false,
       };
     }
-    
+
     componentDidMount() {
       // fetch('/checkToken')
       //   .then(res => {
@@ -28,11 +28,11 @@ export default function withAuth(ProtectedComponent) {
       //     console.error(err);
       //     this.setState({ loading: false, redirect: true });
       //   });
-        if(localStorage.getItem('jwtToken')){
-          this.setState({loading: false }); 
-        } else {
-          this.setState({ loading: false, redirect: true }); 
-        }
+      if (localStorage.getItem("jwtToken")) {
+        this.setState({ loading: false });
+      } else {
+        this.setState({ loading: false, redirect: true });
+      }
     }
 
     render() {
@@ -45,5 +45,5 @@ export default function withAuth(ProtectedComponent) {
       }
       return <ProtectedComponent {...this.props} />;
     }
-  }
+  };
 }

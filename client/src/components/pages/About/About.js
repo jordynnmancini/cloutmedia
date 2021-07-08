@@ -13,7 +13,7 @@ export default function About() {
       </div>
 
       <div className="about">
-        <p3>
+        <p3 className="text">
           What is Clout? It's a way to connect the music industry together like
           never before. It's a site made for creatives and harnessing
           connections between them. As a musician or musical artist, it is often

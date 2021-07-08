@@ -69,7 +69,7 @@
     overflow: hidden;
     height: 75vh;
     width: 75%;
-    margin-top: 100px;
+    margin-top: 17px;
     background-color: lightgray;
     opacity: 0.9;
     border-radius: round($number: 12px);
@@ -90,6 +90,7 @@
       width: 65%;
       border-radius: round($number: 10px);
       opacity: 3;
+      margin-top: 20px;
       overflow: hidden;
 
       @include mobile {
@@ -110,8 +111,8 @@
         margin-top: 10px;
         overflow: hidden;
 
-        @include mobile{
-          font-size: 35px ;
+        @include mobile {
+          font-size: 35px;
         }
       }
 
@@ -124,13 +125,12 @@
         width: 100%;
         overflow: hidden;
 
-        @include mobile{
+        @include mobile {
           display: flex;
           align-content: center;
           justify-content: center;
           height: 30vh;
           font-size: 10px;
-
         }
 
         h3 {
@@ -139,13 +139,13 @@
           justify-content: center;
           overflow: hidden;
 
-          @include mobile{
+          @include mobile {
             display: flex;
             align-content: center;
             justify-content: center;
             flex-direction: column;
             font-size: 25px;
-            margin-bottom: 30;
+            margin-bottom: 0;
             margin-top: 0;
           }
         }
@@ -157,8 +157,7 @@
           flex-direction: column;
           overflow: hidden;
 
-          @include mobile{
-
+          @include mobile {
           }
         }
 
@@ -168,9 +167,10 @@
           justify-content: center;
           flex-direction: column;
           overflow: hidden;
+          text-align: center;
 
-          @include mobile{
-            
+          @include mobile {
+            text-align: center;
           }
         }
 
@@ -181,9 +181,10 @@
           flex-direction: column;
           overflow: hidden;
           margin-top: 5px;
+          text-align: center;
 
-          @include mobile{
-            
+          @include mobile {
+            text-align: center;
           }
         }
 
@@ -194,20 +195,18 @@
           flex-direction: column;
           overflow: hidden;
 
-          @include mobile{
-            
+          @include mobile {
           }
         }
 
         .locationDrop {
           overflow: hidden;
 
-          @include mobile{
-            
+          @include mobile {
           }
         }
 
-        .searchButton{
+        .searchButton {
           display: flex;
           align-content: center;
           justify-content: center;
@@ -218,17 +217,18 @@
           width: 4%;
           height: 30px;
           background-color: yellow;
-          opacity: .89;
+          opacity: 0.89;
           margin-left: 450px;
 
-          @include mobile{
+          @include mobile {
             display: flex;
             align-content: center;
             justify-content: center;
             margin-left: 110px;
             height: 25px;
             width: 33px;
-            margin-top: 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
           }
         }
       }
@@ -242,7 +242,6 @@
       height: 50vh;
       width: 100%;
       overflow: hidden;
-     
 
       @include mobile {
         align-content: center;
@@ -259,6 +258,7 @@
         align-content: center;
         justify-content: center;
         flex-direction: column;
+        text-align: center;
         overflow: hidden;
 
         @include mobile {
@@ -280,7 +280,7 @@
           font-weight: 600;
           width: 100%;
           margin-top: 10px;
-
+          overflow: hidden;
 
           @include mobile {
             display: flex;
@@ -300,9 +300,9 @@
         .soundEngineers {
           display: flex;
           align-items: center;
-          justify-content: center;          
+          justify-content: center;
           flex-direction: column;
-          height: 20vh;
+          height: 30vh;
           overflow: hidden;
           width: 88%;
           margin-top: 20px;
@@ -310,6 +310,8 @@
           border-radius: round($number: 10px);
           opacity: 1;
           margin-left: 80px;
+          margin-bottom: 30px;
+          overflow: hidden;
 
           @include mobile {
             display: flex;
@@ -323,12 +325,11 @@
             margin-left: 10px;
           }
 
-          .noResults{
+          .noResults {
             display: flex;
             align-content: center;
             justify-content: center;
             font-size: 35px;
-
           }
 
           .uls {
@@ -341,7 +342,6 @@
             align-content: center;
             justify-content: center;
             flex-direction: column;
-           
 
             @include mobile {
               display: flex;
@@ -358,7 +358,6 @@
               padding: 5px 0px;
               margin-left: 0px;
             }
-
 
             .eng1 {
               align-content: space-between;
@@ -386,9 +385,7 @@
                 margin-right: 20px;
                 padding-left: 5px;
                 padding-right: 6px;
-                
               }
-
             }
           }
         }

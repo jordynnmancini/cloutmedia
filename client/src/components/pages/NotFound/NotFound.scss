@@ -11,19 +11,18 @@
   background-image: url(crowd.png);
   image-resolution: initial;
 
-h3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+  h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
   @include mobile {
     flex-direction: column;
     align-items: center;
-    background-position:center;
+    background-position: center;
   }
-
 
   .container {
     display: flex;
@@ -46,8 +45,6 @@ h3 {
       margin-top: 50px;
     }
 
-  
-
     .imgContainer {
       display: flex;
       align-items: center;
@@ -64,7 +61,7 @@ h3 {
         justify-content: center;
       }
 
-      .cloutlogo{
+      .cloutlogo {
         height: 62vh;
         width: 100%;
         border-radius: round($number: 50%);
@@ -74,10 +71,9 @@ h3 {
           align-items: center;
           justify-content: center;
           height: 46vh;
-        width: 98%;
+          width: 98%;
         }
       }
-    
     }
   }
   .buttons {
@@ -86,7 +82,7 @@ h3 {
     justify-content: space-evenly;
     margin-right: 10px;
     margin: 0;
-    opacity: .9;
+    opacity: 0.9;
     margin-top: -50px;
     background-color: none;
     font-size: 15px;
@@ -99,18 +95,16 @@ h3 {
     }
   }
 
-  .signup{
+  .signup {
     height: 66px;
     width: 180px;
     border-radius: 25px;
     font-size: 25px;
     font-weight: bolder;
     font-family: "Roboto";
-    &:focus{
+    &:focus {
       outline: none;
     }
-
-    
 
     @include mobile {
       display: flex;
@@ -120,19 +114,18 @@ h3 {
       margin-bottom: 20px;
     }
 
-    &:hover{
-        opacity: 1.3;
-        background-color: yellow;
+    &:hover {
+      opacity: 1.3;
+      background-color: yellow;
     }
-
   }
-  .learnMore{
+  .learnMore {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     margin-left: 97px;
-    opacity: .9;
+    opacity: 0.9;
     height: 66px;
     width: 180px;
     border-radius: 15px;
@@ -140,10 +133,9 @@ h3 {
     font-weight: bolder;
     font-family: "Roboto";
 
-    &:focus{
+    &:focus {
       outline: none;
     }
-
 
     @include mobile {
       display: flex;
@@ -153,11 +145,9 @@ h3 {
       margin: 0;
     }
 
-    &:hover{
-        opacity: 1.3;
-        background-color: yellow;
+    &:hover {
+      opacity: 1.3;
+      background-color: yellow;
     }
-   
-    
-}
+  }
 }

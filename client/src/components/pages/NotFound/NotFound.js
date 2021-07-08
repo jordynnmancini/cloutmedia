@@ -6,12 +6,17 @@ export default function Home() {
     <div className="home">
       <div className="container">
         <div className="imgContainer">
-          <img className="cloutlogo"
+          <img
+            className="cloutlogo"
             src="assets/404Error.png"
-            alt="logo for clout media - for music influencers only."/>
+            alt="logo for clout media - for music influencers only."
+          />
+        </div>
       </div>
-      </div>
-      <a href="/Home"> <button className="signup"> Return Home  </button> </a>
-      </div>
+      <a href="/Home">
+        {" "}
+        <button className="signup"> Return Home </button>{" "}
+      </a>
+    </div>
   );
 }
