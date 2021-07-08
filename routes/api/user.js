@@ -4,13 +4,43 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const withAuth = require('../../utils/auth');
 const secret = 'supersupersecret';
+const multer = require('multer');
+const path = require('path')
+
+
+
+
+// define image storage
+const storage = multer.diskStorage({
+
+    // destination for files
+    destination: (req, file, cb) => {
+        cb(null, '../../client/src/uploads/images');
+    },
+
+    // add back extension
+    filename: (req, file, cb) => {
+        console.log(file)
+        cb(null, Date.now() + path.extname(file.originalname))
+    },
+});
+
+
+// upload params for multer
+const upload = multer({
+    storage: storage,
+    limits: {
+        fieldSize: 1024 * 1024 * 3,
+    },
+})
 
 // Authentication Routes
 
 //new user sign up - matches with "/api/user/signup"
-router.post('/signup', function (req, res) {
-    const { email, name, password, primaryLocation, type } = req.body;
-    const user = new db.User({ email, name, password, primaryLocation, type });
+router.post('/signup', upload.single('thumbnail'), function (req, res) {
+    console.log(req.file, 'file')
+    const { email, name, password, primaryLocation, type, thumbnail } = req.body;
+    const user = new db.User({ email, name, password, primaryLocation, type, thumbnail });
     user.save(function (err) {
         if (err) {
             res.status(500)
