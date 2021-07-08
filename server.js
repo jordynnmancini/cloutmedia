@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/cloutmedia",
-  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false }
 );
 
 // api rotes

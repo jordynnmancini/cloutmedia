@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cloutmedia");
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/cloutmedia",
+  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false }
+);
 
 const userSeed = [
   {
