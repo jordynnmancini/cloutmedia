@@ -5,7 +5,7 @@ What is Clout? It's a way to connect the music industry together like never befo
 
 Our app is first being tested in 3 major music cities - Nashville, Los Angeles, and New York. It is also starting out with two basic types of music industry professionals - Musicians/Artists and Sound Engineers. Future developments of this app might include more cities, and expanding the type of industry professionals that can join and benefit from this platform. 
 
-See the full thing on Heroku: ~link here~ 
+See the deployed application on Heroku: ~link here~ 
 
 ![demo](./assets/demo.gif)
 
