@@ -131,8 +131,8 @@
 
           @include mobile {
             padding: 0;
-            width: 80%;
-            height: 29vh;
+            width: 74%;
+            height: 22vh;
             background-position: center;
             image-resolution: initial;
             background-size: cover;
@@ -254,16 +254,16 @@
               margin-right: 0;
 
               @include mobile {
-                height: 420px;
+                height: 400px;
                 margin-bottom: 10px;
                 font-size: 10px;
                 margin: 0;
                 margin-left: 120px;
-                width: 100%;
+                width: 60%;
                 margin-top: 0;
                 align-items: center;
                 justify-content: center;
-                margin-left: 12px;
+                margin-left: 52px;
               }
             }
           }
@@ -281,7 +281,7 @@
       @include mobile {
         height: 50vh;
         width: 100%;
-        flex: 4;
+        flex: 4.5;
         align-items: center;
         justify-content: center;
       }
@@ -320,7 +320,7 @@
 
           @include mobile {
             height: 35px;
-            width: 80px;
+            width: 78px;
             font-size: 10px;
           }
         }
@@ -342,7 +342,7 @@
 
           @include mobile {
             height: 35px;
-            width: 80px;
+            width: 78px;
             font-size: 10px;
           }
         }
@@ -362,9 +362,16 @@
 
           @include mobile {
             height: 35px;
-            width: 80px;
+            width: 78px;
             font-size: 10px;
           }
+        }
+
+        .modal{
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          // height: 10vh;
         }
       }
     }

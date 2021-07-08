@@ -16,6 +16,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    
   },
 };
 
@@ -147,7 +148,7 @@ export default function Dashboard() {
       </div>
 
 {/* Edit Your Profile Modal */}
-      <Modal
+      <Modal className=''
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
