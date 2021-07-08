@@ -50,6 +50,11 @@ export default function Dashboard() {
       .catch((err) => console.log(err));
   }, []);
 
+
+  useEffect(() => {
+    console.log(userData, "new user data")
+  }, [userData])
+
   const handleSubTypeChange = (e) => {
     const { value } = e.target;
     setSubType(value);
@@ -71,7 +76,7 @@ export default function Dashboard() {
 
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
-    setIsOpen(false);
+
 
     API.updateUserData(id, {
       bio: bio,
@@ -79,7 +84,10 @@ export default function Dashboard() {
       phoneNumber: phoneNumber,
       primaryLocation: primaryLocation,
     })
-      .then((res) => setUserData(res.data))
+      .then((res) => {
+        setUserData(res.data)
+        setIsOpen(false);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -196,7 +204,7 @@ export default function Dashboard() {
           <option value="New York City">New York City, NY</option>
         </select>
 
-        <button onClick={handleUpdateSubmit}> save & close</button>
+        <button onClick={(e) => handleUpdateSubmit(e)}> save & close</button>
         <button onClick={closeModal}>close without saving</button>
       </Modal>
 
