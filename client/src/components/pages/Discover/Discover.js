@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import API from '../../../utils/API';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import WorkIcon from '@material-ui/icons/Work';
+import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
 
 //basic styling for modal
 const customStyles = {
@@ -29,7 +30,10 @@ export default function Discover() {
     email: '',
     bio: '',
     primaryLocation: '',
-    type: ''
+    type: '',
+    stageName: '',
+    subType: '',
+    phoneNumber: ''
   });
 
   const textRef = useRef();
@@ -76,7 +80,16 @@ export default function Discover() {
   function openModal(result) {
     console.log(result)
     setIsOpen(true);
-    setUser({ name: result.name, email: result.email, bio: result.bio, primaryLocation: result.primaryLocation, type: result.type })
+    setUser({ 
+      name: result.name, 
+      email: result.email, 
+      bio: result.bio, 
+      primaryLocation: result.primaryLocation, 
+      type: result.type, 
+      stageName: result.stageName, 
+      subType: result.subType, 
+      phoneNumber: result.phoneNumber 
+    })
   }
 
   function closeModal() {
@@ -146,14 +159,25 @@ export default function Discover() {
           contentLabel="Discover Modal"
         >
           <h1>{selectedUser.name}</h1>
-          <h4><span><LocationOnIcon /></span>{selectedUser.primaryLocation}</h4>
-          <h4><span><WorkIcon /></span>{selectedUser.type}</h4>
+          <h4>{selectedUser.stageName}</h4>
+          <h6><span><LocationOnIcon /></span>{selectedUser.primaryLocation}</h6>
+          <h6><span><WorkIcon /></span>{selectedUser.type} {!selectedUser.subType ? (
+            <p></p>
+          ) : (
+            <span>({selectedUser.subType})</span>
+          )}</h6>
+          {!selectedUser.phoneNumber ? (
+            <p></p>
+          ) : (
+            <h6><span><PhoneInTalkIcon /></span>{selectedUser.phoneNumber}</h6>
+          )}
+          <br />
           {!selectedUser.bio ? (
             <p> </p>
           ) : (
-            <p>"{selectedUser.bio}"</p>
+            <p> About me: "{selectedUser.bio}"</p>
           )}
-          <p>Reach me at: <a href={"mailto:" + selectedUser.email}>{selectedUser.email}</a> </p>
+          <p>Reach me at: <a href={"mailto:" + selectedUser.email + "?subject=Found you on Clout! Let's connect."}>{selectedUser.email}</a> </p>
           <br />
           <button onClick={closeModal}>close</button>
         </Modal>

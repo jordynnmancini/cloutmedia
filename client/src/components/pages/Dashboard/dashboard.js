@@ -4,6 +4,9 @@ import { init } from "ityped";
 import { useEffect, useRef, useState } from "react";
 import API from "../../../utils/API";
 import Modal from 'react-modal';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import WorkIcon from '@material-ui/icons/Work';
+import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
 
 const customStyles = {
   content: {
@@ -24,7 +27,8 @@ export default function Dashboard() {
   const [phoneNumber, setPhoneNumber] = useState();
   const [bio, setBio] = useState();
   const [modalIsOpen, setIsOpen] = useState(false);
-  
+  const [previewIsOpen, setPreviewOpen] = useState(false);
+
   const textRef = useRef();
   useEffect(() => {
     init(textRef.current, {
@@ -85,10 +89,18 @@ export default function Dashboard() {
 
   const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
   const closeModal = () => {
     setIsOpen(false);
+  };
+
+  const openPreview = () => {
+    setPreviewOpen(true);
+  };
+
+  const closePreview = () => {
+    setPreviewOpen(false);
   }
 
   return (
@@ -106,7 +118,7 @@ export default function Dashboard() {
           <div className="bottom">
             <div className="info">
               <ul>
-              <br />
+                <br />
                 <li>{userData.name}</li>
                 <li>{userData.type}</li>
                 <li>{userData.primaryLocation}</li>
@@ -128,12 +140,13 @@ export default function Dashboard() {
         <div className="right">
           <div className="profileEdit">
             <button onClick={openModal} className="profileButton" type="submit">Edit Your Profile</button>
-            <button className="previewButton" type="submit">Preview</button>
+            <button onClick={openPreview} className="previewButton" type="submit">Preview</button>
             <button className="settingsButton" type="submit">Setting/Security</button>
           </div>
         </div>
       </div>
 
+{/* Edit Your Profile Modal */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -173,6 +186,37 @@ export default function Dashboard() {
 
         <button onClick={handleUpdateSubmit}> save & close</button>
         <button onClick={closeModal}>close without saving</button>
+      </Modal>
+
+{/* Preview Modal */}
+      <Modal
+        isOpen={previewIsOpen}
+        onRequestClose={closePreview}
+        style={customStyles}
+        contentLabel="view preview"
+      >
+        <h1>{userData.name}</h1>
+        <h4>{userData.stageName}</h4>
+        <h6><span><LocationOnIcon /></span>{userData.primaryLocation}</h6>
+        <h6><span><WorkIcon /></span>{userData.type} {!userData.subType ? (
+          <p></p>
+        ) : (
+          <span>({userData.subType})</span>
+        )}</h6>
+        {!userData.phoneNumber ? (
+          <p></p>
+        ) : (
+          <h6><span><PhoneInTalkIcon /></span>{userData.phoneNumber}</h6>
+        )}
+        <br />
+        {!userData.bio ? (
+          <p> </p>
+        ) : (
+          <p> About me: "{userData.bio}"</p>
+        )}
+        <p>Reach me at: <a href={"mailto:" + userData.email + "?subject=Found you on Clout! Let's connect."}>{userData.email}</a> </p>
+        <br />
+        <button onClick={closePreview}>close</button>
       </Modal>
 
     </div>
