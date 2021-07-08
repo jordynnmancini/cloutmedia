@@ -6,6 +6,7 @@ const withAuth = require('../../utils/auth');
 const secret = 'supersupersecret';
 const multer = require('multer');
 const path = require('path');
+var fs = require('fs');
 
 
 
@@ -38,9 +39,9 @@ const upload = multer({
 
 //new user sign up - matches with "/api/user/signup"
 router.post('/signup', upload.single('thumbnail'), function (req, res) {
-    console.log(req.body.file, 'file')
-    const { email, name, password, primaryLocation, type, thumbnail } = req.body;
-    const user = new db.User({ email, name, password, primaryLocation, type, thumbnail });
+    // console.log(req.body.file, 'file')
+    const { email, name, password, primaryLocation, type, thumbnail, data } = req.body;
+    const user = new db.User({ email, name, password, primaryLocation, type, thumbnail: { data: data }, });
     user.save(function (err) {
         if (err) {
             res.status(500)
