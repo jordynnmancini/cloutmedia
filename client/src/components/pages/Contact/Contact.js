@@ -26,19 +26,19 @@ export default function Contact() {
         </div>
         <div className="links">
           <h4>
-            <a href="https://github.com/drae7299"> Andre Rodriguez</a>
+            <a target="_blank" href="https://github.com/drae7299"> Andre Rodriguez</a>
           </h4>
 
           <h4>
-            <a href="https://github.com/jordynnmancini"> Jordyn Mancini</a>
+            <a target="_blank" href="https://github.com/jordynnmancini"> Jordyn Mancini</a>
           </h4>
 
           <h4>
-            <a href="https://github.com/oconnor97"> Michael O'Connor</a>
+            <a target="_blank" href="https://github.com/oconnor97"> Michael O'Connor</a>
           </h4>
 
           <h4>
-            <a href="https://github.com/SarehonTaylor" target="_blank">
+            <a target="_blank" href="https://github.com/SarehonTaylor">
               {" "}
               Sarehon Taylor
             </a>
