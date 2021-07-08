@@ -103,7 +103,6 @@ router.put('/update', function (req, res) {
     console.log(req.body)
     db.User.findOneAndUpdate({ _id: (req.body.params.id) }, {
         subType: req.body.params.userData.subType,
-        primaryLocation: req.body.params.userData.primaryLocation,
         phoneNumber: req.body.params.userData.phoneNumber,
         bio: req.body.params.userData.bio,
     }, { useFindAndModify: false, returnOriginal: false })
