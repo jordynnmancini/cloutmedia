@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Link } from "react";
 import "./menu.scss";
 
 export default function Menu({ menuOpen, toggleMenu }) {
@@ -9,7 +9,7 @@ export default function Menu({ menuOpen, toggleMenu }) {
           <a href="/Home">Home</a>
         </li>
         <li onClick={toggleMenu}>
-          <a href="/Dashboard">Dashboard</a>
+          <Link to='/dashboard'>Dashboard</Link>
         </li>
         <li onClick={toggleMenu}>
           <a href="/Discover">Discover</a>
