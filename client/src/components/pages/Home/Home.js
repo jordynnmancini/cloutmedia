@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.scss";
 import LogoutButton from "../../Logout/logout";
+import { Link } from 'react-router-dom'; 
 
 export default function Home() {
   const renderButtons = () => {
@@ -9,16 +10,16 @@ export default function Home() {
     } else {
       return (
         <div className="buttons">
-          <a href="/Signup">
+          <Link to="/Signup">
             <button className="signup" type="submit">
               Signup
             </button>
-          </a>
-          <a href="/login">
+          </Link>
+          <Link to="/login">
             <button className="login" type="submit">
               Login
             </button>
-          </a>
+          </Link>
         </div>
       );
     }

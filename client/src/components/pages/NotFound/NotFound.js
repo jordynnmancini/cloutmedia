@@ -1,5 +1,7 @@
 import React from "react";
 import "./NotFound.scss";
+import { Link } from 'react-router-dom'; 
+
 
 export default function Home() {
   return (
@@ -13,10 +15,10 @@ export default function Home() {
           />
         </div>
       </div>
-      <a href="/Home">
+      <Link to="/Home">
         {" "}
         <button className="signup"> Return Home </button>{" "}
-      </a>
+      </Link>
     </div>
   );
 }

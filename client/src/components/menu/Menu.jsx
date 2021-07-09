@@ -1,4 +1,5 @@
-import React, { Link } from "react";
+import React from "react";
+import { Link } from 'react-router-dom'; 
 import "./menu.scss";
 
 export default function Menu({ menuOpen, toggleMenu }) {
@@ -6,19 +7,19 @@ export default function Menu({ menuOpen, toggleMenu }) {
     <div className={"menu " + (menuOpen && "active")}>
       <ul>
         <li onClick={toggleMenu}>
-          <a href="/Home">Home</a>
+          <Link to='/Home'>Home</Link>
         </li>
         <li onClick={toggleMenu}>
-          <Link to='/dashboard'>Dashboard</Link>
+          <Link to='/Dashboard'>Dashboard</Link>
         </li>
         <li onClick={toggleMenu}>
-          <a href="/Discover">Discover</a>
+          <Link to="/Discover">Discover</Link>
         </li>
         <li onClick={toggleMenu}>
-          <a href="/About">About</a>
+          <Link to='/about'>About</Link>
         </li>
         <li onClick={toggleMenu}>
-          <a href="/Contact">Contact Us</a>
+          <Link to='/contact'>Contact Us</Link>
         </li>
       </ul>
     </div>
